@@ -75,28 +75,6 @@ class doser {
 }
 
 
-// navigator.userAgentData.platform == "Android"
-if ("Android") {
-	const guide = [
-		"Для найефективнішої атаки на російські сайти з телефону, радимо:",
-		"1. Зняти чохол, щоб телефон сильно не нагрівався",
-		"2. За можливості поставити на зарядку",
-		"3. Закрити всі попередньо відкриті програми (для збільшення потужності)",
-		"4. Вимкнути режим енергозбереження",
-		"5. Розташувати телефон в місці найкращої якості інтернету"
-	];
-
-	for (var i = 0; i < guide.length; i++) {
-		let div = document.createElement('div');
-		div.classList = "item";
-		let text = document.createElement('p');
-		text.textContent = guide[i];
-
-		div.appendChild(text);
-		document.getElementById("guide").appendChild(div)
-	};
-}
-
 
 let btn = document.getElementById("button")
 const Doser = new doser
