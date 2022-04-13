@@ -1,0 +1,64 @@
+body {
+	color: #ffffff;
+	background-color: #000000;
+}
+#title {
+	padding: 20px;
+	color: #ffffff;
+	font-size: 30px;
+	border: 2px;
+	text-shadow: 2px 2px 2px #444;
+}
+#button {
+	border-radius: 10px;
+	width: 70px;
+	height: 24px;
+}
+#card {
+	border: 4px solid #838383;
+	border-radius: 30px;
+	box-shadow: 5px 5px 5px #444;
+	text-shadow: 2px 2px 2px #444;
+	padding: 20px;
+	margin: 30px 30px 10px 30px;
+	appearance: auto;
+}
+#card p {
+	margin: 10px 0px 0px;
+}
+#container {
+	border: 4px solid #ffffff;
+	border-radius: 20px;
+	box-shadow: 5px 5px 5px #444;
+	appearance: auto;
+	margin-bottom: 25px;
+}
+p {
+	font-family: Comic Sans MS;
+	font-size: 18px;
+}
+#guide p {margin: 8px 0px;}
+a {color: #ffffff}
+a:hover {color: cyan}
+main {
+	text-align: center;
+}
+.item {
+	border: 5px solid #ffffff;
+	color: #000000;
+	background-color: #ffffff;
+	box-shadow: 5px 5px 5px #444444a1;
+	text-shadow: none;
+	border-radius: 50px;
+	padding: 12px 18px;
+	margin: 18px 0px;
+	text-align: center;
+}
+.item:hover {
+	background-color: cyan;
+	border-color: yellow;
+}
+#resources {
+	text-align: left;
+	margin: 28px 0px 18px 18px;
+}
