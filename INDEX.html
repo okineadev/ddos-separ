@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-	  <link rel="shortcut icon" href="favicon.png">
+	<head>
+		<link rel="shortcut icon" href="favicon.png">
 
-	  <!-- Meta tags -->
-	  <meta charset="utf-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <meta name="title" content="DDoS Для всіх">
-	  <meta name="description" content="Простий ддос з телефону або ноутбука">
-	  <title>DDoSFA</title>
-	  <!--------------->
-  </head>
-  <body>
-  	<link rel="stylesheet" type="text/css" href="style.css">
-  	<main>
+		<!-- Meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="title" content="DDoS Для всіх">
+		<meta name="description" content="Простий ддос з телефону або ноутбука">
+		<title>DDoSFA</title>
 
-	  	<div id="container">
-		  	<div id="title">DDoS For All</div>
+	</head>
+	<body>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<main>
 
-		  	<span id="card">
-			  	<button id="button"><b>Старт!</b></button>
+			<div id="container">
+				<div id="title">DDoS For All</div>
 
-			  	<p>Атакуємо: <span id="target"></span></p>
-			  	<p>Методом: <span id="method"></span></p>
-			  	<p>Атаковано разів: <span id="attacks">0</span></p>
-		    </span>
+				<span class="box">
+					<button id="button"><b>Старт!</b></button>
 
-		    <h2>Слава Україні!
-		    	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="16">
-						<rect width="24" height="16" fill="#005BBB"/>
-						<rect width="24" height="8" y="8" fill="#FFD500"/>
-					</svg>
-				</h2>
+					<p>Атакуємо: <span id="target"></span></p>
+					<p>Методом: <span id="method"></span></p>
+					<p>Атаковано разів: <span id="attacks">0</span></p>
+				</span>
+
+				<h2>Слава Україні! <iframe src="ukraine.svg" frameborder="0" allowtransparency="true" width="24" height="16"></iframe></h2>
 
 				<p id="resources"><a href="resources/resources.html"><b>Ресурси</b></a></p>
 			</div>
-	  </main>
+		</main>
 		<!-- End -->
+
+		<span class="box musicbox">
+			<h3>Ой у лузі червона калина</h3>
+				<audio src="https://mp3sun.net/mp3/2022/03/bumboks-oj-u-luzi-chervona-kalina-the-kiffness-remix-file.mp3" controls></audio>
+		</span>
+
+		<span class="box musicbox">
+			<h3>Батько наш Бандера</h3>
+			<audio src="https://mp3sun.net/mp3/2022/03/pesnya-batko-nash-bandera-file.mp3" controls></audio>
+		</span>
 
 		<div class="item"><p>Для найефективнішої атаки на російські сайти з телефону, радимо:</p></div>
 		<div class="item"><p>1. Зняти чохол, щоб телефон сильно не нагрівався</p></div>
@@ -46,8 +51,12 @@
 		<div class="item"><p>4. Вимкнути режим енергозбереження</p></div>
 		<div class="item"><p>5. Розташувати телефон в місці найкращої якості інтернету</p></div>
 		<hr>
+
 		<p>Для запуску атаки, натисніть "Старт!"</p>
-		
-  </body>
-  <script type="text/javascript" src="script.js"></script>
+
+		<div id="frame"></div>
+
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="script.js"></script>
 </html>
