@@ -96,7 +96,7 @@ class Doser {
 	            add_count();
 	        })
         } : async function () {
-        	let targett = await getSalt(target.page); // Беремо сіль з нашого криму
+        	let targett = await getSalt(target.page); // Беремо сіль з нашого Криму
 
         	// Надсилання запиту на сайт за допомогою iframe
         	await Frames.draw(targett, randint(0, 100_000));
