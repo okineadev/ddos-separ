@@ -1,6 +1,6 @@
 body {
 	color: #ffffff;
-	background-color: #000000;
+	background-color: #222;
 }
 
 main {text-align: center}
@@ -37,6 +37,8 @@ main #container button#button {
 	border-radius: 10px;
 	width: 70px;
 	height: 24px;
+	font-style: bold;
+
 }
 
 
@@ -72,3 +74,5 @@ main #container #resources {
 	text-align: left;
 	margin: 28px 0px 18px 18px;
 }
+
+main #container #resources a#a {font-style: bold}

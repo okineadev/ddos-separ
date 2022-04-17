@@ -32,7 +32,7 @@ async function getTarget() {
     targets = [];
 
     // Фільтрування цілей
-    for (var i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
         if (['post', 'get'].includes(data[i].method)) {
         	targets.push(data[i])
         }
@@ -79,8 +79,8 @@ class Doser {
         btn.textContent = "Стоп";
         let target = await getTarget();
 
-        console.log(target);
         setTarget(target);
+        console.log(target);
 
         this.interval = setInterval(isFetch ? async function () {
             // Запити
