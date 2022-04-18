@@ -1,4 +1,6 @@
 body {
-	color: white;
-	background-color: black;
+	color: #ffffff;
+	background-color: #222;
 }
+a {color: #ffffff}
+a:hover {color: #00ffff}

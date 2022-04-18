@@ -2,31 +2,39 @@
 
 <html lang="uk">
 	<head>
-		<link rel="shortcut icon" href="favicon.png">
+		<link rel="shortcut icon" href="meta/favicon.png">
+		<link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
 
 		<!-- Meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
+		<meta name="apple-mobile-web-app-capable" content="yes">
+	  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<meta name="HandheldFriendly" content="True">
+
 		<title>DDoSFA</title>
 		<meta name="title" content="DDoSFA">
 		<meta name="description" content="Простий ддос з телефону або ноутбука">
-		<meta name="image" content="https://github.com/BogdanDevUA/simple-ddos/raw/gh-pages/image.jpg">
+		<meta name="image" content="https://github.com/BogdanDevUA/simple-ddos/raw/gh-pages/meta/image.jpg">
 		<meta name="theme-color" content="light">
+		<meta name="creator" content="https://github.com/BogdanDevUA">
+		<meta name="author" content="https://github.com/BogdanDevUA">
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website">
 		<meta property="og:url" content="https://bogdandevua.github.io/simple-ddos/">
 		<meta property="og:title" content="DDoSFA">
 		<meta property="og:description" content="Простий ддос з телефону або ноутбука">
-		<meta property="og:image" content="https://github.com/BogdanDevUA/simple-ddos/raw/gh-pages/image.jpg">
+		<meta property="og:image" content="https://github.com/BogdanDevUA/simple-ddos/raw/gh-pages/meta/image.jpg">
 
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image">
 		<meta property="twitter:url" content="https://bogdandevua.github.io/simple-ddos/">
 		<meta property="twitter:title" content="DDoSFA">
 		<meta property="twitter:description" content="Простий ддос з телефону або ноутбука">
-		<meta property="twitter:image" content="https://github.com/BogdanDevUA/simple-ddos/raw/gh-pages/image.jpg">
+		<meta property="twitter:image" content="https://github.com/BogdanDevUA/simple-ddos/raw/gh-pages/meta/image.jpg">
 
 	</head>
 	<body>
@@ -34,21 +42,22 @@
 		<main>
 
 			<div id="container">
-				<div id="title">DDoS For All</div>
+				<div id="title" title="DDoS для всіх">DDoS For All</div>
 
 				<span class="box">
-					<button id="button">Старт!</button>
+					<button id="button" title="Валимо сайти рф!">Старт!</button>
 
-					<p>Атакуємо: <span id="target"></span></p>
-					<p>Методом: <span id="method"></span></p>
-					<p>Атаковано разів: <span id="attacks">0</span></p>
+					<p>Атакуємо: <span id="target">...</span></p>
+					<p>Методом: <a href="https://uk.wikipedia.org/wiki/POST_(HTTP)" target="_blank"><span id="method">...</span></a></p>
+					<p id="attackCount">Атаковано разів: <span id="attacks">0</span></p>
 				</span>
 
 				<h2>Слава Україні! 
-					<iframe src="ukraine.svg" alt="Ukraine" title="Ukraine" frameborder="0" allowtransparency="true" width="24" height="16"></iframe>
+					<iframe src="ukraine.svg" alt="Ukraine" frameborder="0" allowtransparency="true" width="24" height="16"></iframe>
 				</h2>
 
-				<p id="resources"><a href="resources/resources.html" id="a">Ресурси</a></p>
+				<p id="resources"><a href="resources/resources.html">Ресурси</a></p>
+
 			</div>
 		</main>
 		<!-- End -->
@@ -56,7 +65,7 @@
 		<!--
 		<span class="box musicbox">
 			<h3>Ой у лузі червона калина</h3>
-				<audio src="https://mp3sun.net/mp3/2022/03/bumboks-oj-u-luzi-chervona-kalina-the-kiffness-remix-file.mp3" controls></audio>
+			<audio src="https://mp3sun.net/mp3/2022/03/bumboks-oj-u-luzi-chervona-kalina-the-kiffness-remix-file.mp3" controls></audio>
 		</span>
 
 		<span class="box musicbox">
@@ -65,12 +74,12 @@
 		</span>
 		-->
 
-		<p class="item">Для найефективнішої атаки на російські сайти з телефону, радимо:</p>
-		<p class="item">1. Зняти чохол, щоб телефон сильно не нагрівався</p>
-		<p class="item">2. За можливості поставити на зарядку</p>
-		<p class="item">3. Закрити всі попередньо відкриті програми (для збільшення потужності)</p>
-		<p class="item">4. Вимкнути режим енергозбереження</p>
-		<p class="item">5. Розташувати телефон в місці найкращої якості інтернету</p>
+		<p class="item" id="1">Для найефективнішої атаки на російські сайти з телефону, радимо:</p>
+		<p class="item" id="2">1. Зняти чохол, щоб телефон сильно не нагрівався</p>
+		<p class="item" id="3">2. За можливості поставити на зарядку</p>
+		<p class="item" id="4">3. Закрити всі попередньо відкриті програми (для збільшення потужності)</p>
+		<p class="item" id="5">4. Вимкнути режим енергозбереження</p>
+		<p class="item" id="6">5. Розташувати телефон в місці найкращої якості інтернету</p>
 		<hr>
 
 		<p>Для запуску атаки, натисніть "Старт!"</p>

