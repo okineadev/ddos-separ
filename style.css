@@ -46,7 +46,7 @@ main #container #title {
 	padding: 20px;
 	appearance: auto;
 }
-.box p {margin: 10px 0px 0px}
+.box p {margin: 10px 0 0}
 
 
 main #container button#button {
@@ -73,7 +73,7 @@ a:hover {color: #00ffff}
 	box-shadow: 5px 5px 5px #444444a1;
 	border-radius: 50px;
 	padding: 12px 18px;
-	margin: 13px 0px;
+	margin: 13px 0;
 	text-align: center;
 }
 .item:hover {
@@ -82,11 +82,11 @@ a:hover {color: #00ffff}
 }
 
 
-.box.musicbox {margin: 0px 20px 20px 0px}
+.box.musicbox {margin: 0 20px 20px 0}
 
 main #container #resources {
 	text-align: left;
-	margin: 28px 0px 18px 18px;
+	margin: 28px 0 18px 18px;
 }
 
-main #container #resources p {margin: 8px 0px}
+main #container #resources p {margin: 8px 0}
