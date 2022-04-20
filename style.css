@@ -1,9 +1,4 @@
-body {
-	color: #ffffff;
-	background-color: #222;
-}
-
-main {text-align: center}
+@import url("mainstyle.css");
 
 main #container {
 	border: 4px solid #ffffff;
@@ -34,7 +29,7 @@ main #container #title {
 }
 
 
-.box {
+#box {
 	border: 4px solid #838383;
 	border-radius: 30px;
 	box-shadow: 5px 5px 5px #444;
@@ -42,7 +37,7 @@ main #container #title {
 	padding: 20px;
 	appearance: auto;
 }
-.box p {margin: 10px 0 0}
+#box p {margin: 10px 0 0}
 
 
 main #container button#button {
@@ -53,7 +48,7 @@ main #container button#button {
 }
 
 
-p {
+p, .text {
 	font-family: Comic Sans MS;
 	font-size: 18px;
 }
@@ -77,12 +72,11 @@ a:hover {color: #00ffff}
 	border-color: #ffff00;
 }
 
-
-.box.musicbox {margin: 0 20px 20px 0}
-
 main #container #resources {
 	text-align: left;
 	margin: 28px 0 18px 18px;
 }
 
-main #container #resources p {margin: 8px 0}
+main #container #resources a {margin-right: 9px}
+
+#qrcode {border: 10px solid #ffffff}

@@ -2,11 +2,11 @@
 const targetSource = 'https://raw.githubusercontent.com/opengs/uashieldtargets/master/sites.json'
 const shareText = `Сайт для **дудосу** з **телефону!**
 Переходь на сайт та вали сайти рф **без програмування** та інших навичок!
-> ${(new URL(window.location.href)).pathname}
+> bogdan-dev.ml/simple-ddos
 `
 
-const saverInterval = 3000
-const attackInterval = 100
+const saverInterval = 2500
+const attackInterval = 100//200 можна
 
 // Функції для керування документом
 
@@ -18,7 +18,7 @@ const add_count = () => attacks.text(parseInt(attacks.text())+1) // Кількі
 
 const randint = (num) => Math.floor(Math.random() * num) // Рандомне ціле число
 
-function getRandomArbitrary () {
+function getRandomArbitrary() {
 	const max = 1_000_000;
 	const min = 100_000;
 	return Math.random() * (max - min) + min;
@@ -196,11 +196,15 @@ $(() => {
 
 	$("#fixed-bugs").click(() => {alert("Я справді пофіксив баги!")})
 
-	$(".uses").click(() => {alert("Цей сайт був написаний 13 річним хакером на JS, HTML, CSS")})
+	$("#uses").click(() => {alert("Цей сайт був написаний 13 річним хакером на JS, HTML, CSS")})
 
 	$("#ua").dblclick(() => {alert("Героям Слава!")})
 
-	$("#container").dblclick(() => {confirm("Норм фон?)")})
+	$("#container").dblclick(() => {
+		if (!Database.good_bg) {
+			Database.good_bg = confirm("Норм фон?)")
+		}
+	})
 
 	/*
 	$("#share").click(() => {window.open("tg://?text=${shareText}", "_blank")})
