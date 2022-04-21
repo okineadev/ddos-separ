@@ -1,9 +1,11 @@
-name: telegram message
+name: Telegram notify
 on: [push]
+
+
 jobs:
 
   build:
-    name: Build
+    name: Sending
     runs-on: ubuntu-latest
     steps:
       - name: send telegram message on push
