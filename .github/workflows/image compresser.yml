@@ -8,6 +8,13 @@ on:
       - '**.jpeg'
       - '**.png'
       - '**.webp'
+  push:
+    paths:
+      - '**.jpg'
+      - '**.jpeg'
+      - '**.png'
+      - '**.webp'
+      
 jobs:
   build:
     # Only run on Pull Requests within the same repository, and not from forks.
