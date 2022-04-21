@@ -40,7 +40,7 @@ async function getTarget() {
 	$("<p>", {id:"load"}).text("Завантажуємо цілі...")
 	.appendTo(box);
 
-    const targets = await fetch(targetSource)
+    let targets = await fetch(targetSource)
     .catch((e) => {
     	$("#load").text("Помилка завантаження!");
     	alert(`Помилка!\nПеревірте підключення до інтернету!\nТекст помилки: ${e}`);
@@ -106,8 +106,7 @@ class Doser {
         btn.text("Стоп");
         const target = await getTarget();
 
-        const set = setTarget(target);
-        if (set) {
+        if (setTarget(target)) {
         	// Якщо не завнтажились цілі
 
         	this.attack = false;
@@ -168,7 +167,7 @@ class Doser {
 
 const btn = $("#button")
 const Database = window.localStorage
-const box = $(".box")
+const box = $("#box")
 Doser = new Doser // Ініціалізація воркера
 
 $(() => {
