@@ -19,11 +19,11 @@ main #container {
 }
 
 @media only screen and (max-device-width: 1366px) {
-    main #container {background-image: url("background/1.jpg")}
+    main #container {background-image: url("background/Phone/1.jpg")}
 }
 
 @media only screen and (min-device-width: 1366px) {
-    main #container {background-image: url("background/2.jpg")}
+    main #container {background-image: url("background/Desktop/1.jpg")}
 }
 
 

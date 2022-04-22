@@ -200,9 +200,7 @@ $(() => {
 	$("#ua").dblclick(() => {alert("Героям Слава!")})
 
 	$("#container").dblclick(() => {
-		if (!Database.good_bg) {
-			Database.good_bg = confirm("Норм фон?)")
-		}
+		//pass
 	})
 
 	/*
