@@ -13,17 +13,17 @@ main #container {
 	box-shadow: 5px 5px 5px #444;
 	margin-bottom: 25px;
 	appearance: auto;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
 }
 
 @media only screen and (max-device-width: 1366px) {
-    main #container {background-image: url("background/Phone/1.jpg")}
+	main #container {background-image: url("background/Phone/1.jpg")}
 }
 
 @media only screen and (min-device-width: 1366px) {
-    main #container {background-image: url("background/Desktop/1.jpg")}
+	main #container {background-image: url("background/Desktop/1.jpg")}
 }
 
 
@@ -82,3 +82,42 @@ main #container #resources {
 }
 
 main #container #resources a {margin-right: 9px}
+
+
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+
+.tooltip .tooltiptext {
+	visibility: hidden;
+	background-color: #555;
+	text-align: center;
+	border-radius: 22px;
+	padding: 5px;
+	position: absolute;
+	z-index: 1;
+	bottom: 100%;
+	left: 15%;
+	right: -85%;
+	margin-left: -75px;
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
+}
