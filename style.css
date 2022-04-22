@@ -103,7 +103,7 @@ main #container #resources a {margin-right: 9px}
 	right: -85%;
 	margin-left: -75px;
 	opacity: 0;
-	transition: opacity 0.3s;
+	transition: opacity 0.5s;
 }
 
 .tooltip .tooltiptext::after {
