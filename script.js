@@ -6,7 +6,7 @@ const shareText = `Сайт для **дудосу** з **телефону!**
 `
 
 const saverInterval = 2500
-const attackInterval = 100//або 200
+const attackInterval = 200
 
 // Функції для керування документом
 
