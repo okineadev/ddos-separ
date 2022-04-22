@@ -1,0 +1,6 @@
+@import url("../mainstyle.css");
+
+#err {
+	text-shadow: 5px 5px 5px #444;
+	font-size: 6ex;
+}

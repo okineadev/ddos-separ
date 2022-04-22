@@ -165,7 +165,7 @@ class Doser {
 
 
 
-const btn = $("#button")
+const btn = $("#button #button-text")
 const Database = window.localStorage
 const box = $("#box")
 Doser = new Doser // Ініціалізація воркера
@@ -178,7 +178,7 @@ $(() => {
 		Database.check_license = true
 	}
 
-	btn.click((e) => {
+	$("#button").click((e) => {
 		e.preventDefault();
 
 		!Doser.attack ? Doser.start() : Doser.stop();

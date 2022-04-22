@@ -47,11 +47,11 @@ main #container #title {
 #box p {margin: 10px 0 0}
 
 
-main #container button#button {
-	border-radius: 10px;
-	width: 70px;
-	height: 24px;
-	font-style: bold;
+main #container button {
+	border-radius: 30px;
+	width: 83px;
+	height: 30px;
+	font-size: 16px;
 }
 
 
@@ -59,9 +59,6 @@ p, .text {
 	font-family: Comic Sans MS;
 	font-size: 18px;
 }
-
-a {color: #ffffff}
-a:hover {color: #00ffff}
 
 
 .item {
@@ -85,5 +82,3 @@ main #container #resources {
 }
 
 main #container #resources a {margin-right: 9px}
-
-#qrcode {border: 10px solid #ffffff}
