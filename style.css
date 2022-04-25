@@ -60,6 +60,11 @@ p, .text {
 	font-size: 18px;
 }
 
+mark {
+	background-color: #ffffff;
+	transition: .4s ease-out;
+}
+
 
 .item {
 	border: 5px solid #ffffff;
@@ -70,10 +75,14 @@ p, .text {
 	padding: 12px 18px;
 	margin: 13px 0;
 	text-align: center;
+	transition: .4s ease-out;
 }
 .item:hover {
 	background-color: #00ffff;
 	border-color: #ffff00;
+}
+.item:hover mark {
+	background-color: #ffff00;
 }
 
 main #container #resources {
@@ -94,17 +103,19 @@ main #container #resources a {margin-right: 9px}
 	visibility: hidden;
 	background-color: #555;
 	text-align: center;
-	border-radius: 22px;
+	border-radius: 15%;
 	padding: 5px;
 	position: absolute;
-	z-index: 1;
-	bottom: 100%;
+	z-index: 2;
+	bottom: 160%;
 	left: 15%;
 	right: -85%;
 	margin-left: -75px;
 	opacity: 0;
-	transition: opacity 0.5s;
+	transition: .5s ease-out;
 }
+
+.tooltip .tooltiptext p {margin: 12px 0 5px}
 
 .tooltip .tooltiptext::after {
 	content: "";
@@ -121,3 +132,7 @@ main #container #resources a {margin-right: 9px}
 	visibility: visible;
 	opacity: 1;
 }
+
+hr {border-style: dashed}
+
+#frames iframe {visibility: hidden}

@@ -10,7 +10,7 @@ const attackInterval = 200
 
 // Функції для керування документом
 
-const frameDiv = $("#frame")
+const frameDiv = $("#frames")
 const attacks = $("#attacks")
 
 // Функції рандому
@@ -87,9 +87,9 @@ setTarget = (target) => {
 	if (target) {
 		targetField.text(target.page);
 	    methodField.text(target.method.toUpperCase());
-	} else {
-		return true
+	    return
 	}
+	return true
 }
 
 
@@ -139,7 +139,7 @@ class Doser {
 
         	add_count();
 
-        	if ($("#frame")[0].childElementCount >= 200) {Frames.clear()};
+        	if ($("#frames")[0].childElementCount >= 200) {Frames.clear()};
         }, attackInterval);
 
         this.saver = setInterval(() => {
