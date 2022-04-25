@@ -78,13 +78,60 @@
 
 		<p>Для запуску атаки, натисніть <b>"Старт!"</b></p>
 
-		<span id="uses">
-			<!-- А це я по приколу зробив) -->
-			<img src="images/uses-html.svg" alt="uses-html" title="uses-html">
-			<img src="images/uses-js.svg" alt="uses-js" title="uses-js">
-			<img src="images/uses-css.svg" alt="uses-css" title="uses-css">
+		<span id="stack">
+			<span id="uses">
+				<!-- А це я по приколу зробив) -->
+				<img src="images/uses-html.svg" alt="uses-html" title="uses-html">
+				<img src="images/uses-js.svg" alt="uses-js" title="uses-js">
+				<img src="images/uses-css.svg" alt="uses-css" title="uses-css">
+			</span>
+			<span>
+				<img src="images/fixed-bugs.svg" id="fixed-bugs" alt="fixed-bugs" title="fixed-bugs">
+			</span>
 		</span>
-		<span><img src="images/fixed-bugs.svg" id="fixed-bugs" alt="fixed-bugs" title="fixed-bugs"></span>
+
+		<hr>
+
+		<h2 id="guides">Гайди по <i>DDoS</i> <img src="images/ukraine.svg" alt="Ukraine" title="Ukraine"></h2>
+
+		<span class="guide" id="setup-cloudshell">
+			<h3>Запуск <i>UA Cyber SHIELD</i> на <i>Google Cloud shell</i></h3>
+			<ul>
+				<li>
+					<p>Заходимо на 
+						<a href="https://shell.cloud.google.com/?show=terminal&fromcloudshell=true" target="_blank">
+						сайт</a>
+					</p>
+				</li>
+				<li>
+					<p>І вводимо цю команду:</p>
+					<code id="code">docker run ghcr.io/opengs/uashield:master 512 true</code>
+				</li>
+				<li>
+					<p>Готово!</p>
+				</li>
+			</ul>
+		</span>
+
+		<hr>
+
+		<h2 id="communities">Чати та канали Telegram по дудосу <img src="images/ukraine.svg" alt="Ukraine" title="Ukraine"></h2>
+
+		<ul>
+			<li>
+				<p><a href="tg://ddos_separ"><i>Канал з цілями для атаки</i></a></p>
+			</li>
+		</ul>
+
+		<hr>
+
+		<h2><i>Pinboard (Якщо можна це так назвати)</i></h2>
+		<ul id="pinboard">
+			<li><p>Цьому сайту приблизно тиждень</p></li>
+			<li><p>Щоб дудос стабільно працював - потрібно не менше <mark>400МБ</mark> оперативної пам'яті</p></li>
+			<li><p>Взагалі то я раджу дудосити з віртуальних сервірів, там набагато швидший інтернет, через те й вища швидкість дудосу</p></li>
+			<li><p>Цілі для цього сайту беруться з UA Cyber SHIELD, а вони беруть цілі з <mark>ІТ Армії України</mark></p></li>
+		</ul>
 
 		<!-- Не зачіпай! -->
 		<div id="frames"></div>

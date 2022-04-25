@@ -1,12 +1,5 @@
 @import url("mainstyle.css");
 
-@font-face {
-	font-family: Comic Sans MS;
-	src: url("Comic Sans.ttf") format("truetype"); 
-	font-style: normal; 
-	font-weight: normal; 
-} 
-
 main #container {
 	border: 4px solid #ffffff;
 	border-radius: 20px;
@@ -47,23 +40,22 @@ main #container #title {
 #box p {margin: 10px 0 0}
 
 
-main #container button {
+button {
+	border-color: #00ffff;
 	border-radius: 30px;
 	width: 83px;
 	height: 30px;
 	font-size: 16px;
+	transition: .4s ease-out
 }
+button:hover {border-color: #ffff00}
 
 
-p, .text {
-	font-family: Comic Sans MS;
-	font-size: 18px;
+h2 {
+	text-align: center;
+	margin: 30px 0;
 }
-
-mark {
-	background-color: #ffffff;
-	transition: .4s ease-out;
-}
+h3 {font-family: "Arial"}
 
 
 .item {
@@ -77,6 +69,9 @@ mark {
 	text-align: center;
 	transition: .4s ease-out;
 }
+mark {transition: .4s ease-out}
+mark:hover {background-color: #00ffff}
+.item mark {background-color: #ffffff}
 .item:hover {
 	background-color: #00ffff;
 	border-color: #ffff00;
@@ -133,6 +128,33 @@ main #container #resources a {margin-right: 9px}
 	opacity: 1;
 }
 
-hr {border-style: dashed}
+hr {
+	/*border-style: dashed;*/
+	margin-top: 30px;
+	width: auto;
+	height: 0;
+}
 
-#frames iframe {visibility: hidden}
+#frames {visibility: hidden}
+
+.guide {
+	padding: 0 18px;
+	border: 5px solid #ffffff;
+	border-radius: 20px;
+	appearance: auto;
+	transition: .4s ease-out;
+}
+
+.guide:hover {background-color: #2f2e2e}
+
+code {
+	background-color: #363636;
+	font-family: "Comic Sans MS";
+	padding: 0 5px;
+	transition: .4s ease-out;
+}
+code:hover {background-color: #000000}
+
+#pinboard li p {text-shadow: 1px 1px 1px #444}
+#pinboard li {transition: .4s ease-out}
+#pinboard li:hover {background-color: #2f2e2e}
