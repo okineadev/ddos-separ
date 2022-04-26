@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send message to Telegram
-        run: curl -X POST -d 'chat_id=$to' -d 'text=$message' -d 'disable_web_page_preview=true' -d 'parse_mode=HTML' https://api.telegram.org/bot$token/sendMessage
+        run: |
+          message="Новий пулл реквест чи ідея від <code>${{ github.actor }}</code>!"
+          to={{ secrets.TELEGRAM_TO }}
+          token=${{ secrets.TELEGRAM_TOKEN }}
 
-        with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: Новий пулл реквест чи ідея від <code>${{ github.actor }}</code>!
+          curl -X POST -d 'chat_id=$to' -d 'text=$message' -d 'disable_web_page_preview=true' -d 'parse_mode=HTML' https://api.telegram.org/bot$token/sendMessage
