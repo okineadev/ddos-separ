@@ -1,6 +1,6 @@
 name: Telegram notify
 
-on: [pull_request]
+on: [pull_request, issues]
 
 jobs:
   send:
@@ -13,4 +13,4 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: Новий пулл реквест від <code>${{ github.actor }}</code>!
+          message: Новий пулл реквест чи ідея від <code>${{ github.actor }}</code>!
