@@ -146,7 +146,7 @@ class Doser {
         }, attackInterval);
 
         this.saver = setInterval(() => {
-        	const atck = Database.attacks;
+        	let atck = Database.attacks;
 
         	atck = !atck ? 0 : parseInt(atck); // Попередні атаки
         	Database.attacks =
