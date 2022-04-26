@@ -99,7 +99,7 @@ setTarget = (target) => {
 class Doser {
     attack = false; // Статус атаки
     interval; // Цикл DDoS-атаки
-    saver; // Цикл збереження данних про кількість атак
+    //saver; // Цикл збереження данних про кількість атак
 
     async start(isFetch=false) {
     	this.attack = true;
@@ -145,6 +145,7 @@ class Doser {
         	if ($("#frames")[0].childElementCount >= 200) {Frames.clear()};
         }, attackInterval);
 
+        /*
         this.saver = setInterval(() => {
         	let atck = Database.attacks;
 
@@ -154,12 +155,13 @@ class Doser {
 
         	console.log("Saved!");
         }, saverInterval);
+        */
     };
     stop() {
     	if (this.interval) {
 	    	this.attack = false;
 	    	clearInterval(this.interval);
-	    	clearInterval(this.saver);
+	    	//clearInterval(this.saver);
 	    	Frames.clear();
 	    	btn.text("Старт!");
     	}
@@ -189,12 +191,14 @@ $(() => {
 		!Doser.attack ? Doser.start() : Doser.stop();
 	});
 
+	/*
 	$("#attackCount").click(() => {
 		// Загальна кількість атак
 
 		const a = Database.attacks
 		alert(`Взагалом атаковано: ${!a?0:a}`)
 	});
+	*/
 
 	// Пасхалки)
 
