@@ -5,19 +5,12 @@
 	font-weight: normal; 
 }
 
-body {
-	color: #ffffff;
-	background-color: #222;
-}
+body, a {color: #ffffff}
+body {background-color: #222;}
 main {text-align: center}
 
-a {
-	color: #ffffff;
-	transition: .4s ease-out;
-}
+a {transition: .4s ease-out}
 a:hover {color: #00ffff}
 
-p, #resources {
-	font-family: "Comic Sans MS";
-	font-size: 18px;
-}
+p, code, #resources {font-family: "Comic Sans MS"}
+p, #resources {font-size: 18px}

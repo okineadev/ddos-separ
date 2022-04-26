@@ -1,20 +1,16 @@
 name: Telegram notify
-on: [push]
 
+on: [pull_request]
 
 jobs:
-
-  build:
+  send:
     name: Sending
     runs-on: ubuntu-latest
     steps:
-      - name: send telegram message on push
-        uses: appleboy/telegram-action@master
+      - name: Send message to Telegram
+        run: curl -X POST -d 'chat_id=$to' -d 'text=$message' -d 'disable_web_page_preview=true' -d 'parse_mode=HTML' https://api.telegram.org/bot$token/sendMessage
+
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          message: |
-            ${{ github.actor }} Створено комміт:
-            Коментар: ${{ github.event.commits[0].message }}
-            
-            Подивитись зміни: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+          message: Новий пулл реквест від <code>${{ github.actor }}</code>!

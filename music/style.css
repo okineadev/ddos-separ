@@ -1,6 +1,2 @@
-body {
-	color: #ffffff;
-	background-color: #222;
-}
-
+@import url("../mainstyle.css");
 h1 {text-align: center}

@@ -31,14 +31,17 @@ async function getSalt(target) {
 	return target + '?' + now + getRandomArbitrary();
 }
 
+function msgLoad() {
+	$("#load").remove();
+	$("<p>", {id:"load"}).text("Завантажуємо цілі...")
+	.appendTo(box);
+}
+
 
 // Завантаження цілей
 async function getTarget() {
 	// Створення сповіщення про завантаження цілей
-
-	$("#load").remove();
-	$("<p>", {id:"load"}).text("Завантажуємо цілі...")
-	.appendTo(box);
+	msgLoad();
 
     let targets = await fetch(targetSource)
     .catch((e) => {
@@ -168,6 +171,8 @@ class Doser {
 const btn = $("#button #button-text")
 const Database = window.localStorage
 const box = $("#box")
+
+let neon = false
 Doser = new Doser // Ініціалізація воркера
 
 $(() => {
@@ -199,8 +204,15 @@ $(() => {
 
 	$("#ua").dblclick(() => {alert("Героям Слава!")})
 
-	$("#container").dblclick(() => {
-		//pass
+	const container = $("#container")
+	container.dblclick((e) => {
+		if (!neon) {
+			neon = true
+			container.css("box-shadow", "5px 5px 5px #00ffff")
+			return
+		}
+		neon = false
+		container.css("box-shadow", "5px 5px 5px #444")
 	})
 
 	/*
