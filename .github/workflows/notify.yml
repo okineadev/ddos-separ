@@ -9,8 +9,17 @@ jobs:
     steps:
       - name: Send message to Telegram
         run: |
-          message="Новий пулл реквест чи ідея від <code>${{ github.actor }}</code>!"
-          to=${{ secrets.TELEGRAM_TO }}
-          token=${{ secrets.TELEGRAM_TOKEN }}
+          TEXT="Новий пулл реквест чи ідея від <code>${{ github.actor }}</code>!"
+          CHAT_ID=${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TOKEN=${{ secrets.TELEGRAM_CHAT_ID }}
 
-          curl -X POST -d 'chat_id=$to' -d 'text=$message' -d 'disable_web_page_preview=true' -d 'parse_mode=HTML' https://api.telegram.org/bot$token/sendMessage
+          response=$(curl -X POST -d \
+            'chat_id=$CHAT_ID' -d \
+            'text=$TEXT' -d \
+            'disable_web_page_preview=true' -d \
+            'parse_mode=HTML' \
+            https://api.telegram.org/bot$TOKEN/sendMessage)
+
+          echo "Ok!"
+          echo "Response: $response"
+            

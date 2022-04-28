@@ -3,7 +3,7 @@
 button, .item, mark, 
 .tooltip .tooltiptext, 
 code, #pinboard li , 
-.guide, a {transition: .4s ease-out}
+.guide, a, #container {transition: .4s ease-out}
 
 mark, code, h3, #stack * img, .item, button, #ua, .tooltip {cursor: pointer}
 
@@ -136,6 +136,7 @@ mark:hover {background-color: #00ffff}
 hr {
 	margin-top: 30px;
 	height: 0;
+	box-shadow: 0 0 6px 0 #ffffff;
 }
 
 #frames {visibility: hidden}
@@ -145,18 +146,42 @@ hr {
 	border: 5px solid #ffffff;
 	border-radius: 20px;
 	appearance: auto;
+	border-bottom-width: thin;
 }
 
-.guide:hover {background-color: #2f2e2e}
+.guide:hover {
+	background-color: #2f2e2e;
+	box-shadow: 4px 4px 4px #444;
+}
 
 code {
 	background-color: #363636;
 	font-family: "Comic Sans MS";
 	padding: 0 5px;
+	border: 2px solid #363636;
+    border-radius: 7px;
 }
 code:hover {background-color: #000000}
 
+#pinboard {
+	border: 2px solid #ffffff;
+    border-radius: 20px;
+}
 #pinboard li p {text-shadow: 1px 1px 1px #444}
 #pinboard li:hover {background-color: #2f2e2e}
 
 #stack * img:hover {box-shadow: 3px 3px 6px 0 #00ffff}
+
+.flag {border-radius: 4px}
+
+.how {margin-left: 20px}
+
+.how p {
+	margin: 5px 0;
+	font-family: "";
+}
+
+#sitemap p {
+	margin: 1px 0;
+	font-size: 16px;
+}
