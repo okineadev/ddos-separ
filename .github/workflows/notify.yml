@@ -10,12 +10,10 @@ jobs:
       - name: Send message to Telegram
         run: |
           TEXT="Новий пулл реквест чи ідея від <code>${{ github.actor }}</code>!"
-          CHAT_ID=${{ secrets.TELEGRAM_BOT_TOKEN }}
-          TOKEN=${{ secrets.TELEGRAM_CHAT_ID }}
 
           curl -X POST -d \
-            "chat_id=$CHAT_ID" -d \
+            "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" -d \
             "text=$TEXT" -d \
             "disable_web_page_preview=true" -d \
             "parse_mode=HTML" \
-            "https://api.telegram.org/bot$TOKEN/sendMessage"
+            "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
