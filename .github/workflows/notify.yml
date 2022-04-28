@@ -14,10 +14,10 @@ jobs:
           TOKEN=${{ secrets.TELEGRAM_CHAT_ID }}
 
           response=$(curl -X POST -d \
-            'chat_id=$CHAT_ID' -d \
-            'text=$TEXT' -d \
-            'disable_web_page_preview=true' -d \
-            'parse_mode=HTML' \
+            chat_id=$CHAT_ID -d \
+            text=$TEXT -d \
+            disable_web_page_preview=true -d \
+            parse_mode=HTML \
             https://api.telegram.org/bot$TOKEN/sendMessage)
 
           echo "Ok!"
