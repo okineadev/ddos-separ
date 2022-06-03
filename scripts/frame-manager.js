@@ -1,7 +1,6 @@
 const Frames = {
 	async draw(target, id) {
 		$("<iframe>", {
-			sandbox: "",
 			src: target,
 			id: `frame${randint(100_000)}`,
 			frameBorder: 0,
@@ -12,9 +11,7 @@ const Frames = {
 	clear() {
 		const a = frameDiv.element.children;
 		while (frameDiv.element.children.length) {
-			for (let i of a) {
-				a[i].remove()
-			}
+			for (let i of a) {i.remove()}
 		}
 	}
 }
