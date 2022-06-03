@@ -1,14 +1,21 @@
-@import url("mainstyle.css");
+@import url(mainstyle.css);
 
-button, .item, mark, 
+:root {
+	--hr-image: url(images/hr.svg);
+	--shadows: 2px 2px 2px #444;
+}
+
+.item, 
 .tooltip .tooltiptext, 
-code, #pinboard li , 
-.guide, a, #container {transition: .4s ease-out}
+.guide, .guide li::marker, a {transition: .4s ease-out}
 
 mark, code, h3, #stack * img, .item, button, #ua, .tooltip {cursor: pointer}
 
+mark {
+	transition: background .4s ease-out;
+	padding: 1px 2px;
+}
 
-/* From <main>  */
 #container {
 	border: 4px solid #ffffff;
 	border-radius: 20px;
@@ -18,23 +25,25 @@ mark, code, h3, #stack * img, .item, button, #ua, .tooltip {cursor: pointer}
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
+	display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 @media only screen and (max-device-width: 1366px) {
-	#container {background-image: url("background/Phone/1.jpg")}
+	#container {background-image: url(background/Phone/1.jpg)}
 }
 
 @media only screen and (min-device-width: 1366px) {
-	#container {background-image: url("background/Desktop/1.jpg")}
+	#container {background-image: url(background/Desktop/1.jpg)}
 }
 
-
-#container #title {
+#title {
 	padding: 20px;
 	color: #ffffff;
 	font-size: 30px;
 	border: 2px;
-	text-shadow: 2px 2px 2px #444;
+	text-shadow: var(--shadows);
 }
 
 
@@ -42,9 +51,13 @@ mark, code, h3, #stack * img, .item, button, #ua, .tooltip {cursor: pointer}
 	border: 4px solid #838383;
 	border-radius: 30px;
 	box-shadow: 5px 5px 5px #444;
-	text-shadow: 2px 2px 2px #444;
+	text-shadow: var(--shadows);
 	padding: 20px;
 	appearance: auto;
+	background: linear-gradient(to top, black, transparent);
+	display: inline-flex;
+    flex-direction: column;
+    align-items: center;
 }
 #box p {margin: 10px 0 0}
 
@@ -55,6 +68,7 @@ button {
 	width: 83px;
 	height: 30px;
 	font-size: 16px;
+	transition: border .4s ease-out
 }
 button:hover {border-color: #ffff00}
 
@@ -63,8 +77,14 @@ h2 {
 	text-align: center;
 	margin: 30px 0;
 }
-h3 {font-family: "Arial"}
 
+#items {
+	display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    margin-top: 10px;
+}
 
 .item {
 	border: 5px solid #ffffff;
@@ -73,8 +93,9 @@ h3 {font-family: "Arial"}
 	box-shadow: 5px 5px 5px #444444a1;
 	border-radius: 50px;
 	padding: 12px 18px;
-	margin: 13px 0;
+	margin-block: 6px;
 	text-align: center;
+	display: block;
 }
 mark:hover {background-color: #00ffff}
 .item mark {background-color: #ffffff}
@@ -85,14 +106,6 @@ mark:hover {background-color: #00ffff}
 .item:hover mark {
 	background-color: #ffff00;
 }
-
-#container #resources {
-	text-align: left;
-	margin: 28px 0 18px 18px;
-}
-
-#container #resources a {margin-right: 9px}
-
 
 
 .tooltip {
@@ -133,55 +146,137 @@ mark:hover {background-color: #00ffff}
 	opacity: 1;
 }
 
-hr {
-	margin-top: 30px;
-	height: 0;
-	box-shadow: 0 0 6px 0 #ffffff;
-}
-
 #frames {visibility: hidden}
 
 .guide {
-	padding: 0 18px;
-	border: 5px solid #ffffff;
+	padding-inline: 18px;
+	border: 5px solid #dfdfdf;
 	border-radius: 20px;
 	appearance: auto;
-	border-bottom-width: thin;
+	color: #ffffff;
+	background-color: #292929;
+	display: inline-block;
 }
+.guide h3 {margin-bottom: 5px}
 
 .guide:hover {
-	background-color: #2f2e2e;
+	background-color: #ffffff;
 	box-shadow: 4px 4px 4px #444;
+	color: #000000;
 }
 
-code {
-	background-color: #363636;
+.flex {
+	display: flex;
+	align-items: center;
+    flex-direction: row;
+    align-content: stretch;
+    justify-content: space-around;
+}
+.guide .flex #image {
+	margin: 10px 0 0 10px;
+	width: 32px;
+	height: 32px;
+	background: url(images/terminal.svg);
+	background-size: cover;
+}
+
+
+.guide code {
+	display: flex;
+	flex-direction: row;
+	align-content: stretch;
+    justify-content: space-around;
 	font-family: "Comic Sans MS";
-	padding: 0 5px;
+	padding-inline: 5px;
 	border: 2px solid #363636;
     border-radius: 7px;
+    transition: background .4s ease-out;
+    color: #ffffff;
+    background-color: #424242;
 }
-code:hover {background-color: #000000}
+
+.guide:hover code {background-color: #292929}
+.guide:hover .flex #image {
+	background-image: url(images/terminal-fill.svg);
+	z-index: 1;
+}
+
+.guide li:hover {list-style: decimal}
+.guide li:hover::marker {font-weight: 5px}
+
+.guide a {
+	color: currentcolor;
+	transition: none;
+}
 
 #pinboard {
-	border: 2px solid #ffffff;
+	background: linear-gradient(to right, #00ffd396, transparent);
     border-radius: 20px;
+    padding-block: 1px;
 }
-#pinboard li p {text-shadow: 1px 1px 1px #444}
-#pinboard li:hover {background-color: #2f2e2e}
 
-#stack * img:hover {box-shadow: 3px 3px 6px 0 #00ffff}
+#pinboard li p {text-shadow: 1px 1px 1px #444}
+#pinboard li:hover {background: linear-gradient(to right, #2f2e2e, transparent)}
 
 .flag {border-radius: 4px}
 
 .how {margin-left: 20px}
 
 .how p {
-	margin: 5px 0;
-	font-family: "";
+	margin-block: 5px;
+	font-family: Calibri;
 }
 
+.how h3 {font-size: 1.50em}
+
+.how mark {font-family: Arial}
+
 #sitemap p {
-	margin: 1px 0;
+	margin-block: 1px;
 	font-size: 16px;
+}
+#sitemap li:hover::marker {color: yellow}
+#nav {
+	text-align: left;
+	margin: 28px 0 18px 18px;
+	font-size: 18px;
+	border: 9px;
+	align-self: normal;
+}
+#nav * {margin-right: 10px}
+#nav *:last-child {margin-right: 0}
+
+hr {
+	background: var(--hr-image), #ffffff;
+	width: auto;
+	height: 16px;
+	background-size: contain;
+	box-shadow: 0 0 6px 0 #ffffff;
+	background-origin: border-box;
+}
+
+#ua-telegram {
+	background: url(images/communities/telegram.svg), url(images/ukraine.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 24px;
+	height: 24px;
+	border-radius: 100%;
+	margin-left: 5px;
+}
+
+.center {
+	justify-content: center;
+}
+
+#ad-banner {
+	position: relative;
+	text-align: center;
+	border: 2px solid white;
+	border-radius: 3px;
+}
+#ad-banner img {
+	position: absolute;
+	right: 10px;
+	top: 10px;
 }

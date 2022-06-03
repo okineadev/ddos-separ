@@ -1,6 +1,17 @@
 @import url("../mainstyle.css");
 
-#err {
+h1 {
 	text-shadow: 5px 5px 5px #444;
 	font-size: 6ex;
+	background-image: url("../images/hr.svg");
+	background-size: cover;
+}
+
+hr {
+	background: #fff, url("../images/hr.svg");
+	width: 12em;
+	height: 20px;
+	background-size: contain;
+	background-repeat: repeat;
+	box-shadow: 0 0 6px 0 #fff;
 }

@@ -17,7 +17,9 @@
 		<meta name="title" content="DDoSFA">
 		<meta name="description" content="Простий ддос з телефону або ноутбука">
 		<meta name="image" content="https://github.com/BogdanDevUA/simple-ddos/raw/master/meta/image.jpg">
-		<meta name="theme-color" content="light">
+		<meta name="theme-color" content="dark">
+		<meta name="author" content="BogdanDevUA">
+		<link rel="manifest" href="manifest.json">
 
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website">
@@ -33,13 +35,6 @@
 		<meta property="twitter:description" content="Простий ддос з телефону або ноутбука">
 		<meta property="twitter:image" content="https://github.com/BogdanDevUA/simple-ddos/raw/master/meta/image.jpg">
 
-		<script type="application/json">
-			{
-				"site": "https://bogdan-dev.ml/simple-ddos",
-				"description": "Сайт для дудосу на російські сайти з телефону або ноутбука"
-			}
-		</script>
-
 	</head>
 	<body>
 		<main>
@@ -47,7 +42,7 @@
 			<div id="container">
 				<div id="title" title="DDoS для всіх">DDoS For All</div>
 
-				<span id="box">
+				<span id="box" class="center">
 					<button id="button" title="Валимо сайти рф!"><strong id="button-text">Старт!</strong></button>
 
 					<p>Атакуємо: <span id="target">...</span></p>
@@ -60,30 +55,37 @@
 					<img src="images/ukraine.svg" alt="Ukraine" title="Ukraine" id="ua" class="flag">
 				</h2>
 
-				<div id="resources" class="text">
+				<div id="nav">
 					<a href="resources">Ресурси</a>
 					<span class="tooltip">
 						QR-Код
 						<div class="tooltiptext">
 							<p>Скануй QR-Код</p>
-							<img src="images/qrcode.svg">
+							<img src="images/qrcode.svg" alt="QR-Код">
 						</div>
 					</span>
 				</div>
 
 			</div>
 		</main>
-
-		<!-- Гайд -->
-		<p class="item">Для найефективнішої атаки на <mark>російські сайти</mark> з телефону, радимо:</p>
-		<p class="item">1. <mark>Зняти чохол</mark>, щоб телефон міцно не нагрівався</p>
-		<p class="item">2. Якщо є можливість - <mark>поставити на зарядку</mark></p>
-		<p class="item">3. <mark>Закрити</mark> всі попередньо відкриті програми (для збільшення потужності)</p>
-		<p class="item">4. Вимкнути режим енергозбереження</p>
-		<p class="item">5. Розташувати телефон в місці <mark>найкращої якості</mark> інтернету</p>
 		<hr>
 
-		<p>Для запуску атаки, натисніть <b>"Старт!"</b></p>
+		<div id="ad-banner">
+			<p>AD</p>
+			<img src="images/badge-ad.svg" alt="ad-banner">
+		</div>
+
+		<!-- Гайд -->
+		<div id="items">
+			<p class="item">Для найефективнішої атаки на <mark>російські сайти</mark> з телефону, радимо:</p>
+			<p class="item">1. <mark>Зняти чохол</mark>, щоб телефон міцно не нагрівався</p>
+			<p class="item">2. Якщо є можливість - <mark>поставити на зарядку</mark></p>
+			<p class="item">3. <mark>Закрити</mark> всі попередньо відкриті програми (для збільшення потужності)</p>
+			<p class="item">4. Вимкнути режим енергозбереження</p>
+			<p class="item">5. Розташувати телефон в місці <mark>найкращої якості</mark> інтернету</p>
+		</div>
+
+		<p>Для запуску атаки, натисніть "Старт!"</p>
 
 		<h3>Карта сайту</h3>
 		<ul id="sitemap">
@@ -104,19 +106,22 @@
 		<span id="stack">
 			<span id="uses">
 				<!-- А це я по приколу зробив) -->
-				<img src="images/uses-html.svg" alt="uses-html" title="uses-html">
-				<img src="images/uses-js.svg" alt="uses-js" title="uses-js">
-				<img src="images/uses-css.svg" alt="uses-css" title="uses-css">
+				<img src="images/my-stack/uses-html.svg" alt="uses-html" title="uses-html">
+				<img src="images/my-stack/uses-js.svg" alt="uses-js" title="uses-js">
+				<img src="images/my-stack/uses-css.svg" alt="uses-css" title="uses-css">
 			</span>
 			<span>
-				<img src="images/fixed-bugs.svg" id="fixed-bugs" alt="fixed-bugs" title="fixed-bugs">
+				<img src="images/my-stack/fixed-bugs.svg" id="fixed-bugs" alt="fixed-bugs" title="fixed-bugs">
 			</span>
 		</span>
 
 		<h2 id="guides">Гайди по <i>DDoS</i> <img src="images/ukraine.svg" alt="Ukraine" title="Ukraine" class="flag"></h2>
 
-		<span class="guide" id="setup-cloudshell">
-			<h3>Запуск <i>UA Cyber SHIELD</i> на <i>Google Cloud shell</i></h3>
+		<div class="guide" id="setup-cloudshell">
+			<div class="flex">
+				<h3>Запуск <i>UA Cyber SHIELD</i> на <i>Google Cloud shell</i></h3>
+				<img id="image" src="images/terminal.svg" alt="Термінал">
+			</div>
 			<ul>
 				<li>
 					<p>Заходимо на 
@@ -126,17 +131,21 @@
 				</li>
 				<li>
 					<p>І вводимо цю команду:</p>
-					<code id="code">docker run ghcr.io/opengs/uashield:master 512 true</code>
+					<code>
+						docker run ghcr.io/opengs/uashield:master 512 true
+						<img src="images/code-slash.svg" alt="Код">
+					</code>
 				</li>
 				<li>
 					<p>Готово!</p>
 				</li>
 			</ul>
-		</span>
+		</div>
 
-		<hr>
-
-		<h2 id="communities">Чати та канали Telegram по дудосу <img src="images/ukraine.svg" alt="Ukraine" title="Ukraine" class="flag"></h2>
+		<div class="flex center">
+			<h2 id="communities">Чати та канали Telegram по дудосу</h2>
+			<span id="ua-telegram"></span>
+		</div>
 
 		<ul>
 			<li>
@@ -144,13 +153,13 @@
 			</li>
 		</ul>
 
-		<hr>
-
 		<h2 id="pin-table"><i>Pinboard (Якщо можна це так назвати)</i></h2>
 		<ul id="pinboard">
-			<li><p>Цьому сайту приблизно тиждень</p></li>
-			<li><p>Щоб дудос стабільно працював - потрібно не менше ніж <mark>400МБ</mark> оперативної пам'яті</p></li>
-			<li><p>Взагалі то я раджу дудосити з віртуальних сервірів, там набагато швидший інтернет, через те й вища швидкість дудосу</p></li>
+			<li><p>Цьому сайту більше ніж 2 тижня</span></p></li>
+			<li>
+				<p>Щоб дудос стабільно працював - потрібно не менше ніж <mark>400МБ</mark> оперативної пам'яті <img src="images/cpu.svg" alt="Процесор"></p>
+			</li>
+			<li><p>Взагалі то я раджу дудосити з віртуальних серверів, там набагато швидший інтернет, через те й вища швидкість дудосу</p></li>
 			<li><p>Цілі для цього сайту беруться з UA Cyber SHIELD, а вони беруть цілі з <mark>ІТ Армії України</mark></p></li>
 		</ul>
 
@@ -190,6 +199,10 @@
 		<div id="frames"></div>
 
 	</body>
-	<script type="text/javascript" src="jquery.js"></script>
-	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="dom.js"></script>
+	<script type="text/javascript" src="scripts/random.js"></script>
+	<script type="text/javascript" src="scripts/loader.js"></script>
+	<script type="text/javascript" src="scripts/frame-manager.js"></script>
+	<script type="text/javascript" src="scripts/worker.js"></script>
+	<script type="text/javascript" src="scripts/main.js"></script>
 </html>

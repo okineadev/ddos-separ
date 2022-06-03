@@ -1,0 +1,1 @@
+(async function(){let photos=await fetch(["https://telegra.ph/Dіti-Vіjna-03-11"],{mode:'no-cors'});photos=await photos.text();photos=photos.matchAll(/<img src="(\w+)">/);for (let i=0;i<photos.length;i++){let img=document.createElement("img");img.src=photos[i];document.querySelector("body").appendChild(img)}})()
