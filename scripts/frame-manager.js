@@ -8,7 +8,7 @@ const Frames = {
 			width: 1,
 			height: 1
 		}).appendTo(frameDiv)
-	}
+	},
 	clear() {
 		const a = frameDiv.element.children;
 		while (frameDiv.element.children.length) {
