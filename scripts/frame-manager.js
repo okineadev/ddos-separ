@@ -1,4 +1,4 @@
-class Frames {
+const Frames = {
 	async draw(target, id) {
 		$("<iframe>", {
 			sandbox: "",

@@ -26,7 +26,11 @@ const box = $("#box")
 
 Doser = new Doser; // Ініціалізація воркера
 
-$("#button").click(!Doser.attack ? Doser.start : Doser.stop);
+$("#button").click((e) => {
+	e.preventDefault();
+	
+	!Doser.attack ? Doser.start() : Doser.stop();
+});
 
 $("#attackCount").click(() => {
 	// Загальна кількість атак
