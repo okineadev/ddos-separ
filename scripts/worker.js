@@ -1,5 +1,5 @@
 class Doser {
-    async start(e, isFetch=false) {
+    async start(isFetch=false) {
     	this.attack = true; // Статус атаки
 
         // Запуск атаки
@@ -23,7 +23,9 @@ class Doser {
 	            method: target.method,
 	            mode: 'no-cors',
 				referrerPolicy: 'no-referrer'
-	        }).catch((e) => {})
+	        })
+	        .catch(() => {})
+
 	        .then(() => {
 	            // Після запиту
 
@@ -54,7 +56,7 @@ class Doser {
 	    	clearInterval(this.interval);
 	    	clearInterval(this.saver);
 	    	Frames.clear();
-	    	btn.text("Старт!");
+	    	btn.text("Старт!")
     	}
     };
 }

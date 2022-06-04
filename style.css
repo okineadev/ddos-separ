@@ -17,7 +17,7 @@ mark {
 }
 
 #container {
-	border: 4px solid #ffffff;
+	border: 4px solid #fff;
 	border-radius: 20px;
 	box-shadow: 5px 5px 5px #444;
 	margin-bottom: 25px;
@@ -40,7 +40,7 @@ mark {
 
 #title {
 	padding: 20px;
-	color: #ffffff;
+	color: #fff;
 	font-size: 30px;
 	border: 2px;
 	text-shadow: var(--shadows);
@@ -87,9 +87,9 @@ h2 {
 }
 
 .item {
-	border: 5px solid #ffffff;
-	color: #000000;
-	background-color: #ffffff;
+	border: 5px solid #fff;
+	color: #000;
+	background-color: #fff;
 	box-shadow: 5px 5px 5px #444444a1;
 	border-radius: 50px;
 	padding: 12px 18px;
@@ -98,7 +98,7 @@ h2 {
 	display: block;
 }
 mark:hover {background-color: #00ffff}
-.item mark {background-color: #ffffff}
+.item mark {background-color: #fff}
 .item:hover {
 	background-color: #00ffff;
 	border-color: #ffff00;
@@ -153,16 +153,16 @@ mark:hover {background-color: #00ffff}
 	border: 5px solid #dfdfdf;
 	border-radius: 20px;
 	appearance: auto;
-	color: #ffffff;
+	color: #fff;
 	background-color: #292929;
 	display: inline-block;
 }
 .guide h3 {margin-bottom: 5px}
 
 .guide:hover {
-	background-color: #ffffff;
+	background-color: #fff;
 	box-shadow: 4px 4px 4px #444;
-	color: #000000;
+	color: #000;
 }
 
 .flex {
@@ -191,18 +191,12 @@ mark:hover {background-color: #00ffff}
 	border: 2px solid #363636;
     border-radius: 7px;
     transition: background .4s ease-out;
-    color: #ffffff;
+    color: #fff;
     background-color: #424242;
 }
 
 .guide:hover code {background-color: #292929}
-.guide:hover .flex #image {
-	background-image: url(images/terminal-fill.svg);
-	z-index: 1;
-}
-
-.guide li:hover {list-style: decimal}
-.guide li:hover::marker {font-weight: 5px}
+.guide:hover .flex #image {background-image: url(images/terminal-fill.svg)}
 
 .guide a {
 	color: currentcolor;
@@ -215,8 +209,7 @@ mark:hover {background-color: #00ffff}
     padding-block: 1px;
 }
 
-#pinboard li p {text-shadow: 1px 1px 1px #444}
-#pinboard li:hover {background: linear-gradient(to right, #2f2e2e, transparent)}
+#pinboard li > p {text-shadow: 1px 1px 1px #444}
 
 .flag {border-radius: 4px}
 
@@ -247,11 +240,11 @@ mark:hover {background-color: #00ffff}
 #nav *:last-child {margin-right: 0}
 
 hr {
-	background: var(--hr-image), #ffffff;
+	background: var(--hr-image), #fff;
 	width: auto;
 	height: 16px;
 	background-size: contain;
-	box-shadow: 0 0 6px 0 #ffffff;
+	box-shadow: 0 0 6px 0 #fff;
 	background-origin: border-box;
 }
 
@@ -275,7 +268,7 @@ hr {
 	border: 2px solid white;
 	border-radius: 3px;
 }
-#ad-banner img {
+#ad-banner > img {
 	position: absolute;
 	right: 10px;
 	top: 10px;
