@@ -1,20 +1,13 @@
-@import url(mainstyle.css);
+@import url("../mainstyle.css");
 
 :root {
-	--hr-image: url(images/hr.svg);
+	--hr-image: url("../images/hr.svg");
 	--shadows: 2px 2px 2px #444;
 }
 
-.item, 
-.tooltip .tooltiptext, 
-.guide, .guide li::marker, a {transition: .4s ease-out}
-
 mark, code, h3, #stack * img, .item, button, #ua, .tooltip {cursor: pointer}
 
-mark {
-	transition: background .4s ease-out;
-	padding: 1px 2px;
-}
+mark {padding: 1px 2px}
 
 #container {
 	border: 4px solid #fff;
@@ -31,11 +24,11 @@ mark {
 }
 
 @media only screen and (max-device-width: 1366px) {
-	#container {background-image: url(background/Phone/1.jpg)}
+	#container {background-image: url("../background/Phone/1.jpg")}
 }
 
 @media only screen and (min-device-width: 1366px) {
-	#container {background-image: url(background/Desktop/1.jpg)}
+	#container {background-image: url("../background/Desktop/1.jpg")}
 }
 
 #title {
@@ -68,7 +61,6 @@ button {
 	width: 83px;
 	height: 30px;
 	font-size: 16px;
-	transition: border .4s ease-out
 }
 button:hover {border-color: #ffff00}
 
@@ -86,7 +78,7 @@ h2 {
     margin-top: 10px;
 }
 
-.item {
+#items p {
 	border: 5px solid #fff;
 	color: #000;
 	background-color: #fff;
@@ -98,12 +90,12 @@ h2 {
 	display: block;
 }
 mark:hover {background-color: #00ffff}
-.item mark {background-color: #fff}
-.item:hover {
+#items mark {background-color: #fff}
+#items p:hover {
 	background-color: #00ffff;
 	border-color: #ffff00;
 }
-.item:hover mark {
+#items p:hover mark {
 	background-color: #ffff00;
 }
 
@@ -176,7 +168,7 @@ mark:hover {background-color: #00ffff}
 	margin: 10px 0 0 10px;
 	width: 32px;
 	height: 32px;
-	background: url(images/terminal.svg);
+	background: url("../images/terminal.svg");
 	background-size: cover;
 }
 
@@ -190,13 +182,12 @@ mark:hover {background-color: #00ffff}
 	padding-inline: 5px;
 	border: 2px solid #363636;
     border-radius: 7px;
-    transition: background .4s ease-out;
     color: #fff;
     background-color: #424242;
 }
 
 .guide:hover code {background-color: #292929}
-.guide:hover .flex #image {background-image: url(images/terminal-fill.svg)}
+.guide:hover .flex #image {background-image: url("../images/terminal-fill.svg")}
 
 .guide a {
 	color: currentcolor;
@@ -249,7 +240,7 @@ hr {
 }
 
 #ua-telegram {
-	background: url(images/communities/telegram.svg), url(images/ukraine.svg);
+	background: url("../images/communities/telegram.svg"), url("../images/ukraine.svg");
 	background-repeat: no-repeat;
 	background-size: cover;
 	width: 24px;
@@ -258,9 +249,7 @@ hr {
 	margin-left: 5px;
 }
 
-.center {
-	justify-content: center;
-}
+.center {justify-content: center}
 
 #ad-banner {
 	position: relative;
@@ -273,3 +262,5 @@ hr {
 	right: 10px;
 	top: 10px;
 }
+
+p.huww-title {color: black}

@@ -43,4 +43,5 @@ $("#uses").click(() => alert("Цей сайт був написаний 13 рі�
 
 $("#ua").dblclick(() => alert("Героям Слава!"));
 
+$("#help-ukraine-win").element.setAttribute("src", "https://helpukrainewinwidget.org/cdn/widget.js?type=one&position=top-left&layout=main")
 // Слава Україні!

@@ -8,8 +8,6 @@
 body, a {color: #fff}
 body {background-color: #222}
 main {text-align: center}
-
-a {transition: .4s ease-out}
 a:hover {color: #00ffff}
 
 p, code, #resources, #nav {font-family: "Comic Sans MS"}

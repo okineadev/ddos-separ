@@ -1,3 +1,7 @@
 @import url("../mainstyle.css");
 h1 {text-align: center}
-iframe {border-radius:12px}
+iframe {
+	border-radius: 12px;
+	width: 100%;
+	height: 380px;
+}
