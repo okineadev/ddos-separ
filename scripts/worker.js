@@ -46,7 +46,7 @@ class Doser {
         }, attackInterval);
 
         this.saver /*Цикл збереження данних про кількість атак*/ = setInterval(() => {
-        	Database.attacks = parseInt(Database.attacks) + 1
+        	Database.attacks = parseInt(Database.attacks) + 15
         	console.log("Saved!");
         }, saverInterval);
     };

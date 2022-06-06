@@ -6,7 +6,10 @@
 		<link rel="shortcut icon" href="meta/favicon.png">
 		<title>DDoSFA</title>
 		<link rel="stylesheet" type="text/css" href="styles/style.css">
+		<link rel="stylesheet" type="text/css" href="styles/modal.css">
+		<link rel="stylesheet" type="text/css" href="styles/widgets/help-ukraine-win/style.css">
 		<link rel="canonical" href="https://ddos-separ.ml">
+
 
 		<!-- Meta tags -->
 		<link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
@@ -39,6 +42,7 @@
 
 	</head>
 	<body>
+
 		<main>
 
 			<div id="container">
@@ -63,7 +67,7 @@
 						QR-Код
 						<div class="tooltiptext">
 							<p>Скануй QR-Код</p>
-							<img src="images/qrcode.svg" alt="QR-Код">
+							<img src="images/qr-code.svg" alt="QR-Код">
 						</div>
 					</span>
 				</div>
@@ -75,6 +79,15 @@
 		<div id="ad-banner">
 			<p>AD</p>
 			<img src="images/badge-ad.svg" alt="ad-banner">
+		</div>
+		<div class="topnav" id="myTopnav">
+		  <a href="#sitemap" class="active">Карта</a>
+		  <a href="#guides">Гайди</a>
+		  <a href="#pin-table">Pinboard</a>
+		  <a href="#how">Про сайт</a>
+		  <a href="javascript:void(0);" class="icon" onclick="topNav()">
+		    <i class="fa fa-bars">...</i>
+		  </a>
 		</div>
 
 		<!-- Гайд -->
@@ -200,10 +213,27 @@
 		<!-- Не зачіпай! -->
 		<div id="frames"></div>
 
+		<div id="modalBox">
+			<div id="modal-content">
+			  <div id="modal-header">
+			    <span id="close">&times;</span>
+			    <h2 id="header"></h2>
+			  </div>
+			  <div id="modal-body">
+			    <div id="text">
+			    </div>
+			  </div>
+			  <div id="modal-footer">
+			    <h3 id="footer"></h3>
+			  </div>
+			</div>
+		</div>
+
 		<!-- Віджети -->
 		<div class="elfsight-app-dd38aa65-22bd-44b3-9bc6-c87638460f7c"></div>
 		<div class="elfsight-app-59b253af-1d40-4c11-8751-befcdc75986e"></div>
-		<script id="help-ukraine-win" async></script>
+
+		<script src="scripts/widgets/help-ukraine-win/script.js"></script>
 
 	</body>
 	<link rel="stylesheet" type="text/css" href="styles/transitions.css">
