@@ -43,39 +43,20 @@ $("#uses").click(() => alert("Пасхалка", "Цей сайт був нап�
 
 $("#ua").dblclick(() => alert("Слава Україні!", "Героям Слава!"));
 
-function topNav() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
-    }
-}
 
-let modal = $('#modalBox').element;
-let close = $("#close");
 
-function alert(header='Повідомлення', text) {
-    clearModal();
-    $("#modal-header #header").text(header)
-    let modalText = $("#modal-body #text")
+$("<link>", {
+    rel: "stylesheet",
+    href: "styles/widgets/help-ukraine-win/style.css"
+}).appendTo($("head"))
 
-    for (let p of text.split("||")) {
-        $("<p>", {}).text(p).appendTo(modalText)
-    }
+$("<script>", {
+    src: "scripts/widgets/help-ukraine-win/script.js"
+}).appendTo($("body"))
 
-    modal.style.display = "block";
-}
-
-clearModal = () => document.querySelectorAll("#header, #text p").forEach(e => e.textContent='')
-
-close.click(() => {modal.style.display = "none"; clearModal()})
-
-window.onclick = e => {
-    if (e.target == modal) {
-        clearModal();
-        modal.style.display = "none";
-    }
-}
+$("<script>", {
+    src: "scripts/widgets/platform.js",
+    defer: ""
+}).appendTo($("html"))
 
 // Слава Україні!

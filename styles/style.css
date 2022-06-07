@@ -1,4 +1,5 @@
 @import url("../mainstyle.css");
+@import url("transitions.css");
 
 :root {
 	--hr-image: url("../images/hr.svg");

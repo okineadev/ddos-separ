@@ -1,4 +1,5 @@
 @import url("../mainstyle.css");
+@import url("../styles/transitions.css");
 
 h1 {
 	text-shadow: 5px 5px 5px #444;
