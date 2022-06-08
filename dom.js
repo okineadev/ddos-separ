@@ -1,1 +1,54 @@
-sl=q=>document.querySelector(q);class Selector{constructor(s,d){this.s=s;const slm=s.match(/<(\w+)>/);if(slm){s=slm[1];this.s=slm[1];let e=document.createElement(s);if(d){for(let i in d){e.setAttribute(i,d[i])}};this.element=e;return this};this.element=sl(s);return this};appendTo(s){s.element.appendChild(this.element);return this};text(t){let e=this.element;if(e){if(t){e.textContent=t;return this};return e.textContent};return this};handleEvent(h,c){this.element.addEventListener(h,c)};click(c){this.handleEvent('click',c)};dblclick(c){this.handleEvent('dblclick',c)};on(e,c){this.handleEvent(e,c)};remove(){try{this.element.remove()}catch{}}};$=(s,d)=>new Selector(s,d)
+let D=document;
+const sl=q=>D.querySelector(q);
+const sla=q=>D.querySelectorAll(q);
+class Selector{
+	constructor(s,d){
+		if (s&&d||s&&!d) {
+			if (s&&!d&&typeof s=='function') {
+				D.addEventListener('DOMContentLoaded', s, {once: true})
+			} else {
+				let e;
+				if (typeof s=='string') {
+					const mt = s.match(/<(\w+)>/)
+					if (mt) {
+						this.selector = mt[1]
+						e = D.createElement(mt[1])
+						if (d&&typeof d=='object') {
+							for (let k in d) {
+								e.setAttribute(k, d[k])
+							}
+						}
+					} else {
+						if (d&&typeof d=='string'&&d=='all') {e = sla(s)}
+						else if (!d) {e = sl(s)}
+					}
+				} else if (s instanceof Document) {e = D} 
+				else if (typeof s=='object') {e = s}
+
+				if (e) {
+					this.element = e
+					this.appendTo = e => {
+						if (e instanceof Document || e instanceof Element) {
+							e.appendChild(this.element)
+						} else if (e instanceof Selector) {
+							e.element.appendChild(this.element)
+						}
+					};
+					this.text = t => {
+						if (!t) {
+							return this.element.textContent;
+						}
+						this.element.textContent = t;
+						return this
+					};
+					this.on = (e, f, d) => this.element.addEventListener(e, f, d);
+					this.click = (f, d) => this.on('click', f, d);
+					this.dblclick = (f, d) => this.on('dblclick', f, d);
+					this.remove = () => {try{this.element.remove()}catch{}}
+				}
+			}
+		}
+	}
+};
+
+const $ = (s, d) => new Selector(s, d)

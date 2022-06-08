@@ -5,58 +5,55 @@ const saverInterval = 3000
 const attackInterval = 200
 
 // Функції для керування документом
-
-const frameDiv = $("#frames")
-const attacks = $("#attacks")
-
 const add_count = () => attacks.text(parseInt(attacks.text()) + 1)
 
-
-// Відображення цілі та методу атаки
-const targetField = $("#target")
-const methodField = $("#method")
-
-// https://github.com/BogdanDevUA/simple-ddos/
+let frameDiv, attacks, targetField, methodField, btn, box;
 
 
-const btn = $("#button-text")
 const Database = window.localStorage
-const box = $("#box")
+$(() => {
+    frameDiv = $("#frames")
+    attacks = $("#attacks")
+
+    // Відображення цілі та методу атаки
+    targetField = $("#target")
+    methodField = $("#method")
+
+    // https://github.com/BogdanDevUA/simple-ddos/
+    btn = $("#button-text")
+    box = $("#box")
+    Doser = new Doser; // Ініціалізація воркера
+
+    $("#button").click(() => !Doser.attack ? Doser.start() : Doser.stop());
+
+    $("#attackCount").click(() => {
+        // Загальна кількість атак
+
+        const a = Database.attacks
+        alert("Атаки", `Взагалом атаковано: ${!a?0:a}`)
+    });
+
+    // Пасхалки)
+
+    $("#fixed-bugs").click(() => alert("Факт", "Я справді пофіксив баги!"));
+
+    $("#uses").click(() => alert("Пасхалка", "Цей сайт був написаний 13 річним хакером на JS, HTML, CSS"));
+
+    $("#ua").dblclick(() => alert("Слава Україні!", "Героям Слава!"));
 
 
-Doser = new Doser; // Ініціалізація воркера
 
-$("#button").click(() => !Doser.attack ? Doser.start() : Doser.stop());
+    $("<link>", {
+        rel: "stylesheet",
+        href: "styles/widgets/help-ukraine-win/style.css"
+    }).appendTo(document.head)
 
-$("#attackCount").click(() => {
-	// Загальна кількість атак
+    $("#help-ukraine").element.src = "scripts/widgets/help-ukraine-win/script.js"
 
-	const a = Database.attacks
-	alert("Атаки", `Взагалом атаковано: ${!a?0:a}`)
-});
-
-// Пасхалки)
-
-$("#fixed-bugs").click(() => alert("Факт", "Я справді пофіксив баги!"));
-
-$("#uses").click(() => alert("Пасхалка", "Цей сайт був написаний 13 річним хакером на JS, HTML, CSS"));
-
-$("#ua").dblclick(() => alert("Слава Україні!", "Героям Слава!"));
-
-
-
-$("<link>", {
-    rel: "stylesheet",
-    href: "styles/widgets/help-ukraine-win/style.css"
-}).appendTo($("head"))
-
-$("<script>", {
-    src: "scripts/widgets/help-ukraine-win/script.js"
-}).appendTo($("body"))
-
-$("<script>", {
-    src: "scripts/widgets/platform.js",
-    defer: ""
-}).appendTo($("html"))
+    $("<script>", {
+        src: "scripts/widgets/platform.js",
+        defer: ""
+    }).appendTo(document.body)
+})
 
 // Слава Україні!

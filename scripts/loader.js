@@ -1,7 +1,10 @@
 // Завантаження цілей
 async function getTarget() {
 	// Створення сповіщення про завантаження цілей
-	$("#load").remove();
+	const ld = $("#load")
+	if (ld.element){
+		ld.remove();
+	}
 	$("<p>", {id:"load"}).text("Завантажуємо цілі...").appendTo(box);
 
     let targets = await fetch(targetSource)
