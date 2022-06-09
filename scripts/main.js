@@ -9,8 +9,9 @@ const add_count = () => attacks.text(parseInt(attacks.text()) + 1)
 
 let frameDiv, attacks, targetField, methodField, btn, box;
 
-
 const Database = window.localStorage
+window.Database = Database
+
 $(() => {
     frameDiv = $("#frames")
     attacks = $("#attacks")
