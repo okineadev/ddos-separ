@@ -45,15 +45,11 @@ $(() => {
 
     $("<link>", {
         rel: "stylesheet",
-        href: "styles/widgets/help-ukraine-win/style.css"
+        href: "widgets/help-ukraine-win/style.css"
     }).appendTo(document.head)
 
-    $("#help-ukraine").element.src = "scripts/widgets/help-ukraine-win/script.js"
-
-    $("<script>", {
-        src: "scripts/widgets/platform.js",
-        defer: ""
-    }).appendTo(document.body)
+    $("#help-ukraine").element.src = "widgets/help-ukraine-win/script.js"
+    //$("#live-chat").element.src = "widgets/live-chat/script.js"
 })
 
 // Слава Україні!
