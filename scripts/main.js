@@ -41,15 +41,6 @@ $(() => {
 
     $("#ua").dblclick(() => alert("Слава Україні!", "Героям Слава!"));
 
-
-
-    $("<link>", {
-        rel: "stylesheet",
-        href: "widgets/help-ukraine-win/style.css"
-    }).appendTo(document.head)
-
-    $("#help-ukraine").element.src = "widgets/help-ukraine-win/script.js"
-    //$("#live-chat").element.src = "widgets/live-chat/script.js"
 })
 
 // Слава Україні!
