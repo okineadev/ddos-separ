@@ -6,7 +6,6 @@
 		<link rel="shortcut icon" href="meta/favicon.png">
 		<title>DDoSFA</title>
 		<link rel="stylesheet" href="styles/style.css">
-		<link rel="stylesheet" href="styles/modal.css">
 		<link rel="canonical" href="https://ddos-separ.ml">
 
 
@@ -48,7 +47,16 @@
 
 	</head>
 	<body>
-
+		
+		<top-nav data-active="">
+			<a href="#" class="active">Головна</a>
+			<a href="#guides">Гайди</a>
+			<a href="#pin-table">Pinboard</a>
+			<a href="#how-a-work-site">Про сайт</a>
+			<a href="javascript:void(0);" class="icon" onclick="topNav()">
+			  ...
+			 </a> 
+		</top-nav>
 		<main>
 
 			<div id="container">
@@ -82,16 +90,6 @@
 		</main>
 		<hr>
 
-		<div class="topnav" id="myTopnav">
-		  <a href="#sitemap" class="active">Карта</a>
-		  <a href="#guides">Гайди</a>
-		  <a href="#pin-table">Pinboard</a>
-		  <a href="#how">Про сайт</a>
-		  <a href="javascript:void(0);" class="icon" onclick="topNav()">
-		    <i class="fa fa-bars">...</i>
-		  </a>
-		</div>
-
 		<!-- Гайд -->
 		<div id="items">
 			<p>Для найефективнішої атаки на <mark>російські сайти</mark> з телефону, радимо:</p>
@@ -104,80 +102,67 @@
 
 		<p>Для запуску атаки, натисніть "Старт!"</p>
 
-		<h3>Карта сайту</h3>
-		<ul id="sitemap">
-			<li>
-				<p><a href="#guides">Гайди</a></p>
-			</li>
-			<li>
-				<p><a href="#communities">Чати та канали</a></p>
-			</li>
-			<li>
-				<p><a href="#pin-table">Pinboard</a></p>
-			</li>
-			<li>
-				<p><a href="#how-a-work-site">Як працює цей сайт</a></p>
-			</li>
-		</ul>
-
-		<span id="stack">
-			<span id="uses">
-				<!-- А це я по приколу зробив) -->
-				<img src="images/my-stack/uses-html.svg" alt="uses-html" title="uses-html">
-				<img src="images/my-stack/uses-js.svg" alt="uses-js" title="uses-js">
-				<img src="images/my-stack/uses-css.svg" alt="uses-css" title="uses-css">
-			</span>
-			<span>
-				<img src="images/my-stack/fixed-bugs.svg" id="fixed-bugs" alt="fixed-bugs" title="fixed-bugs">
-			</span>
-		</span>
+		<hr>
 
 		<h2 id="guides">Гайди по <i>DDoS</i> <img src="images/ukraine.svg" alt="Ukraine" title="Ukraine" class="flag"></h2>
 
-		<div class="guide" id="setup-cloudshell">
-			<div class="flex">
-				<h3>Запуск <i>UA Cyber SHIELD</i> на <i>Google Cloud shell</i></h3>
-				<img id="image" src="images/terminal.svg" alt="Термінал">
-			</div>
-			<ul>
-				<li>
-					<p>Заходимо на 
-						<a href="https://shell.cloud.google.com/?show=terminal&fromcloudshell=true" target="_blank">
-						сайт Cloud shell</a>
-					</p>
-				</li>
-				<li>
-					<p>І вводимо цю команду:</p>
-					<code>
-						docker run ghcr.io/opengs/uashield:master 512 true
-						<img src="images/code-slash.svg" alt="Код">
-					</code>
-				</li>
-				<li>
-					<p>Готово!</p>
-				</li>
-			</ul>
+		<!-- Slideshow container -->
+		<slideshow-container>
+		  <my-slide>
+		    <guide-item>
+					<div class="flex">
+						<h3>Запуск <i>UA Cyber SHIELD</i> на <i>Google Cloud shell</i></h3>
+						<img id="image" src="images/terminal.svg" alt="Термінал">
+					</div>
+					<ul>
+						<li>
+							<p>Заходимо на 
+								<a href="https://shell.cloud.google.com/?show=terminal&fromcloudshell=true" target="_blank">
+								сайт Cloud shell</a>
+							</p>
+						</li>
+						<li>
+							<p>І вводимо цю команду:</p>
+							<code>
+								<span color="blue">docker</span> <u>run ghcr.io/opengs/uashield:master</u> <span color="orange">512</span> <span color="red">true</span>
+							</code>
+						</li>
+						<li>
+							<p>Готово!</p>
+						</li>
+					</ul>
+				</guide-item>
+		  </my-slide>
+		  <a id="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a id="next" onclick="plusSlides(1)">&#10095;</a>
+		</slideshow-container>
+		<br>
+
+		<!-- The dots/circles -->
+		<div style="text-align:center">
+		  <span class="dot" onclick="currentSlide(1)"></span>
 		</div>
+
 
 		<div class="flex center">
 			<h2 id="communities">Чати та канали Telegram по дудосу</h2>
 			<span id="ua-telegram"></span>
 		</div>
 
-		<ul>
+		<ul id="channels">
 			<li>
-				<p><a href="tg://ddos_separ"><i>Канал з цілями для атаки</i></a></p>
+				<p><a href="tg://ddos_separ"><i>DDoS По країні сєпарів</i></a></p>
 			</li>
 		</ul>
 
 		<h2 id="pin-table"><i>Pinboard (Якщо можна це так назвати)</i></h2>
 		<ul id="pinboard">
-			<li><p>Цьому сайту більше ніж 2 тижня</span></p></li>
+			<li><p>Цьому сайту напевно більше ніж 2 місяці</span></p></li>
 			<li>
 				<p>Щоб дудос стабільно працював - потрібно не менше ніж <mark>400МБ</mark> оперативної пам'яті <img src="images/cpu.svg" alt="Процесор"></p>
 			</li>
 			<li><p>Взагалі то я раджу дудосити з віртуальних серверів, там набагато швидший інтернет, через те й вища швидкість дудосу</p></li>
-			<li><p>Цілі для цього сайту беруться з UA Cyber SHIELD, а вони беруть цілі з <mark>ІТ Армії України</mark></p></li>
+			<li><p>Цілі для цього сайту беруться з UA Cyber SHIELD, а вони беруть цілі з <mark><i><u>ІТ Армії України</u></i></mark></p></li>
 		</ul>
 
 		<hr>
@@ -211,11 +196,23 @@
 			<p>Якщо самому лупашити російський танк палкою - нічого не вийде</p>
 			<p>Але якщо 1000 людей будуть лупити того танка - то його точно завалять.</p>
 		</div>
+
+		<span id="stack">
+			<span id="uses">
+				<!-- А це я по приколу зробив) -->
+				<img src="images/my-stack/uses-html.svg" alt="uses-html" title="uses-html">
+				<img src="images/my-stack/uses-js.svg" alt="uses-js" title="uses-js">
+				<img src="images/my-stack/uses-css.svg" alt="uses-css" title="uses-css">
+			</span>
+			<span>
+				<img src="images/my-stack/fixed-bugs.svg" id="fixed-bugs" alt="fixed-bugs" title="fixed-bugs">
+			</span>
+		</span>
 		
 		<!-- Не зачіпай! -->
 		<div id="frames"></div>
 
-		<div id="modalBox">
+		<modal-box>
 			<div id="modal-content">
 			  <div id="modal-header">
 			    <span id="close">&times;</span>
@@ -229,10 +226,7 @@
 			    <h3 id="footer"></h3>
 			  </div>
 			</div>
-		</div>
-
-		<!-- Віджет -->
-		<script id="help-ukraine"></script>
+		</modal-box>
 
 	</body>
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KXBF8HS"

@@ -26,29 +26,32 @@ class Selector{
 				else if (typeof s=='object') {e = s}
 
 				if (e) {
-					this.element = e
+					this[0] = e
 					this.appendTo = e => {
 						if (e instanceof Document || e instanceof Element) {
-							e.appendChild(this.element)
+							e.appendChild(this[0])
 						} else if (e instanceof Selector) {
-							e.element.appendChild(this.element)
+							e[0].appendChild(this[0])
 						}
 					};
 					this.text = t => {
 						if (!t) {
-							return this.element.textContent;
+							return this[0].textContent;
 						}
-						this.element.textContent = t;
+						this[0].textContent = t;
 						return this
 					};
-					this.on = (e, f, d) => this.element.addEventListener(e, f, d);
+					this.css = c => {for (let i in c) this[0].style.setProperty(i, c[i]);return this};
+					this.removeCss = c => {for (let i in c) this[0].style.removeProperty(i, c[i]);return this};
+					this.on = (e, f, d) => this[0].addEventListener(e, f, d);
 					this.click = (f, d) => this.on('click', f, d);
 					this.dblclick = (f, d) => this.on('dblclick', f, d);
-					this.remove = () => {try{this.element.remove()}catch{}}
+					this.remove = () => {try{this[0].remove()}catch{}}
 				}
 			}
 		}
 	}
 };
+
 
 const $ = (s, d) => new Selector(s, d)

@@ -1,14 +1,15 @@
 // Alert modal box ===================================
+
 function topNav() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
+    let x = $('top-nav')[0];
+    if (x.dataset.active) {
+        x.dataset.active = ""
     } else {
-        x.className = "topnav";
+        x.dataset.active = "1"
     }
 }
 
-let modal = $('#modalBox').element;
+let modal = $('modal-box')[0];
 let close = $("#close");
 
 function alert(header='Повідомлення', text) {
@@ -32,4 +33,24 @@ window.onclick = e => {
         clearModal();
         modal.style.display = "none";
     }
+}
+
+
+let slideIndex = 1;
+showSlides(slideIndex);
+
+const plusSlides = n => showSlides(slideIndex += n);
+const currentSlide = n => showSlides(slideIndex = n);
+
+function showSlides(n) {
+    let i;
+    let slides = $("my-slide", "all")[0];
+    let dots = $(".dot", "all")[0];
+    if (n > slides.length) slideIndex = 1;
+    if (n < 1) slideIndex = slides.length;
+    for (let i of slides) i.style.display = "none";
+    for (let i of dots) i.className = i.className.replace(" active", "");
+
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
 }

@@ -1,69 +1,21 @@
 @import url("../mainstyle.css");
-@import url("transitions.css");
+@import url("box.css");
+@import url("modal.css");
+@import url("colors.css");
 
 :root {
 	--hr-image: url("../images/hr.svg");
+	--terminal: url("../images/terminal.svg");
+	--telegram: url("../images/communities/telegram.svg");
+	--ukraine: url("../images/ukraine.svg");
+	--pinboard-bg: to right, #00ffd396, transparent;
+	--box-bg: to top, #000, transparent;
 	--shadows: 2px 2px 2px #444;
 }
 
-mark, code, h3, #stack * img, .item, button, #ua, .tooltip {cursor: pointer}
+mark, code, h3, #stack * img, .item, button, #ua, .tooltip, #prev, #next, .dot {cursor: pointer}
 
 mark {padding: 1px 2px}
-
-#container {
-	border: 4px solid #fff;
-	border-radius: 20px;
-	box-shadow: 5px 5px 5px #444;
-	margin-bottom: 25px;
-	appearance: auto;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: center;
-	display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-@media only screen and (max-device-width: 1366px) {
-	#container {background-image: url("../background/Phone/1.jpg")}
-}
-
-@media only screen and (min-device-width: 1366px) {
-	#container {background-image: url("../background/Desktop/1.jpg")}
-}
-
-#title {
-	padding: 20px;
-	color: #fff;
-	font-size: 30px;
-	border: 2px;
-	text-shadow: var(--shadows);
-}
-
-
-#box {
-	border: 4px solid #838383;
-	border-radius: 30px;
-	box-shadow: 5px 5px 5px #444;
-	text-shadow: var(--shadows);
-	padding: 20px;
-	appearance: auto;
-	background: linear-gradient(to top, black, transparent);
-	display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-}
-#box p {margin: 10px 0 0}
-
-
-button {
-	border-color: #00ffff;
-	border-radius: 30px;
-	width: 83px;
-	height: 30px;
-	font-size: 16px;
-}
-button:hover {border-color: #ffff00}
 
 
 h2 {
@@ -135,62 +87,58 @@ mark:hover {background-color: #00ffff}
 
 #frames {visibility: hidden}
 
-.guide {
+guide-item {
 	padding: 0 18px;
-	border: 5px solid #dfdfdf;
 	border-radius: 20px;
-	appearance: auto;
 	color: #fff;
-	background-color: #292929;
+	background-color: #313131;
 	display: inline-block;
+	width: -webkit-fill-available;
 }
-.guide h3 {margin-bottom: 5px}
+guide-item h3 {margin-bottom: 5px}
 
-.guide:hover {
-	background-color: #fff;
-	box-shadow: 4px 4px 4px #444;
-	color: #000;
-}
 
 .flex {
 	display: flex;
 	align-items: center;
     flex-direction: row;
     align-content: stretch;
-    justify-content: space-around;
+    justify-content: center;
 }
-.guide .flex #image {
+guide-item .flex #image {
 	margin: 10px 0 0 10px;
 	width: 32px;
 	height: 32px;
-	background: url("../images/terminal.svg");
+	background: var(--terminal);
 	background-size: cover;
 }
 
 
-.guide code {
-	display: flex;
-	flex-direction: row;
-	align-content: stretch;
-    justify-content: space-around;
+guide-item code {
 	font-family: "Comic Sans MS";
 	padding: 0 5px;
 	border: 2px solid #363636;
     border-radius: 7px;
     color: #fff;
-    background-color: #424242;
+    background: #232323;
+    display: block;
+    width: fit-content;
+    word-break: break-all;
 }
 
-.guide:hover code {background-color: #292929}
-.guide:hover .flex #image {background-image: url("../images/terminal-fill.svg")}
 
-.guide a {
+guide-item:hover {box-shadow: 4px 4px 4px #444}
+
+guide-item a {
 	color: currentcolor;
 	transition: none;
 }
 
 #pinboard {
-	background: linear-gradient(to right, #00ffd396, transparent);
+	background: -webkit-linear-gradient(var(--pinboard-bg));
+	background: -moz-linear-gradient(var(--pinboard-bg));
+	background: -o-linear-gradient(var(--pinboard-bg));
+	background: linear-gradient(var(--pinboard-bg));
     border-radius: 20px;
     padding: 1px 0 1px 40px;
 }
@@ -199,7 +147,7 @@ mark:hover {background-color: #00ffff}
 
 .flag {border-radius: 4px}
 
-.how {margin-left: 20px}
+.how {margin: 0 20px 26px;}
 
 .how p {
 	margin: 5px 0;
@@ -210,11 +158,6 @@ mark:hover {background-color: #00ffff}
 
 .how mark {font-family: Arial}
 
-#sitemap p {
-	margin: 1px 0;
-	font-size: 16px;
-}
-#sitemap li:hover::marker {color: yellow}
 #nav {
 	text-align: left;
 	margin: 28px 0 18px 18px;
@@ -230,12 +173,12 @@ hr {
 	width: auto;
 	height: 16px;
 	background-size: contain;
-	box-shadow: 0 0 6px 0 #fff;
+	box-shadow: 0 0 2px 0 #fff;;
 	background-origin: border-box;
 }
 
 #ua-telegram {
-	background: url("../images/communities/telegram.svg"), url("../images/ukraine.svg");
+	background: var(--telegram), var(--ukraine);
 	background-repeat: no-repeat;
 	background-size: cover;
 	width: 24px;
@@ -247,12 +190,20 @@ hr {
 .center {justify-content: center}
 
 
-.topnav {
-    background-color: #333;
+
+top-nav {
+    background: -webkit-linear-gradient(#000, #2e2e2e);
+    background: -moz-linear-gradient(#000, #2e2e2e);
+    background: -o-linear-gradient(#000, #2e2e2e);
+    background: linear-gradient(#000, #2e2e2e);
     overflow: hidden;
+    display: block;
+    z-index: 2;
+    border-radius: 5px 5px 0 0;
+    font-family: "Comic Sans MS";
 }
 
-.topnav a {
+top-nav a {
     float: left;
     display: block;
     color: #f2f2f2;
@@ -262,40 +213,106 @@ hr {
     font-size: 17px;
 }
 
-.topnav a:hover {
+top-nav a:hover {
     background-color: #ddd;
-    color: black;
+    color: #000;
 }
 
-.active {
-    background-color: #ff9300;
-    color: white;
+top-nav .active {
+    background-color: #e5bc00;
+    color: #fff;
 }
 
-.topnav .icon {
+top-nav .icon {
     display: none;
 }
 
+
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
+  	top-nav a:not(:first-child) {display: none;}
+  	top-nav a.icon {
+    	float: right;
+    	display: block;
+  	}
 }
 
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive a.icon {
+  	top-nav[data-active="1"] {
+  		position: relative;
+  		animation-name: animatetop;
+    	animation-duration: 0.4s
+  	}
+  	top-nav[data-active="1"] a.icon {
+    	position: absolute;
+    	right: 0;
+    	top: 0;
+  	}
+  	top-nav[data-active="1"] a {
+    	float: none;
+    	display: block;
+    	text-align: left;
+  	}
+}
+
+
+
+
+
+slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+    display: block;
+}
+my-slide {
+	display: block;
+    display: none;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+#prev, #next {
     position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+}
+#next {
     right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
+    border-radius: 3px 0 0 3px;
+}
+#prev:hover, #next:hover {
+    background: #000000cc;
+}
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+slideshow-container.active, .dot:hover {
+    background-color: #717171;
 }
 
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
 
+#items p, 
+.tooltip .tooltiptext, 
+guide-item, guide-item li::marker, guide-item code, a, mark, button {transition: .4s ease-out}

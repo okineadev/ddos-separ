@@ -1,15 +1,12 @@
 @import url("../mainstyle.css");
-@import url("../styles/transitions.css");
 
 h1 {
 	text-shadow: 5px 5px 5px #444;
 	font-size: 6ex;
-	background-image: url("../images/hr.svg");
-	background-size: cover;
 }
 
 hr {
-	background: #fff, url("../images/hr.svg");
+	background: url("../images/hr.svg"), #fff;
 	width: 12em;
 	height: 20px;
 	background-size: contain;

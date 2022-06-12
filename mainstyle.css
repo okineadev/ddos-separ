@@ -8,7 +8,7 @@
 body, a {color: #fff}
 body {background-color: #222}
 main {text-align: center}
-a:hover {color: #00ffff}
+a:not(.prev, .next, .huww-button, .huww-action, top-nav a):hover {color: #00ffff}
 
 p, code, #resources, #nav {font-family: "Comic Sans MS"}
 p, #resources {font-size: 18px}

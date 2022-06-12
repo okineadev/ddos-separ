@@ -1,0 +1,51 @@
+#container {
+	border-radius: 0 0 20px 20px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media screen and (max-device-width: 1366px) {
+	#container {background-image: url("../background/Phone/1.jpg")}
+}
+
+@media screen and (min-device-width: 1366px) {
+	#container {background-image: url("../background/Desktop/1.jpg")}
+}
+
+#title {
+	padding: 20px;
+	color: #fff;
+	font-size: 30px;
+	border: 2px;
+	text-shadow: var(--shadows);
+}
+
+
+#box {
+	border-radius: 30px;
+	text-shadow: var(--shadows);
+	padding: 20px;
+	appearance: auto;
+	background: -webkit-linear-gradient(var(--box-bg));
+	background: -moz-linear-gradient(var(--box-bg));
+	background: -o-linear-gradient(var(--box-bg));
+	background: linear-gradient(var(--box-bg));
+	display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+#box p {margin: 10px 0 0}
+
+
+button {
+	border-color: #00ffff;
+	border-radius: 30px;
+	width: 83px;
+	height: 30px;
+	font-size: 16px;
+}
+button:hover {border-color: #ffff00}

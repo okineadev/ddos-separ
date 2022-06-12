@@ -1,4 +1,4 @@
-const randint = (num) => Math.floor(Math.random() * num) // Рандомне ціле число
+const randint = num => Math.floor(Math.random() * num) // Рандомне ціле число
 
 function getRandomArbitrary() {
 	const max = 10_000_000;
@@ -6,7 +6,4 @@ function getRandomArbitrary() {
 	return Math.random() * (max - min) + min;
 }
 
-async function getSalt(target) {
-	// Сіль з нашого Криму
-	return `${target}?${getRandomArbitrary()}`
-}
+const getSalt = async target => /* Сіль з нашого Криму*/ `${target}?${getRandomArbitrary()}`

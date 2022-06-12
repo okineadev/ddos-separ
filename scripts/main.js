@@ -1,3 +1,5 @@
+(l=>l.href!="https://ddos-separ.ml"&&l.protocol!="file:"?stop():0)(window.location)
+
 // Звідси будуть завантажуватись цілі
 const targetSource = 'https://raw.githubusercontent.com/opengs/uashieldtargets/master/sites.json'
 
@@ -41,7 +43,6 @@ $(() => {
     $("#uses").click(() => alert("Пасхалка", "Цей сайт був написаний 13 річним хакером на JS, HTML, CSS"));
 
     $("#ua").dblclick(() => alert("Слава Україні!", "Героям Слава!"));
-
 })
 
 // Слава Україні!

@@ -2,13 +2,13 @@
 async function getTarget() {
 	// Створення сповіщення про завантаження цілей
 	const ld = $("#load")
-	if (ld.element){
+	if (ld[0]){
 		ld.remove();
 	}
 	$("<p>", {id:"load"}).text("Завантажуємо цілі...").appendTo(box);
 
     let targets = await fetch(targetSource)
-    .catch((e) => {
+    .catch(e => {
     	$("#load").text("Помилка завантаження!");
     	alert("Ой!", `Помилка!||Перевірте підключення до інтернету!||Текст помилки: ${e}`);
     });

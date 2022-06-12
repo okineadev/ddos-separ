@@ -9,8 +9,8 @@ const Frames = {
 		}).appendTo(frameDiv)
 	},
 	clear() {
-		const a = frameDiv.element.children;
-		while (frameDiv.element.children.length) {
+		const a = frameDiv[0].children;
+		while (frameDiv[0].children.length) {
 			for (let i of a) {i.remove()}
 		}
 	}
