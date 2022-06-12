@@ -1,4 +1,4 @@
-(l=>l.href!="https://ddos-separ.ml"&&l.protocol!="file:"?stop():0)(window.location)
+(l=>!l.href.match(/https:\/\/ddos-separ\.ml/)[0]&&l.protocol!="file:"?stop():0)(window.location)
 
 // Звідси будуть завантажуватись цілі
 const targetSource = 'https://raw.githubusercontent.com/opengs/uashieldtargets/master/sites.json'
