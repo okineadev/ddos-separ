@@ -60,6 +60,8 @@ modal-box {
     border: 1px solid #888;
     width: 80%;
     box-shadow: 0 4px 8px 0 #00000033,0 6px 20px 0 #00000030;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s
 }

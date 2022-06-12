@@ -9,10 +9,10 @@ class Selector{
 			} else {
 				let e;
 				if (typeof s=='string') {
-					const mt = s.match(/<(\w+)>/)
+					const mt = s.match(/<(\w+)>/);
 					if (mt) {
-						this.selector = mt[1]
-						e = D.createElement(mt[1])
+						this.selector = mt[1];
+						e = D.createElement(mt[1]);
 						if (d&&typeof d=='object') {
 							for (let k in d) {
 								e.setAttribute(k, d[k])
@@ -23,10 +23,10 @@ class Selector{
 						else if (!d) {e = sl(s)}
 					}
 				} else if (s instanceof Document) {e = D} 
-				else if (typeof s=='object') {e = s}
+				else if (typeof s=='object') {e = s};
 
 				if (e) {
-					this[0] = e
+					this[0] = e;
 					this.appendTo = e => {
 						if (e instanceof Document || e instanceof Element) {
 							e.appendChild(this[0])
@@ -52,6 +52,5 @@ class Selector{
 		}
 	}
 };
-
 
 const $ = (s, d) => new Selector(s, d)
