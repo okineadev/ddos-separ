@@ -45,15 +45,6 @@ $(() => {
     $("#ua").dblclick(() => alert("Слава Україні!", "Героям Слава!"));
 
     $("top-nav a:not(:last-child)", "all")[0].forEach(i=>i.onclick=e=>$(e.target.dataset.link)[0].scrollIntoView({behavior:'smooth',block:'center'}))
-
-    if (!Database['new-user']) {
-        alert("Повідомлення", "Для початку:", 
-        'Завантажте програму VPN - <a href="https://play.google.com/store/apps/details?id=vpn.russia_tap2free&hl=uk&gl=US">Скачати</a>', 
-        "Зайдіть в програму", "Надайте потрібні дозволи для програми",
-        'Натисніть на кнопку "Підключитись"', 'Зайдіть на сайт і натисніть кнопку "Старт!"',
-        "Все!");
-        Database['new-user'] = true
-    }
     
 })
 
