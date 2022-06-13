@@ -48,10 +48,10 @@
 	</head>
 	<body>
 		<top-nav data-active="">
-			<a href="#" id="active">Головна</a>
-			<a href="#guides">Гайди</a>
-			<a href="#pin-table">Pinboard</a>
-			<a href="#how-a-work-site">Про сайт</a>
+			<a data-link="#" id="active">Головна</a>
+			<a data-link="slideshow-container">Гайди</a>
+			<a data-link="#pinboard">Pinboard</a>
+			<a data-link="#how-a-work-site">Про сайт</a>
 			<a href="javascript:void(0);" class="icon" onclick="topNav()">
 			  ...
 			</a> 
@@ -100,8 +100,6 @@
 			<p>4. Вимкнути режим енергозбереження</p>
 			<p>5. Розташувати телефон в місці <mark>найкращої якості</mark> інтернету</p>
 		</div>
-
-		<p>Для запуску атаки, натисніть "Старт!"</p>
 
 		<hr>
 
@@ -173,13 +171,6 @@
 		<div class="how">
 			<p>Цей сайт - це практично додаток на телефон або ноутбук</p>
 			<p>Тут нічого не треба знати, тільки вміти читати</p>
-			<p><mark>ПЕРЕД ТИМ</mark>, Як почати атаку, треба скачати VPN(в плей маркеті напишіть "VPN росія")</p>
-			<p>Завантажуєте програму</p>
-			<p>Там має бути кнопка <mark>"Підключитись"</mark></p>
-			<p>Натискаєте</p>
-			<p>Тепер у вас російський IP, і сєпарські сайти вас можуть пропускати, а не блокувати</p>
-			<p>Далі заходите на цей сайт, і натискаєте "Старт!"</p>
-			<h3>То ЯК працює сайт?</h3>
 			<h3>Він працює на такому прикладі:</h3>
 			<p>Сидить собі російський сайт, і йому треба відізиватись на слово "Здоров!"</p>
 			<p>І приходить хтось з Українським IP, і каже: Здоров!</p>
@@ -214,19 +205,23 @@
 		<div id="frames"></div>
 
 		<modal-box>
-			<div id="modal-content">
-			  <div id="modal-header">
+			<modal-content>
+
+			  <modal-header>
 			    <span id="close">&times;</span>
 			    <h2 id="header"></h2>
-			  </div>
-			  <div id="modal-body">
+			  </modal-header>
+
+			  <modal-body>
 			    <div id="text">
 			    </div>
-			  </div>
-			  <div id="modal-footer">
+			  </modal-body>
+
+			  <modal-footer>
 			    <h3 id="footer"></h3>
-			  </div>
-			</div>
+			  </modal-footer>
+			  
+			</modal-content>
 		</modal-box>
 
 	</body>

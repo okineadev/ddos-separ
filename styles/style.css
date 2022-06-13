@@ -129,10 +129,11 @@ guide-item code {
 
 guide-item:hover {box-shadow: 4px 4px 4px #444}
 
-guide-item a {
-	color: currentcolor;
+guide-item a, modal-box a{
 	transition: none;
 }
+
+modal-box a {color: #000}
 
 #pinboard {
 	background: -webkit-linear-gradient(var(--pinboard-bg));

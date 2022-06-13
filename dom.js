@@ -43,6 +43,7 @@ class Selector{
 					};
 					this.css = c => {for (let i in c) this[0].style.setProperty(i, c[i]);return this};
 					this.removeCss = c => {for (let i in c) this[0].style.removeProperty(i, c[i]);return this};
+					this.innerHtml = c => {this[0].innerHTML = c; return this};
 					this.on = (e, f, d) => this[0].addEventListener(e, f, d);
 					this.click = (f, d) => this.on('click', f, d);
 					this.dblclick = (f, d) => this.on('dblclick', f, d);

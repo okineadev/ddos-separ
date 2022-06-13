@@ -10,7 +10,7 @@ async function getTarget() {
     let targets = await fetch(targetSource)
     .catch(e => {
     	$("#load").text("Помилка завантаження!");
-    	alert("Ой!", `Помилка!||Перевірте підключення до інтернету!||Текст помилки: ${e}`);
+    	alert("Ой!", "Помилка!", "Перевірте підключення до інтернету!", `Текст помилки: ${e}`);
     });
     if (targets instanceof Response) { // Якщо запит повернув результат
     	const data = await targets.json();

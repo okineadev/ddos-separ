@@ -12,7 +12,10 @@ modal-box {
     color: black;
 }
 
-#modal-content {
+modal-box p {margin: 11px 0}
+
+modal-content {
+    display: block;
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
@@ -36,23 +39,27 @@ modal-box {
     text-shadow: 1px 1px 3px #fff;
 }
 
-#modal-header {
+modal-header {
+    display: block;
     padding: 2px 16px;
     background-color: #000000d1;
     color: white;
 }
-#modal-header h2 {text-align: left}
+modal-header h2 {text-align: left}
 
-#modal-body {padding: 2px 16px;}
+modal-body {
+    display: block;
+    padding: 2px 16px;
+}
 
-/* Modal Footer */
-#modal-footer {
+modal-footer {
+    display: block;
     padding: 2px 16px;
     background-color: #1cd1a7;
     color: #fff;
 }
 
-#modal-content {
+modal-content {
     position: relative;
     background-color: #fefefe;
     margin: auto;

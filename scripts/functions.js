@@ -1,5 +1,3 @@
-// Alert modal box ===================================
-
 function topNav() {
     let x = $('top-nav')[0];
     if (x.dataset.active) {
@@ -12,13 +10,13 @@ function topNav() {
 let modal = $('modal-box')[0];
 let close = $("#close");
 
-function alert(header='Повідомлення', text) {
+function alert(header) {
     clearModal();
-    $("#modal-header #header").text(header)
-    let modalText = $("#modal-body #text")
+    $("modal-header #header").text(header)
+    let modalText = $("modal-body #text")
 
-    for (let p of text.split("||")) {
-        $("<p>").text(p).appendTo(modalText)
+    for (let t of Array.from(arguments).slice(1)) {
+        $("<p>").innerHtml(t).appendTo(modalText)
     }
 
     modal.style.display = "block";
