@@ -1,13 +1,13 @@
-(l=>l.hostname!="ddos-separ.ml"&&l.protocol!="file:"?stop():0)(window.location)
-
 // Звідси будуть завантажуватись цілі
 const targetSource = 'https://raw.githubusercontent.com/opengs/uashieldtargets/master/sites.json'
 
-const saverInterval = 3000
 const attackInterval = 200
 
 // Функції для керування документом
-const add_count = () => attacks.text(parseInt(attacks.text()) + 1)
+function add_count () {
+    attacks.text(parseInt(attacks.text()) + 1);
+    (d=>d.attacks = parseInt(d.attacks) + 1)(Database)
+}
 
 let frameDiv, attacks, targetField, methodField, btn, box;
 
@@ -25,6 +25,7 @@ $(() => {
     // https://github.com/BogdanDevUA/simple-ddos/
     btn = $("#button-text")
     box = $("#box")
+
     Doser = new Doser; // Ініціалізація воркера
 
     $("#button").click(() => !Doser.attack ? Doser.start() : Doser.stop());

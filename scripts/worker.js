@@ -42,19 +42,13 @@ class Doser {
 
         	add_count();
 
-        	if ($("#frames")[0].childElementCount >= 200) {Frames.clear()};
+        	if ($("#frames")[0].childElementCount >= 100) Frames.clear();
         }, attackInterval);
-
-        this.saver /*Цикл збереження данних про кількість атак*/ = setInterval(() => {
-        	Database.attacks = parseInt(Database.attacks) + 15
-        	console.log("Saved!");
-        }, saverInterval);
     };
     stop() {
     	if (this.interval) {
 	    	this.attack = false;
 	    	clearInterval(this.interval);
-	    	clearInterval(this.saver);
 	    	Frames.clear();
 	    	btn.text("Старт!")
     	}

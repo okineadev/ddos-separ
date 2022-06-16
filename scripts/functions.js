@@ -1,11 +1,4 @@
-function topNav() {
-    let x = $('top-nav')[0];
-    if (x.dataset.active) {
-        x.dataset.active = ""
-    } else {
-        x.dataset.active = "1"
-    }
-}
+const topNav = () => (d => d.active ? d.active = "" : d.active = "1")($('top-nav')[0].dataset);
 
 let modal = $('modal-box')[0];
 let close = $("#close");

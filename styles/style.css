@@ -30,7 +30,7 @@ h2 {
 	color: #000;
 	background-color: #fff;
 	box-shadow: 5px 5px 5px #444444a1;
-	border-radius: 50px;
+	border-radius: 100px;
 	padding: 12px 18px;
 	margin: 7px 0;
 	text-align: center;
@@ -115,7 +115,6 @@ guide-item .flex #image {
 
 
 guide-item code {
-	font-family: "Comic Sans MS";
 	padding: 0 5px;
 	border: 2px solid #363636;
     border-radius: 7px;
@@ -226,25 +225,25 @@ top-nav .icon {
 }
 
 @media screen and (max-width: 600px) {
-  top-nav a:not(:first-child) {display: none;}
-  top-nav a.icon {
-    float: right;
-    display: block;
-  }
+	top-nav a:not(:first-child) {display: none}
+	top-nav a.icon {
+		float: right;
+		display: block;
+  	}
 }
 
 @media screen and (max-width: 600px) {
-  top-nav[data-active="1"] {position: relative;}
-  top-nav[data-active="1"] a.icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  top-nav[data-active="1"] a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
+	top-nav[data-active="1"] {position: relative}
+	top-nav[data-active="1"] a.icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	top-nav[data-active="1"] a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
 }
 
 
