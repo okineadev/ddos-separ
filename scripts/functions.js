@@ -15,7 +15,7 @@ function alert(header) {
     modal.style.display = "block";
 }
 
-clearModal = () => document.querySelectorAll("#header, #text p").forEach(e => e.textContent='')
+const clearModal = () => document.querySelectorAll("#header, #text p").forEach(e => e.textContent='')
 
 close.click(() => {modal.style.display = "none"; clearModal()})
 

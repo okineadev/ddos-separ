@@ -1,10 +1,12 @@
 // Завантаження цілей
 async function getTarget() {
+	
 	// Створення сповіщення про завантаження цілей
 	(l=>{if (l[0]) l.remove()})($("#load"))
 
 	$("<p>", {id:"load"}).text("Завантажуємо цілі...").appendTo(box);
 
+	// Завантаження цілей
     let targets = await fetch(targetSource)
     .catch(e => {
     	$("#load").text("Помилка завантаження!");
@@ -25,13 +27,4 @@ async function getTarget() {
 	   	
 	    return targets[randint(targets.length)]; // Рандомна ціль
     };
-}
-
-function setTarget(target) {
-	if (target) {
-		targetField.text(target.page);
-	    methodField.text(target.method.toUpperCase());
-	    return
-	};
-	return true
 }

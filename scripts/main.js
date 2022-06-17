@@ -1,14 +1,6 @@
 // Звідси будуть завантажуватись цілі
 const targetSource = 'https://raw.githubusercontent.com/opengs/uashieldtargets/master/sites.json'
 
-const attackInterval = 200
-
-// Функції для керування документом
-function add_count () {
-    attacks.text(parseInt(attacks.text()) + 1);
-    (d=>d.attacks = parseInt(d.attacks) + 1)(Database)
-}
-
 let frameDiv, attacks, targetField, methodField, btn, box;
 
 const Database = window.localStorage

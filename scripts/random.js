@@ -5,5 +5,3 @@ function getRandomArbitrary() {
 	const min = 100_000;
 	return Math.random() * (max - min) + min;
 }
-
-const getSalt = async target => /* Сіль з нашого Криму*/ `${target}?q=${getRandomArbitrary()}`

@@ -10,6 +10,7 @@
 	--ukraine: url("../images/ukraine.svg");
 	--pinboard-bg: to right, #00ffd396, transparent;
 	--box-bg: to top, #000, transparent;
+	--top-nav-bg: to bottom, black, transparent;
 	--shadows: 2px 2px 2px #444;
 }
 
@@ -193,43 +194,44 @@ hr {
 
 
 top-nav {
-    background-color: #333;
-    overflow: hidden;
-    display: block;
-    border-radius: 9px 9px 0 0;
+	background: -webkit-linear-gradient(var(--top-nav-bg));
+	background: -moz-linear-gradient(var(--top-nav-bg));
+	background: -o-linear-gradient(var(--top-nav-bg));
+	background: linear-gradient(var(--top-nav-bg));
+	overflow: hidden;
+	display: block;
+	border-radius: 9px 9px 0 0;
 }
 
 top-nav a {
-    float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    font-family: "Comic Sans MS";
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+	font-family: "Comic Sans MS";
 }
 
 top-nav a:hover {
-    background-color: #ddd;
-    color: black;
+	background-color: #ddd;
+	color: black;
 }
 
 top-nav #active {
-    background-color: #ffbf00;
-    color: white;
+	background-color: #ffbf00;
+	color: white;
 }
 
-top-nav .icon {
-    display: none;
-}
+top-nav .icon {display: none}
 
 @media screen and (max-width: 600px) {
 	top-nav a:not(:first-child) {display: none}
 	top-nav a.icon {
 		float: right;
 		display: block;
-  	}
+	}
 }
 
 @media screen and (max-width: 600px) {
@@ -259,52 +261,51 @@ slideshow-container {
 }
 my-slide {
 	display: block;
-    display: none;
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
+	display: none;
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
 }
 #prev, #next {
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	margin-top: -22px;
+	padding: 16px;
+	color: white;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
 }
 #next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
+	right: 0;
+	border-radius: 3px 0 0 3px;
 }
-#prev:hover, #next:hover {
-    background: #000000cc;
-}
+#prev:hover, #next:hover {background: #000000cc}
+
 .dot {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
 }
 slideshow-container.active, .dot:hover {
-    background-color: #717171;
+	background-color: #717171;
 }
 
 @keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
+	from {opacity: .4}
+	to {opacity: 1}
 }
 
 @-webkit-keyframes fade {
-    from {opacity: .4}
-    to {opacity: 1}
+	from {opacity: .4}
+	to {opacity: 1}
 }
 
 
