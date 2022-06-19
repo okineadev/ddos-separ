@@ -1,0 +1,3 @@
+include: [.htaccess]
+timezone: Europe/Kiev
+encoding: utf-8

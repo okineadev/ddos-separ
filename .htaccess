@@ -1,7 +1,9 @@
 RewriteEngine on
-RewriteCond %{HTTP_HOST} ^www\.example\.com [NC]
-RewriteRule ^(.*)$ http://example.com/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.ddos-separ\.ml [NC]
+RewriteRule ^(.*)$ http://ddos-separ.ml/$1 [L,R=301]
 
 <IfModule headers_module>
 Header set X-Frame-Options: "DENY"
+Header set X-XSS-Protection: 1
+Header set Public-Key-Pins: "pin-sha256: \"47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=\"; max-age=5184000; includeSubDomains;"
 </IfModule>

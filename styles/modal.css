@@ -14,15 +14,6 @@ modal-box {
 
 modal-box p {margin: 11px 0}
 
-modal-content {
-    display: block;
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
 #close {
     color: #fff;
     float: right;
@@ -70,7 +61,13 @@ modal-content {
     animation-name: animatetop;
     animation-duration: 0.4s;
     -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s
+    -webkit-animation-duration: 0.4s;
+    display: block;
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
 }
 
 @-webkit-keyframes animatetop {

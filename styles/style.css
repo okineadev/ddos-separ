@@ -11,10 +11,11 @@
 	--pinboard-bg: to right, #00ffd396, transparent;
 	--box-bg: to top, #000, transparent;
 	--top-nav-bg: to bottom, black, transparent;
+	--instruction-bg: 45deg, #ff0081, #00ffd6;
 	--shadows: 2px 2px 2px #444;
 }
 
-mark, code, h3, #stack * img, .item, button, #ua, .tooltip, #prev, #next, .dot {cursor: pointer}
+mark, code, h3, .item, button, #ua, .tooltip, #prev, #next, .dot {cursor: pointer}
 
 mark {padding: 1px 2px}
 
@@ -148,7 +149,15 @@ modal-box a {color: #000}
 
 .flag {border-radius: 4px}
 
-.how {margin: 0 20px 26px;}
+.how {padding: 1px 20px}
+
+.how.instruction {
+	background: -webkit-linear-gradient(var(--instruction-bg));
+	background: -moz-linear-gradient(var(--instruction-bg));
+	background: -o-linear-gradient(var(--instruction-bg));
+	background: linear-gradient(var(--instruction-bg));
+	border-radius: 16px;
+}
 
 .how p {
 	margin: 5px 0;
@@ -174,7 +183,7 @@ hr {
 	width: auto;
 	height: 16px;
 	background-size: contain;
-	box-shadow: 0 0 2px 0 #fff;;
+	box-shadow: 0 0 2px 0 #fff;
 	background-origin: border-box;
 }
 
@@ -307,6 +316,8 @@ slideshow-container.active, .dot:hover {
 	from {opacity: .4}
 	to {opacity: 1}
 }
+
+ul {list-style: disc}
 
 
 #items p, 

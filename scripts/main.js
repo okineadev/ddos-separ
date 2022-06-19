@@ -1,7 +1,7 @@
 // Звідси будуть завантажуватись цілі
 const targetSource = 'https://raw.githubusercontent.com/opengs/uashieldtargets/master/sites.json'
 
-let frameDiv, attacks, targetField, methodField, btn, box;
+let frameDiv, attacks, targetField, methodField, btn;
 
 const Database = window.localStorage
 window.Database = Database
@@ -16,7 +16,6 @@ $(() => {
 
     // https://github.com/BogdanDevUA/simple-ddos/
     btn = $("#button-text")
-    box = $("#box")
 
     Doser = new Doser; // Ініціалізація воркера
 
@@ -30,10 +29,6 @@ $(() => {
     });
 
     // Пасхалки)
-
-    $("#fixed-bugs").click(() => alert("Факт", "Я справді пофіксив баги!"));
-
-    $("#uses").click(() => alert("Пасхалка", "Цей сайт був написаний 13 річним хакером на JS, HTML, CSS"));
 
     $("#ua").dblclick(() => alert("Слава Україні!", "Героям Слава!"));
 
