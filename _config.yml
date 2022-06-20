@@ -1,3 +1,4 @@
+exclude: ['LICENSE', 'README.md']
 include: ['.htaccess']
 
 timezone: Europe/Kiev
