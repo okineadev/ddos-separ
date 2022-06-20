@@ -1,4 +1,4 @@
-include: ['.htaccess']
+exclude: ['index.html']
 
 timezone: Europe/Kiev
 encoding: utf-8
