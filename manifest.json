@@ -1,0 +1,16 @@
+{
+  "name": "DDoS For All",
+  "short_name": "DDoSFA",
+  "description": "Простий DDoS для всіх",
+  "lang": "uk",
+  "start_url": "/",
+  "display": "fullscreen",
+  "theme_color": "#00ffd6",
+  "icons": [
+    {
+      "src": "meta/apple-touch-icon.png",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#222"
+}
