@@ -12,6 +12,7 @@
 	--box-bg: to top, #000, transparent;
 	--top-nav-bg: to bottom, black, transparent;
 	--instruction-bg: 45deg, #ff0081, #00ffd6;
+	--guide-bg: 45deg, #313131, transparent;
 	--shadows: 2px 2px 2px #444;
 }
 
@@ -91,7 +92,10 @@ guide-item {
 	padding: 0 18px;
 	border-radius: 20px;
 	color: #fff;
-	background-color: #313131;
+	background: -webkit-linear-gradient(var(--guide-bg));
+	background: -moz-linear-gradient(var(--guide-bg));
+	background: -o-linear-gradient(var(--guide-bg));
+	background: linear-gradient(var(--guide-bg));
 	display: inline-block;
 	width: -webkit-fill-available;
 }
@@ -317,6 +321,11 @@ slideshow-container.active, .dot:hover {
 
 ul {list-style: disc}
 
+/* Scrollbar */
+::-webkit-scrollbar {width: 10px}
+::-webkit-scrollbar-track {background-color: #fff}
+::-webkit-scrollbar-thumb {background-color: #ffce00}
+::-webkit-scrollbar-thumb:hover {background-color: #f5ff00}
 
 #items p, 
 .tooltip .tooltiptext, 

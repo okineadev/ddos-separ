@@ -1,5 +1,7 @@
-exclude: ['README.md']
+# Includes and excludes
+exclude: ['README.md', 'configs']
 include: ['.htaccess']
 
-timezone: Europe/Kiev
-encoding: utf-8
+# Timezone and encoding
+timezone: 'Europe/Kiev'
+encoding: 'utf-8'

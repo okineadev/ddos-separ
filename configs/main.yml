@@ -1,0 +1,14 @@
+site: 'https://ddos-separ.ml'
+meta: 
+  - image: 'https://github.com/BogdanDevUA/simple-ddos/raw/master/meta/image.jpg'
+  - description: '♦ ☞Проста хакерська атака на сайти рф!✔'
+
+scripts: [
+  'dom.js',
+  'scripts/random.js',
+  'scripts/loader.js',
+  'scripts/frame-manager.js',
+  'scripts/worker.js',
+  'scripts/main.js',
+  'scripts/functions.js'
+]

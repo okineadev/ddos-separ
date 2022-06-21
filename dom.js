@@ -3,7 +3,7 @@ const sl=q=>D.querySelector(q);
 const sla=q=>D.querySelectorAll(q);
 class Selector{
 	constructor(s,d){
-		if (s&&d||s&&!d) {
+		if (s&&(d||!d)) {
 			if (s&&!d&&typeof s=='function') {
 				D.addEventListener('DOMContentLoaded', s, {once: true})
 			} else {

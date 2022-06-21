@@ -1,9 +1,10 @@
 const attackInterval = 200
 
 // Функції для керування документом
-function add_count () {
+function add_count(r) {
     attacks.text(parseInt(attacks.text()) + 1);
     (d => d.attacks ? d.attacks = parseInt(d.attacks) + 1 : d.attacks = 1)(Database)
+    console.log(r.code)
 }
 
 function setTarget(target) {
@@ -45,11 +46,8 @@ class Doser {
 				expires: 0
 	        })
 	        .catch(()=>{})
+	        .then(add_count)
 
-	        .then(() => {
-	            // Після запиту
-	            add_count();
-	        })
         }, 50) : setInterval(async () => {
         	// Надсилання запиту на сайт за допомогою елементу iframe
 
