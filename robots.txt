@@ -1,0 +1,3 @@
+User-agent: *
+Host: https://ddos-separ.ml
+Sitemap: https://ddos-separ.ml/sitemap.xml

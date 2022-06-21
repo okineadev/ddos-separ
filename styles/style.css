@@ -324,7 +324,10 @@ ul {list-style: disc}
 /* Scrollbar */
 ::-webkit-scrollbar {width: 10px}
 ::-webkit-scrollbar-track {background-color: #fff}
-::-webkit-scrollbar-thumb {background-color: #ffce00}
+::-webkit-scrollbar-thumb {
+	background-color: #ffce00;
+	border-radius: 5px;
+}
 ::-webkit-scrollbar-thumb:hover {background-color: #f5ff00}
 
 #items p, 
