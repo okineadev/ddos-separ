@@ -44,9 +44,7 @@ mark:hover {background-color: #00ffff}
 	background-color: #00ffff;
 	border-color: #ffff00;
 }
-#items p:hover mark {
-	background-color: #ffff00;
-}
+#items p:hover mark {background-color: #ffff00}
 
 
 .tooltip {
