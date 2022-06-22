@@ -4,7 +4,7 @@
   "description": "Простий DDoS для всіх",
   "lang": "uk",
   "start_url": "/",
-  "display": "fullscreen",
+  "display": "standalone",
   "theme_color": "#00ffd6",
   "icons": [
     {
@@ -20,5 +20,11 @@
       "purpose": "any maskable"
     }
   ],
+  "categories": [
+    "utilities",
+    "politics",
+    "education"
+  ],
+  "dir": "ltr",
   "background_color": "#222"
 }
