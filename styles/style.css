@@ -325,10 +325,10 @@ ul {list-style: disc}
 ::-webkit-scrollbar {width: 10px}
 ::-webkit-scrollbar-track {background-color: #fff}
 ::-webkit-scrollbar-thumb {
-	background-color: #ffce00;
+	background-color: #009688;
 	border-radius: 5px;
 }
-::-webkit-scrollbar-thumb:hover {background-color: #f5ff00}
+::-webkit-scrollbar-thumb:hover {background-color: #03c1af}
 
 #items p, 
 .tooltip .tooltiptext, 
