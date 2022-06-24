@@ -4,7 +4,7 @@
 	font-style: normal; 
 	font-weight: normal; 
 }
-
+* {overflow-x: hidden}
 body, a {color: #fff}
 body {background-color: #222}
 main {text-align: center}

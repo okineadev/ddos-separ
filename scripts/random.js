@@ -1,7 +1,11 @@
-const randint = num => Math.floor(Math.random() * num) // Рандомне ціле число
+const letters = 'qwertyuiopasdfghjklzxcvbnm1234567890'
 
-function getRandomArbitrary() {
-	const max = 10_000_000;
-	const min = 100_000;
-	return Math.random() * (max - min) + min;
+const randint = num => Math.floor(Math.random() * num); // Рандомне ціле число
+const getRandomArbitrary = (min, max) => Math.floor(Math.random() * (max - min) + min)
+function randomString(lenght) {
+	let result = '';
+	for (let i = 0; i < lenght; i++) {
+		result += letters.charAt(randint(36))
+	}
+	return result
 }
