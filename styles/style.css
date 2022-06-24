@@ -162,8 +162,6 @@ modal-box a {color: #000}
 	background: -o-linear-gradient(var(--instruction-bg));
 	background: linear-gradient(var(--instruction-bg));
 	border-radius: 16px;
-	animation-duration: 2s;
-    animation-name: df;
 }
 
 
@@ -340,12 +338,6 @@ ul {list-style: disc}
 	background: linear-gradient(to bottom, #009688, #d8ff00);
 }
 ::-webkit-scrollbar-thumb:hover {background-color: #03c1af}
-
-
-@keyframes df {
-	from {transform: rotate3d(1, 1, 1, 0deg)}
-	to {transform: rotate3d(1, 1, 1, 364deg)}
-}
 
 #items p, 
 .tooltip .tooltiptext, 
