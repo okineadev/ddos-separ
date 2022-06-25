@@ -16,13 +16,7 @@
 	#container {background-image: url("../background/Desktop/1.jpg")}
 }
 
-#title {
-	padding: 20px;
-	color: #fff;
-	font-size: 30px;
-	border: 2px;
-	text-shadow: var(--shadows);
-}
+h1 {text-shadow: var(--shadows)}
 
 
 #box {
