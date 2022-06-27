@@ -4,6 +4,7 @@ Disallow: /music
 Disallow: /resources
 Disallow: /war
 Disallow: /explore
+Disallow: /ultra-min
 Disallow: /404
 Disallow: /*.css$
 Disallow: /*.js$
