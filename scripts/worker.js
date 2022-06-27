@@ -26,10 +26,18 @@ class Doser {
         // Запуск атаки
 
         btn.text("Стоп");
+
+        // Створення сповіщення про завантаження цілей
+        (l=>{if (l[0]) l.remove()})($("#load"))
+		$("<p>", {id:"load"}).text("Завантажуємо цілі...").appendTo(box);
+
         const target = await getTarget();
 
         if (!setTarget(target)) {
         	// Якщо не завнтажились цілі
+
+        	$("#load").text("Помилка завантаження!");
+    		alert("Ой!", "Помилка!", "Перевірте підключення до інтернету!")
 
         	this.attack = false;
         	btn.text("Старт!");
