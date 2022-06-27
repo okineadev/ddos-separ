@@ -32,8 +32,16 @@ $(() => {
 
     $("#ua").dblclick(() => alert("Слава Україні!", "Героям Слава!"));
 
-    $("top-nav a:not(:last-child)", "all")[0].forEach(i=>i.onclick=e=>$(e.target.dataset.link)[0].scrollIntoView({behavior:'smooth',block:'center'}))
-    
+    $("top-nav a:not(:last-child)", "all")[0]
+    .forEach(i=>i.onclick = e => {
+        e = $(e.target.dataset.link)[0]
+        e.scrollIntoView(
+            {behavior:'smooth', block:'center'}
+        );
+        if (Array.from(e.classList).includes("highlight")) highlight(e);
+    })
+
+    $(".accordeon", "all")[0].forEach(e => $(e).click(() => showAccordeon(e)))
 })
 
 // Слава Україні!

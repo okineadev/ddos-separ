@@ -1,10 +1,10 @@
-const topNav = () => (d => d.active ? d.active = "" : d.active = "1")($('top-nav')[0].dataset);
+const toggleActive = e => e.classList.toggle("active");
 
 let modal = $('modal-box')[0];
 let close = $("#close");
 
 function alert(header) {
-    clearModal();
+    clearModal()
     $("modal-header #header").text(header)
     let modalText = $("modal-body #text")
 
@@ -15,7 +15,7 @@ function alert(header) {
     modal.style.display = "block";
 }
 
-const clearModal = () => document.querySelectorAll("#header, #text p").forEach(e => e.textContent='')
+const clearModal = () => $("#header, #text p", "all")[0].forEach(e => e.textContent='')
 
 close.click(() => {modal.style.display = "none"; clearModal()})
 
@@ -34,14 +34,52 @@ const plusSlides = n => showSlides(slideIndex += n);
 const currentSlide = n => showSlides(slideIndex = n);
 
 function showSlides(n) {
-    let i;
     let slides = $("my-slide", "all")[0];
     let dots = $(".dot", "all")[0];
+
     if (n > slides.length) slideIndex = 1;
     if (n < 1) slideIndex = slides.length;
-    for (let i of slides) i.style.display = "none";
-    for (let i of dots) i.className = i.className.replace(" active", "");
+
+    let i;
+    for (i of slides) i.style.display = "none";
+    for (i of dots) i.className = i.className.replace(" active", "");
 
     slides[slideIndex-1].style.display = "block";
     dots[slideIndex-1].className += " active";
+}
+
+function showAccordeon(e) {
+    let content = e.getElementsByClassName("content")[0];
+        toggleActive(e);
+        if (content.style.maxHeight) { 
+            content.style.maxHeight = null
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            setTimeout(() => $(".accordeon .content h3")[0].scrollIntoView({behavior:'smooth', block:'center'}),
+            200);
+        }
+}
+
+function highlight(e) {
+    let t = {};
+    const pxls = "2px 2px 2px"
+
+    let data = Object()
+
+    const bs = {"box-shadow": `${pxls} #a3a3a3`}
+    const ts = {"text-shadow": `${pxls} #707070`}
+
+    if (e.dataset) {
+        if (e.dataset.text) {
+            data = ts
+        } else if (e.dataset.selector) {
+            data = bs
+            e = $(e.dataset.selector)[0]
+        }
+    } else {
+        data = bs
+    }
+    
+    $(e).css(data);
+    setTimeout(() => $(e).removeCss(data), 1500)
 }
