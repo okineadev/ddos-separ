@@ -1,4 +1,8 @@
 const Frames = {
+	/**
+	 * Створення об'єкту **iframe**
+	 * @param {JSON} target  **Ціль**
+	 */
 	async draw(target) {
 		$("<iframe>", {
 			src: await composeVictim(target),
@@ -8,6 +12,9 @@ const Frames = {
 			height: 1
 		}).appendTo(frameDiv)
 	},
+	/**
+	 * Видалення об'єктів **iframe**
+	 */
 	clear() {
 		const a = frameDiv[0].children;
 		while (frameDiv[0].children.length) {

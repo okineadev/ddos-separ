@@ -1,7 +1,7 @@
 // Звідси будуть завантажуватись цілі
 const targetSource = 'https://raw.githubusercontent.com/opengs/uashieldtargets/master/sites.json'
 
-let frameDiv, attacks, targetField, methodField, btn;
+let frameDiv, attacks, targetField, methodField, btn, box, modal;
 
 const Database = window.localStorage
 window.Database = Database
@@ -16,6 +16,9 @@ $(() => {
 
     // https://github.com/BogdanDevUA/simple-ddos/
     btn = $("#button-text")
+    box = $("#box")
+
+    modal = $('modal-box')[0];
 
     Doser = new Doser; // Ініціалізація воркера
 
@@ -42,6 +45,19 @@ $(() => {
     })
 
     $(".accordeon", "all")[0].forEach(e => $(e).click(() => showAccordeon(e)))
+
+    $("#help-ukraine").click(HUWWidget.show)
+
+    $("#close").click(() => {modal.style.display = "none"; clearModal()})
+
+    $(window).click(e => {
+        if (e.target == modal) {
+            clearModal();
+            modal.style.display = "none";
+        } else if (!e.target.matches("#help-ukraine *")&&$("#help-ukraine .wrapper")[0].style.maxWidth) {
+            HUWWidget.hide()
+        };
+    })
 })
 
 // Слава Україні!

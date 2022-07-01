@@ -8,15 +8,10 @@
 	--terminal: url("../images/terminal.svg");
 	--telegram: url("../images/communities/telegram.svg");
 	--ukraine: url("../images/ukraine.svg");
-	--pinboard-bg: to right, #00ffd396, transparent;
-	--box-bg: to top, #000, transparent;
-	--top-nav-bg: to bottom, black, transparent;
-	--instruction-bg: 45deg, #ff0081, #00ffd6;
-	--guide-bg: 45deg, #313131, transparent;
 	--shadows: 2px 2px 2px #444;
 }
 
-mark, code, h3, .item, button, #ua, .tooltip, #prev, #next, .dot {cursor: pointer}
+mark, code, h3, .item, button, #ua, .tooltip, #prev, #next, .dot, .accordeon .title {cursor: pointer}
 
 mark {
 	padding: 1px 3px;
@@ -51,54 +46,13 @@ mark:hover {background-color: #00ffff}
 #items p:hover mark {background-color: #ffff00}
 
 
-.tooltip {
-	position: relative;
-	display: inline-block;
-}
-
-.tooltip .tooltiptext {
-	visibility: hidden;
-	background-color: #555;
-	text-align: center;
-	border-radius: 15%;
-	padding: 5px;
-	position: absolute;
-	z-index: 2;
-	bottom: 160%;
-	left: 15%;
-	right: -85%;
-	margin-left: -75px;
-	opacity: 0;
-}
-
-.tooltip .tooltiptext p {margin: 12px 0 5px}
-
-.tooltip .tooltiptext::after {
-	content: "";
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	margin-left: -5px;
-	border-width: 5px;
-	border-style: solid;
-	border-color: #555 transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-	visibility: visible;
-	opacity: 1;
-}
-
 #frames {visibility: hidden}
 
 guide-item {
 	padding: 0 18px;
 	border-radius: 20px;
 	color: #fff;
-	background: -webkit-linear-gradient(var(--guide-bg));
-	background: -moz-linear-gradient(var(--guide-bg));
-	background: -o-linear-gradient(var(--guide-bg));
-	background: linear-gradient(var(--guide-bg));
+	background: linear-gradient(45deg, #313131, transparent);
 	display: inline-block;
 	width: -webkit-fill-available;
 }
@@ -142,10 +96,7 @@ guide-item a, modal-box a{
 modal-box a {color: #000}
 
 #pinboard {
-	background: -webkit-linear-gradient(var(--pinboard-bg));
-	background: -moz-linear-gradient(var(--pinboard-bg));
-	background: -o-linear-gradient(var(--pinboard-bg));
-	background: linear-gradient(var(--pinboard-bg));
+	background: linear-gradient(to right, #00ffd396, transparent);
     border-radius: 20px;
     padding: 1px 0 1px 40px;
 }
@@ -153,14 +104,12 @@ modal-box a {color: #000}
 #pinboard li > p {text-shadow: 1px 1px 1px #444}
 
 .flag {border-radius: 4px}
+.flag:hover {transform: scale(1.3)}
 
 .how {padding: 1px 20px}
 
 .how.instruction {
-	background: -webkit-linear-gradient(var(--instruction-bg));
-	background: -moz-linear-gradient(var(--instruction-bg));
-	background: -o-linear-gradient(var(--instruction-bg));
-	background: linear-gradient(var(--instruction-bg));
+	background: linear-gradient(45deg, #ff0081, #00ffd6);
 	border-radius: 16px;
 }
 
@@ -178,23 +127,11 @@ modal-box a {color: #000}
 
 .how mark {font-family: Arial}
 
-#nav {
-	text-align: left;
-	margin: 28px 0 18px 18px;
-	font-size: 18px;
-	border: 9px;
-	align-self: normal;
-}
-#nav * {margin-right: 10px}
-#nav *:last-child {margin-right: 0}
-
 hr {
 	background: var(--hr-image), #fff;
-	width: auto;
 	height: 16px;
 	background-size: contain;
 	box-shadow: 0 0 2px 0 #fff;
-	background-origin: border-box;
 }
 
 #ua-telegram {
@@ -213,10 +150,7 @@ hr {
 
 
 top-nav {
-	background: -webkit-linear-gradient(var(--top-nav-bg));
-	background: -moz-linear-gradient(var(--top-nav-bg));
-	background: -o-linear-gradient(var(--top-nav-bg));
-	background: linear-gradient(var(--top-nav-bg));
+	background: linear-gradient(to bottom, black, transparent);
 	overflow: hidden;
 	display: block;
 	border-radius: 9px 9px 0 0;
@@ -329,10 +263,7 @@ slideshow-container.active, .dot:hover {
 
 .accordeon {margin-bottom: 79px}
 
-.accordeon .title {
-	cursor: pointer;
-	transition: text-shadow .6s ease-out;
-}
+.accordeon .title {transition: text-shadow .6s ease-out}
 
 .accordeon .title::before {
 	content: "+";
@@ -343,9 +274,7 @@ slideshow-container.active, .dot:hover {
     overflow: hidden;
     transition: max-height .8s ease-out;
 }
-.accordeon.active .title::before {
-	content: "-";
-}
+.accordeon.active .title::before {content: "-"}
 
 .highlight {transition: box-shadow .4s ease-out}
 
@@ -362,6 +291,51 @@ ul {list-style: disc}
 }
 ::-webkit-scrollbar-thumb:hover {background-color: #03c1af}
 
+#help-ukraine {
+	position: fixed;
+    border: 1px solid #fff;
+    border-radius: 13px;
+    width: auto;
+    bottom: 10px;
+    padding: 0 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000c9;
+    overflow: hidden;
+    transition: .4s ease-out;
+}
+
+#help-ukraine:hover {
+	box-shadow: 2px 2px 2px #fff;
+}
+
+#help-ukraine p {
+	text-align: center;
+	margin: 10px 0;
+}
+
+#help-ukraine a {
+	text-decoration: none;
+	margin: 4px 14px;
+    color: white;
+    font-size: 17px;
+    border-radius: 7px;
+    border: none;
+    background: linear-gradient(to right, #393939, black);
+    padding: 4px 14px;
+}
+
+#help-ukraine .wrapper {
+	transition: max-width .4s ease-out;
+	max-width: 0;
+}
+
+#how-a-work-site {
+	margin: 28px 0 0;
+}
+
 #items p, 
 .tooltip .tooltiptext, 
-guide-item, guide-item li::marker, guide-item code, a, mark, button {transition: .4s ease-out}
+guide-item, guide-item li::marker, guide-item code, a, mark, button, 
+.flag {transition: .4s ease-out}

