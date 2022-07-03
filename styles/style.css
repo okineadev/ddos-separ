@@ -76,14 +76,16 @@ guide-item .flex #image {
 
 
 guide-item code {
-	padding: 0 5px;
+	padding: 2px 5px;
 	border: 2px solid #363636;
     border-radius: 7px;
     color: #fff;
     background: #232323;
     display: block;
     width: fit-content;
-    word-break: break-all;
+    font-family: monospace;
+    font-size: 15px;
+    word-break: break-word;
 }
 
 
@@ -336,6 +338,5 @@ ul {list-style: disc}
 }
 
 #items p, 
-.tooltip .tooltiptext, 
-guide-item, guide-item li::marker, guide-item code, a, mark, button, 
+.tooltip .tooltiptext, a, mark, button, 
 .flag {transition: .4s ease-out}
