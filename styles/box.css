@@ -9,13 +9,16 @@
 }
 
 @media screen and (max-device-width: 1366px) {
-	#container {background-image: url("../background/Phone/1.jpg")}
+	#container {
+		background-image: url("../background/Phone/1.jpg")
+	}
 }
 
 @media screen and (min-device-width: 1366px) {
-	#container {background-image: url("../background/Desktop/1.jpg")}
+	#container {
+		background-image: url("../background/Desktop/1.jpg")
+	}
 }
-
 h1 {text-shadow: var(--shadows)}
 
 
@@ -63,6 +66,8 @@ h1 {text-shadow: var(--shadows)}
 	right: -85%;
 	margin-left: -75px;
 	opacity: 0;
+	animation-name: aa;
+	animation-duration: .4s;
 }
 
 .tooltip .tooltiptext p {margin: 12px 0 5px}

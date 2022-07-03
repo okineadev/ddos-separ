@@ -1,22 +1,27 @@
 // Звідси будуть завантажуватись цілі
-const targetSource = 'https://raw.githubusercontent.com/opengs/uashieldtargets/master/sites.json'
+const targetSource = 
+'https://raw.githubusercontent.com/opengs/uashieldtargets/master/sites.json';
 
 let frameDiv, attacks, targetField, methodField, btn, box, modal;
 
-const Database = window.localStorage
-window.Database = Database
+let lockAttackCount = false;
+
+const Database = window.localStorage;
+window.Database = Database;
+
+Database.attacks = 0;
 
 $(() => {
-    frameDiv = $("#frames")
-    attacks = $("#attacks")
+    frameDiv = $("#frames");
+    attacks = $("#attacks");
 
     // Відображення цілі та методу атаки
-    targetField = $("#target")
-    methodField = $("#method")
+    targetField = $("#target");
+    methodField = $("#method");
 
     // https://github.com/BogdanDevUA/simple-ddos/
-    btn = $("#button-text")
-    box = $("#box")
+    btn = $("#button-text");
+    box = $("#box");
 
     modal = $('modal-box')[0];
 
@@ -31,8 +36,6 @@ $(() => {
         alert("Атаки", `Взагалом атаковано: ${!a?0:a}`)
     });
 
-    // Пасхалки)
-
     $("#ua").dblclick(() => alert("Слава Україні!", "Героям Слава!"));
 
     $("top-nav a:not(:last-child)", "all")[0]
@@ -42,13 +45,13 @@ $(() => {
             {behavior:'smooth', block:'center'}
         );
         if (Array.from(e.classList).includes("highlight")) highlight(e);
-    })
+    });
 
-    $(".accordeon", "all")[0].forEach(e => $(e).click(() => showAccordeon(e)))
+    $(".accordeon", "all")[0].forEach(e => $(e).click(() => showAccordeon(e)));
 
-    $("#help-ukraine").click(HUWWidget.show)
+    $("#help-ukraine").click(HUWWidget.show);
 
-    $("#close").click(() => {modal.style.display = "none"; clearModal()})
+    $("#close").click(() => {modal.style.display = "none"; clearModal()});
 
     $(window).click(e => {
         if (e.target == modal) {
