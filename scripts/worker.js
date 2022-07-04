@@ -7,7 +7,7 @@ const iframeAttackInterval = 600
 function add_count() {
 	if (!lockAttackCount) {
 		attacks.text(parseInt(attacks.text()) + 1);
-    	(d=>d.attacks = parseInt(d.attacks) + 1)(Database)
+    	(d=>d.attacks = d.attacks ? parseInt(d.attacks) : 0 + 1)(Database)
 	} 
 }
 

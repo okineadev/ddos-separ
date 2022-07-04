@@ -56,10 +56,10 @@ $(() => {
     $(window).click(e => {
         if (e.target == modal) {
             clearModal();
-            modal.style.display = "none";
+            modal.style.display = "none"
         } else if (!e.target.matches("#help-ukraine *")&&$("#help-ukraine .wrapper")[0].style.maxWidth) {
             HUWWidget.hide()
-        };
+        }
     })
 })
 
