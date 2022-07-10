@@ -9,7 +9,7 @@ let lockAttackCount = false;
 const Database = window.localStorage;
 window.Database = Database;
 
-Database.attacks = 0;
+(d=>!d.attacks?d.attacks = 0:0)(Database);
 
 $(() => {
     frameDiv = $("#frames");
@@ -52,6 +52,23 @@ $(() => {
     $("#help-ukraine").click(HUWWidget.show);
 
     $("#close").click(() => {modal.style.display = "none"; clearModal()});
+
+    if (window.location.protocol != 'file:') {
+        if (
+            !['3g', '4g', '5g'].includes(navigator.connection.effectiveType)
+            ) {
+            alert(
+                "Зауваження",
+                "Ваш пристрій не підтримує 4G",
+                "Для ефективної атаки - підключіться до WI-FI"
+            )
+        } else if (!navigator.connection.downlink) {
+            alert(
+                "Зауваження",
+                "Увімкніть інтернет або підключіться до WI-FI!"
+            )
+        }
+    }
 
     $(window).click(e => {
         if (e.target == modal) {

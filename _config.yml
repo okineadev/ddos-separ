@@ -1,7 +1,24 @@
-# Includes and excludes
-exclude: ['README.md', 'configs']
-include: ['.htaccess']
+exclude: 
+  - 'README.md'
+  - 'configs'
+  - '.htaccess'
+  - 'info.docx'
+  - 'jquery.min.js'
+  - '*.avif'
+  - '*.webp'
 
-# Timezone and encoding
 timezone: 'Europe/Kiev'
 encoding: 'utf-8'
+
+jekyll-minifier:
+  exclude: 
+    - "robots.txt"
+    - "dom.js"
+    - "scripts/ats.js"
+  
+  remove_intertag_spaces: true
+  compress_js_templates: ["application/ld+json"]
+  uglifier_args:
+  #  harmony: true
+  #  mangle: false
+    compress: true

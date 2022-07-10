@@ -5,8 +5,8 @@
 async function getTarget() {
 
 	// Завантаження цілей
-    let targets = await fetch(targetSource)
-    .catch(() => {});
+    let targets = await fetch(targetSource, {cache:'no-cache'})
+    .catch(()=>{});
     if (targets instanceof Response) { // Якщо запит повернув результат
     	const data = await targets.json();
 
