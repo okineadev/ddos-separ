@@ -1,10 +1,11 @@
 /**
  * Завантажувач цілей
- * @returns {JSON} **Ціль**
+ * @returns {object} **Ціль**
  */
 async function getTarget() {
 
 	// Завантаження цілей
+	// Кешування вимкнено
     let targets = await fetch(targetSource, {cache:'no-cache'})
     .catch(()=>{});
     if (targets instanceof Response) { // Якщо запит повернув результат
@@ -20,6 +21,6 @@ async function getTarget() {
 		};
 		$("#load").remove();
 	   	
-	    return targets[randint(targets.length)]; // Рандомна ціль
-    };
+	    return targets[randint(targets.length)] // Рандомна ціль
+    }
 }

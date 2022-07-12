@@ -183,9 +183,6 @@ top-nav .icon {display: none}
 		float: right;
 		display: block;
 	}
-}
-
-@media screen and (max-width: 600px) {
 	top-nav.active {position: relative}
 	top-nav.active a.icon {
 		position: absolute;
@@ -198,9 +195,6 @@ top-nav .icon {display: none}
 		text-align: left;
 	}
 }
-
-
-
 
 
 
@@ -291,17 +285,18 @@ ul {list-style: disc}
 
 #help-ukraine {
 	position: fixed;
-    border: 1px solid #fff;
-    border-radius: 13px;
-    width: auto;
-    bottom: 10px;
-    padding: 0 7px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000000c9;
-    overflow: hidden;
-    transition: .4s ease-out;
+	border: 1px solid #fff;
+	border-radius: 13px;
+	bottom: 13px;
+	left: 13px;
+	padding: 0 7px;
+	display: flex;
+	background-color: #000000c9;
+	overflow: hidden;
+	transition: .4s ease-out;
+	flex-direction: column;
+	align-items: center;
+	box-sizing: inherit;
 }
 
 #help-ukraine:hover {
@@ -315,23 +310,26 @@ ul {list-style: disc}
 
 #help-ukraine a {
 	text-decoration: none;
-	margin: 4px 14px;
-    color: white;
-    font-size: 17px;
-    border-radius: 7px;
-    border: none;
-    background: linear-gradient(to right, #393939, black);
-    padding: 4px 14px;
+	margin-bottom: 21px;
+	color: white;
+	font-size: 17px;
+	border-radius: 7px;
+	background: linear-gradient(to right, #393939, black);
+	padding: 4px 14px;
+	display: inline-block;
 }
 
-#help-ukraine .wrapper {
-	transition: max-width .4s ease-out;
-	max-width: 0;
+#help-ukraine > .wrapper {
+	transition: max-height .2s ease-out;
+	max-height: 0;
 }
 
 #how-a-work-site {
 	margin: 28px 0 0;
 }
+
+body>.wrapper {margin-bottom: 50px}
+body>.wrapper h2 {margin: 11px 0}
 
 #items p, 
 .tooltip .tooltiptext, a, mark, button, 

@@ -1,18 +1,23 @@
 /**
  * Рандомне число від 0 до n
- * @param {String} num 
+ * @param {number} num 
+ * @returns Рандомне число
  */
 const randint = num => Math.floor(Math.random() * num); // Рандомне ціле число
 
 /**
  * Рандомне число від n до n
- * @param {Number} min 
- * @param {Number} max 
+ * @param {number} min 
+ * @param {number} max 
+ * @returns Рандомне число
  */
 const getRandomArbitrary = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
 /**
  * Довга стрічка
- * @param {Number} lenght 
+ * 
+ * `\x07` - 
+ * @param {Number} len
+ * @returns Флуд (...)
  */
-const floodString = len => '▒'.repeat(len)
+const floodString = len => '\x07'.repeat(len)

