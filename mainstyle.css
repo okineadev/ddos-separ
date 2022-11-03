@@ -1,16 +1,15 @@
 @font-face {
-	font-family: "Comic Sans MS";
-	src: url("fonts/Comic Sans.ttf") format("truetype"); 
+	font-family: "Comic Sans";
+	src: url("fonts/Comic Sans.ttf") format("truetype");
 	font-style: normal; 
 	font-weight: normal; 
 }
 
 body, a {color: #fff}
 body {background-color: #222}
-main {text-align: center}
-a:not(.prev, .next, top-nav a):hover {color: #00ffff}
+a:not(#prev, #next):hover {color: #00ffff}
 
-p, code, #resources, #nav {font-family: "Comic Sans MS"}
-p, #resources {font-size: 18px}
 
-h2, h3, #title, button {font-family: sans-serif}
+h1, h2, h3, button {font-family: sans-serif}
+
+*, *::before, *::after {box-sizing: border-box}

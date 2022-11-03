@@ -1,0 +1,34 @@
+{
+    "recommendations": [
+        "christian-kohler.path-intellisense",
+
+        // Гррр... Чого Української мови нема?
+        "ms-ceintl.vscode-language-pack-ru",
+
+        // Прев'ю README як в GitHub
+        "bierner.markdown-preview-github-styles",
+
+        // Валідатор W3C
+        "celianriboulet.webvalidator",
+
+
+        // Класні іконки
+        "pkief.material-icon-theme",
+
+        // Просто чудові теми
+        "jprestidge.theme-material-theme",
+        "akamud.vscode-theme-onedark",
+
+        // Інструменти Git/GitHub
+        "github.vscode-pull-request-github",
+        "github.remotehub",
+
+        // Ютубчик
+        "geekanant.youtube-search",
+
+        // Ось це взагалі класна штука для попереднього перегляду шрифтів
+        "ctcuff.font-preview",
+
+        "wayou.vscode-todo-highlight"
+    ]
+}

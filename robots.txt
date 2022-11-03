@@ -1,9 +1,3 @@
 User-agent: *
 
-Disallow: /music
-Disallow: /resources
-Disallow: /war
-Disallow: /explore
-Disallow: /404
-
 Host: https://ddos-separ.ml
