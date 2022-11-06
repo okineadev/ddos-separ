@@ -1,4 +1,4 @@
-# ![Favicon](img/meta/favicon@32x32.png) Simple-ddos ![Ukraine](img/ukraine.svg)
+![DDoSFA](https://user-images.githubusercontent.com/81070564/200185971-65c790b7-176f-458a-bfb9-1bdc547de094.png)
 
 ![Repo size](https://img.shields.io/github/repo-size/BogdanDevUA/simple-ddos)
 ![License](https://img.shields.io/github/license/BogdanDevUA/simple-ddos)
@@ -24,4 +24,3 @@
 ### Задонатити на **ЗСУ**
 
 - **monobank** - <https://uahelp.monobank.ua>
-
