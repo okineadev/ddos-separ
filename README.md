@@ -4,12 +4,6 @@
 ![License](https://img.shields.io/github/license/BogdanDevUA/simple-ddos)
 ![W3C Validation](https://img.shields.io/w3c-validation/html?preset=HTML%2C%20SVG%201.1%2C%20MathML%203.0&targetUrl=https%3A%2F%2Fddos-separ.ml)
 
-
-## Це сайт для дудосу(DDoS-атак) на російські сайти з телефону або ноутбука(та хоч з палки) !
-
-
-## Навігація
-
 * ### [Веб-сайт](https://ddos-separ.ml)
 
 * ### [Про війну](https://war.ukraine.ua)
