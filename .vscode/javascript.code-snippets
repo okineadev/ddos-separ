@@ -1,0 +1,15 @@
+{
+	"Create a class": {
+		"scope": "javascript",
+		"prefix": "cls",
+		"body": "class $1 {\n\t/**\n\t * $1\n\t * @constructor\n\t */\n\tconstructor() {\n\t\t${2:// body}\n\t}\n};$0",
+		"description": "Creating a class (ES6) with JSDoc"
+	},
+
+	"Get the HTML element": {
+		"scope": "javascript",
+		"prefix": "$",
+		"body": "$(\".$1\")$0",
+		"description": "Getting HTML element"
+	}
+}

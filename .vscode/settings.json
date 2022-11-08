@@ -1,31 +1,34 @@
 {
     "material-icon-theme.folders.color": "#a0a0a0",
+    "git.enableCommitSigning": true,
+    "html.format.indentHandlebars": true,
+    "html.format.maxPreserveNewLines": 3,
+    "html.format.templating": true,
+    "css.lint.boxModel": "warning",
+    "css.lint.universalSelector": "warning",
     "css.lint.duplicateProperties": "warning",
     "css.lint.emptyRules": "error",
     "css.lint.float": "warning",
     "css.lint.important": "warning",
     "css.lint.zeroUnits": "error",
-    "emmet.triggerExpansionOnTab": true,
-    "git.enableCommitSigning": true,
-    "html.format.indentHandlebars": true,
-    "html.format.maxPreserveNewLines": 3,
-    "html.format.templating": true,
     "less.lint.duplicateProperties": "warning",
     "less.lint.emptyRules": "error",
     "less.lint.float": "warning",
     "less.lint.important": "warning",
     "less.lint.propertyIgnoredDueToDisplay": "error",
     "less.lint.zeroUnits": "error",
+    "scss.lint.duplicateProperties": "warning",
+    "scss.lint.emptyRules": "error",
+    "scss.lint.float": "warning",
+    "scss.lint.important": "warning",
+    "scss.lint.propertyIgnoredDueToDisplay": "error",
+    "scss.lint.zeroUnits": "error",
+    "scss.lint.boxModel": "warning",
+    "scss.lint.universalSelector": "warning",
     "path-intellisense.autoTriggerNextSuggestion": true,
     "path-intellisense.autoSlashAfterDirectory": true,
     "path-intellisense.extensionOnImport": true,
     "path-intellisense.showHiddenFiles": true,
-    "scss.lint.duplicateProperties": "warning",
-    "scss.lint.emptyRules": "error",
-    "scss.lint.float": "error",
-    "scss.lint.important": "warning",
-    "scss.lint.propertyIgnoredDueToDisplay": "error",
-    "scss.lint.zeroUnits": "error",
     "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
     "javascript.format.insertSpaceAfterConstructor": true,
     "javascript.inlayHints.enumMemberValues.enabled": true,
@@ -42,11 +45,15 @@
     "webvalidator.validateOnSave": true,
     "editor.smoothScrolling": true,
     "workbench.list.smoothScrolling": true,
-    "todohighlight.include": [
-        "**/*.js",
-        "**/*.jsx",
-        "**/*.html",
-        "**/*.css",
-        "**/*.scss"
-    ]
+    "editor.cursorSmoothCaretAnimation": true,
+    "todohighlight.keywords": [
+        {
+            "text": "AOAOAOA:",
+            "color": "red"
+        }
+    ],
+    "todohighlight.defaultStyle": {
+        "borderRadius": "3px"
+    },
+    "svgPreview.autoOpen": false
 }

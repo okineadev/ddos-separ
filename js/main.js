@@ -4,9 +4,6 @@ const Database = localStorage;
 Database.attacks ??= 0;
 
 
-Doser = new Doser(); // Ініціалізація воркера
-
-
 /**
  * Звукові ефекти **(SFX)**
  * 
@@ -27,6 +24,8 @@ $(async () => {
 
     Дякую!
     */
+
+    Doser = new Doser(); // Ініціалізація воркера
 
     $("#button").click(/**Старт атаки*/
         () => Doser.go()

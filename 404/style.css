@@ -6,10 +6,10 @@ h1 {
 }
 
 hr {
-	background: url("../images/hr.svg"), #fff;
+	background: url("../img/hr.svg"), white;
 	width: 12em;
 	height: 20px;
 	background-size: contain;
 	background-repeat: repeat;
-	box-shadow: 0 0 6px 0 #fff;
+	box-shadow: 0 0 6px 0 white;
 }

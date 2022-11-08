@@ -7,7 +7,9 @@ exclude:
 timezone: Europe/Kiev
 encoding: utf-8
 
-plugins: [jekyll-minifier]
+plugins: 
+  - jekyll-minifier
+
 
 jekyll-minifier:
   remove_intertag_spaces: true
@@ -15,4 +17,9 @@ jekyll-minifier:
   uglifier_args:
     harmony: true
     compress: true
-    #mangle: false
+    mangle: false
+
+
+webrick:
+  headers:
+    X-Frame-Options: DENY
