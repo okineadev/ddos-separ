@@ -4,6 +4,11 @@
     "html.format.indentHandlebars": true,
     "html.format.maxPreserveNewLines": 3,
     "html.format.templating": true,
+    
+    "[html]": {
+        "editor.tabSize": 2
+    },
+
     "css.lint.boxModel": "warning",
     "css.lint.universalSelector": "warning",
     "css.lint.duplicateProperties": "warning",
@@ -36,9 +41,12 @@
     "javascript.inlayHints.propertyDeclarationTypes.enabled": true,
     "javascript.inlayHints.variableTypes.enabled": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
+
     "files.associations": {
-        "*.map": "json"
+        "*.map": "json",
+        "manifest.webmanifest": "json"
     },
+
     "editor.tabCompletion": "onlySnippets",
     "editor.stickyTabStops": true,
     "markdown-preview-github-styles.colorTheme": "light",
@@ -46,12 +54,6 @@
     "editor.smoothScrolling": true,
     "workbench.list.smoothScrolling": true,
     "editor.cursorSmoothCaretAnimation": true,
-    "todohighlight.keywords": [
-        {
-            "text": "AOAOAOA:",
-            "color": "red"
-        }
-    ],
     "todohighlight.defaultStyle": {
         "borderRadius": "3px"
     },

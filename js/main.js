@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 /**База данних (`localStorage`)*/
 const Database = localStorage;
 
@@ -67,11 +69,11 @@ $(async () => {
          */
         keyup(e) {
             switch (e.keyCode) {
-                case 19 || 35:
-                    Doser.attack && Doser.stop();
+                case 19 || 35 /* Pause | end */:
+                    Doser.stop();
                     break;
                 
-                case 115:
+                case 115 /* F4 */:
                     Doser.go();
                     break;
             }
@@ -98,11 +100,16 @@ $(async () => {
                         "Критично низький заряд батареї, атаку буде вимкнено\n\
                         Просимо поставити телефон на зарядку", 
 
-                        "warning").then(() => Doser.attack && Doser.stop());
+                        "warning").then(() => Doser.stop());
                     break;
             }
         }
     };
+
+    const params = new URLSearchParams(location.search)
+
+    params.get('quickstart') && Doser.start()
+
 
     console.log(
         '%cЯкщо ти розробник - можеш допомогти проекту\nhttps://github.com/BogdanDevUA/simple-ddos',

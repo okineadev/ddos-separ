@@ -16,35 +16,16 @@
 *                 text=auto
 
 # Source code
-*.coffee          text
 *.css             text diff=css
-*.htm             text diff=html
 *.html            text diff=html
-*.ini             text
 *.js              text
 *.json            text
-*.jsx             text
-*.less            text
-*.ls              text
 *.map             text -diff
-*.sass            text
-*.scss            text diff=css
-*.styl            text
-*.tag             text
-*.ts              text
-*.tsx             text
 *.xml             text
 *.xhtml           text diff=html
 
 # Documentation
-*.markdown        text diff=markdown
 *.md              text diff=markdown
-*.mdwn            text diff=markdown
-*.mdown           text diff=markdown
-*.mkd             text diff=markdown
-*.mkdn            text diff=markdown
-*.mdtxt           text
-*.mdtext          text
 *.txt             text
 AUTHORS           text
 CHANGELOG         text
@@ -61,27 +42,7 @@ readme            text
 *README*          text
 TODO              text
 
-# Templates
-*.dot             text
-*.ejs             text
-*.erb             text
-*.haml            text
-*.handlebars      text
-*.hbs             text
-*.hbt             text
-*.jade            text
-*.latte           text
-*.mustache        text
-*.njk             text
-*.phtml           text
-*.svelte          text
-*.tmpl            text
-*.tpl             text
-*.twig            text
-*.vue             text
-
 # Configs
-*.cnf             text
 *.conf            text
 *.config          text
 .editorconfig     text
@@ -89,13 +50,6 @@ TODO              text
 .gitattributes    text
 .gitconfig        text
 .htaccess         text
-*.lock            text -diff
-package.json      text eol=lf
-package-lock.json text eol=lf -diff
-pnpm-lock.yaml    text eol=lf -diff
-.prettierrc       text
-yarn.lock         text -diff
-*.toml            text
 *.yaml            text
 *.yml             text
 browserslist      text

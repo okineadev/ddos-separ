@@ -9,6 +9,7 @@ encoding: utf-8
 
 plugins: 
   - jekyll-minifier
+  - webrick
 
 
 jekyll-minifier:

