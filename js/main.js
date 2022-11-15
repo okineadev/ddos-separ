@@ -3,7 +3,7 @@
 /**База данних (`localStorage`)*/
 const Database = localStorage;
 
-Database.attacks ??= 0;
+if(!Database.attacks) Database.attacks = 0;
 
 
 /**
