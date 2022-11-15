@@ -16,12 +16,12 @@ jekyll-minifier:
   remove_intertag_spaces: true
 
   uglifier_args:
-  	output:
-	  ascii_only: false
+    output:
+      ascii_only: false
 	  
     compress: true
     mangle: true
-	source_map: true
+    source_map: true
 
 
 webrick:
