@@ -22,6 +22,7 @@ jekyll-minifier:
     compress: true
     mangle: true
     source_map: true
+    harmony: true
 
 
 webrick:
