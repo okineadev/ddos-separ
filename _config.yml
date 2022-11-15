@@ -20,7 +20,6 @@ jekyll-minifier:
       ascii_only: false
 
     compress:
-      toplevel: true
       reduce_funcs: true
       reduce_vars: true
 
