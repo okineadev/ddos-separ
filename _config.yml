@@ -26,7 +26,6 @@ jekyll-minifier:
     mangle:
       eval: true
       toplevel: true
-      properties: true
 
     harmony: true
 
