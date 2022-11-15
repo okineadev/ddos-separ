@@ -8,13 +8,13 @@
   "theme_color": "#00ffd6",
   "icons": [
     {
-      "src": "meta/apple-touch-icon.png",
+      "src": "img/meta/favicon@128x128.png",
       "sizes": "128x128",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "meta/maskable_icon.png",
+      "src": "img/meta/maskable_icon.png",
       "sizes": "150x150",
       "type": "image/png",
       "purpose": "maskable"
