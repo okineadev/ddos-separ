@@ -40,9 +40,7 @@ $(async () => {
             "info"
         )
     );
-
-    $("#help-ukraine").click(() => HUWWidget.show());
-
+	
 
     // Якщо на сайт заходять з інтернету
     if (window.location.protocol != 'file:') {
