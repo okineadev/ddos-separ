@@ -18,7 +18,7 @@ jekyll-minifier:
   uglifier_args:
     output:
       ascii_only: false
-	  
+
     compress: true
     mangle: true
     source_map: true
