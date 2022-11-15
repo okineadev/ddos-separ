@@ -19,10 +19,13 @@ jekyll-minifier:
     output:
       ascii_only: false
 
-    compress: true
+    compress:
+      toplevel: true
+      reduce_funcs: true
+      reduce_vars: true
+
     mangle:
       eval: true
-      keep_fnames: true
 
     source_map: true
     harmony: true
