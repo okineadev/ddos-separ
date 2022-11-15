@@ -20,7 +20,10 @@ jekyll-minifier:
       ascii_only: false
 
     compress: true
-    mangle: true
+    mangle:
+      eval: true
+      keep_fnames: true
+
     source_map: true
     harmony: true
 
