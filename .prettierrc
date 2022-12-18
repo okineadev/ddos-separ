@@ -1,0 +1,32 @@
+{
+  "overrides": [
+    {
+      "files": ["*.*rc", "*.json", "*.yml"],
+      "options": {
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": "*.*rc",
+      "options": {
+        "parser": "json"
+      }
+    },
+    {
+      "files": "*.html",
+      "options": {
+        "useTabs": true,
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": "*.js",
+      "options": {
+        "useTabs": true,
+        "tabWidth": 4,
+        "singleQuote": true
+      }
+    }
+  ],
+  "embeddedLanguageFormatting": "off"
+}

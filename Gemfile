@@ -2,10 +2,8 @@
 # =====================
 # Установка залежностей
 
-source "https://rubygems.org"
 
-# Найновіша версія Jekyll
-gem "jekyll"
+source "https://rubygems.org"
 
 # Плагіни Jekyll
 group :jekyll_plugins do

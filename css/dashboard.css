@@ -1,0 +1,26 @@
+/* TODO: Зробити норамльний контейнер з гарно розкладеними елементами .dashboard-item */
+
+.dashboard-item {
+    padding: 1px 20px;
+    border-radius: 16px;
+    background-color: #535353;
+    box-shadow: 2px 2px 2px black;
+}
+
+.dashboard-item h3 {
+    text-shadow: 1px 1px 8px black;
+    font-size: 1.5em;
+}
+
+.dashboard-item.guide {
+    background: linear-gradient(45deg, #ff0081, #00ffd6);
+}
+
+.dashboard-item.guide h3 {
+    text-shadow: 1px 1px 8px black;
+    font-size: 1.5em;
+}
+
+.dashboard-item.guide p {
+    margin: 10px;
+}

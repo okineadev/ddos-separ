@@ -1,98 +1,102 @@
-/*
-Стиль головного елемента main
-
-
-1. Медіа запити
-
-2. Стиль блоку main
-
-3. Стиль верхньої частини
-
-4. Стиль контенту main
-
-5. Стиль нижньої частини
-
-*/
-
+/**
+ * Стиль головного елемента main
+ * 
+ * 
+ * 1. Медіа запити
+ * 
+ * 2. Стиль блоку main
+ * 
+ * 3. Стиль верхньої частини
+ * 
+ * 4. Стиль контенту main
+ * 
+ * 5. Стиль нижньої частини
+ *
+ * @format
+ */
 
 /* Медіа запити для визначення фону */
 @media (max-device-width: 1366px) {
-	main {
-		background-image: url("../img/background/phone.jpg");
-	}
+    main {
+        background-image: url("../img/background/phone.jpg");
+    }
 }
 
 @media (min-device-width: 1366px) {
-	main {
-		background-image: url("../img/background/desktop.jpg");
-	}
+    main {
+        background-image: url("../img/background/desktop.jpg");
+    }
 }
-
 
 /* Стиль блоку */
 main {
-	border-radius: 0 0 20px 20px;
-	background-repeat: no-repeat;
+    border-radius: 0 0 20px 20px;
+    background-repeat: no-repeat;
 
-	background-size: cover;
-	background-position: center;
-	display: flex;
+    background-size: cover;
+    background-position: center;
+    display: flex;
 
-	align-items: center;
-	flex-direction: column;
+    align-items: center;
+    flex-direction: column;
 
-	padding: 21.5px 18px 18px;
+    padding: 21.5px 18px 18px;
 }
 
 main header {
-	text-shadow: var(--shadows);
+    text-shadow: var(--shadows);
     font-size: 2em;
+
     font-weight: bold;
 }
 
-
 /* Стиль контенту main */
 /* Стиль елемента #box */
-main .box {
-	border-radius: 30px;
-	text-shadow: var(--shadows);
+main .panel {
+    border-radius: 30px;
+    text-shadow: var(--shadows);
 
-	padding: 20px;
-	appearance: auto;
-	background: linear-gradient(to top, black, transparent);
+    padding: 20px;
+    appearance: auto;
+    background: linear-gradient(to top, black, transparent);
 
-	display: inline-flex;
-	flex-direction: column;
+    display: inline-flex;
+    flex-direction: column;
 
-	align-items: center;
+    align-items: center;
 }
 
-main .box span {
-	margin: 10px 0 0;
-	font-family: "Comic Sans";
-	font-size: 18px
+main .panel span {
+    margin: 10px 0 0;
+    font-family: "Comic Sans";
+
+    font-size: 18px;
 }
 
-main .box button {
-	border-color: cyan;
-	border-radius: 30px;
-	width: 97px;
-	height: 35px;
-	font-size: 18px;
-	font-weight: bold;
+main .panel button {
+    border-color: cyan;
+    border-radius: 30px;
+
+    width: 97px;
+    height: 35px;
+    font-size: 18px;
+
+    font-weight: bold;
 }
 
-main .box button:hover,
-main .box button:focus {
-	border-color: yellow;
-	transform: scale(1.3);
+main .panel button:hover,
+main .panel button:focus {
+    border: yellow;
+    transform: scale(1.3);
 }
-
 
 /* Стиль нижньої частини */
-main footer {align-self: normal}
+main footer {
+    align-self: normal;
+}
 main footer p {
-	margin: 0;
-	font-size: 18px;
-	display: inline;
+    margin: 0;
+    font-size: 18px;
+
+    display: inline;
 }

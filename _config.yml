@@ -1,5 +1,6 @@
-exclude: 
-  - '*/README.md'
+# Файли, які треба вилучити з білда
+exclude:
+  - "*/README.md"
   - LICENSE
   - .vscode
   - public
@@ -7,10 +8,13 @@ exclude:
 timezone: Europe/Kiev
 encoding: utf-8
 
-plugins: 
+# Плагіни Jekyll
+# Перед підключенням нового плагіну, слід додати гем плагіну в Gemfile !
+plugins:
   - jekyll-minifier
   - webrick
 
+# ==== Конфігурації плагінів ====
 
 jekyll-minifier:
   remove_intertag_spaces: true
@@ -28,7 +32,13 @@ jekyll-minifier:
 
     harmony: true
 
-
 webrick:
+  # Заголовки відповідей сервера
   headers:
     X-Frame-Options: DENY
+
+    # Сторінка може кешуватись не більше 4 днів
+    #
+    # Це задля того, щоб сторінка наступні рази швидше завантажувалася,
+    # і щоб не пропустити свіжі оновлення
+    Cache-Control: max-age=345600
