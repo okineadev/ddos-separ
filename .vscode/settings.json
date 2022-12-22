@@ -57,5 +57,6 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnPaste": true,
   "liveServer.settings.port": 8080,
-  "liveServer.settings.file": "404.html"
+  "liveServer.settings.file": "404.html",
+  "background.enabled": false
 }
