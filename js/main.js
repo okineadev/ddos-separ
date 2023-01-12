@@ -1,82 +1,10 @@
 /*!
 MIT License
 
-Copyright (c) 2022 Yuriy Bogdan
-<>
+Copyright (c) 2022-2023 Yuriy Bogdan
 */
 
-/**
- * База данних **localStorage**
- *
- * Данні зберігаються в пам'яті пристрою, досить схоже на **Cookies**
- */
-const Database = localStorage;
-
-if (!Database.attacks) Database.attacks = 0;
-
-const Device = {
-    /**
-     * Батарея пристрою
-     *
-     * @example Device.battery // BatteryManager {...}
-     */
-    battery: navigator.battery || navigator.getBattery(),
-
-    /**
-     * Данні про підключення до **Інтернету**
-     *
-     * @example Device.connection // NetworkInformation {...}
-     */
-    connection: navigator.connection,
-
-    /**
-     * Статус мережі
-     *
-     * @example Device.onLine // true
-     */
-    onLine: navigator.onLine,
-
-    /**
-     * _**Конкуренція**_ (кількість ядер в процесорі)
-     *
-     * @example Device.concurrency // 8
-     */
-    concurrency: navigator.hardwareConcurrency,
-
-    /**
-     * Агент користувача
-     *
-     * @example Device.userAgent // 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36 OPR/93.0.0.0'
-     */
-    userAgent: navigator.userAgent,
-
-    /**
-     * Чи являється пристрій телефоном
-     *
-     * @example Device.isPhone // false
-     */
-    get isPhone() {
-        return /Android|IOS/.test(this.userAgent);
-    },
-
-    /**
-     * Продуктивність пристрою
-     *
-     * @example Device.performance // Performance {...}
-     */
-    performance: performance,
-};
-
-/**
- * Звукові ефекти **(SFX)**
- *
- * - click
- *
- * @example Sounds.click.play() // [Звук]
- */
-const Sounds = {
-    click: new Audio('sounds/click.mp3'),
-};
+// JQuery main
 
 $(async () => {
     /*
@@ -86,26 +14,30 @@ $(async () => {
     Дякую!
     */
 
-    Doser = new Doser();
+    
+    // Ініціалізація класів
+    Panel = new Panel()
+    Sword = new Sword()
+    Doser = new Doser()
 
-    $('#button').click(/**Старт атаки*/ () => Doser.go());
+    Panel.button.click(/**Старт атаки*/ () => Doser.run());
 
     $('#attacks-section').click(
         /** Загальна кількість атак*/
         () =>
             swal(
                 'Атаки',
-                `Взагалом атаковано: <b>${Database.attacks}</b>`,
+                `Взагалом атаковано: ${Database.attacks}`,
                 'info'
             )
     );
 
     // Якщо на сайт заходять з інтернету
     if (window.location.protocol != 'file:') {
-        if (navigator.onLine) {
+        if (Device.onLine) {
             // Якщо заслабкий інтернет
             if (
-                !['3g', '4g', '5g'].includes(navigator.connection.effectiveType)
+                !['3g', '4g', '5g'].includes(Device.connection.effectiveType)
             ) {
                 swal(
                     'Зауваження',
@@ -136,8 +68,7 @@ $(async () => {
 
     // Фішечки
 
-    //
-    const battery = await navigator.getBattery();
+    const battery = await Device.battery;
 
     battery.onlevelchange = function () {
         if (!this.charging) {
@@ -153,9 +84,13 @@ $(async () => {
                     break;
 
                 case 10:
+                    /*
+                    Ми залишаємо 10% Резервного заряду задля того, щоб наша програма не зжирала батарею аж до нуля
+                    Бо якщо раптом телефон сяде, а тут світло ще вимкнули, так що ось запобіжник
+                    */
                     swal(
                         'Увага!',
-                        'Критично низький заряд батареї, атаку буде вимкнено\n\
+                        'Критично низький заряд батареї, атаку буде вимкнуто\n\
                         Просимо поставити телефон на зарядку',
 
                         'warning'
@@ -175,7 +110,9 @@ $(async () => {
 
     console.log(
         '%cЯкщо ти розробник - можеш допомогти проекту\nhttps://github.com/BogdanDevUA/simple-ddos',
-        'font-size:20px;font-family:"Comic Sans MS"'
+
+        'font-size: 16px;\
+         font-family: "Comic Sans MS";'
     );
 });
 // Слава Україні!

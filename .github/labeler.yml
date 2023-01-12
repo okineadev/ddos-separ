@@ -1,0 +1,17 @@
+fonts:
+  - "fonts/*"
+
+dependencies:
+  - "Gemfile"
+  - "package.json"
+  - "package-lock.json"
+  - "yarn.lock"
+
+manifest:
+  - "manifest.json"
+
+website:
+  - "*.html"
+
+documentation:
+  - "*.md"

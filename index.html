@@ -26,8 +26,11 @@
 		/>
 
 		<!-- Стиль -->
+		<link rel="stylesheet" href="mainstyle.css" />
 		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/box.css" />
 		<link rel="stylesheet" href="css/dashboard.css" />
+		<link rel="stylesheet" href="css/sweetalert-custom.css" />
 
 		<link rel="canonical" href="https://bogdandevua.github.io/simple-ddos" />
 		<link rel="manifest" href="manifest.json" />
@@ -101,6 +104,7 @@
 		<script src="js/jquery-3.6.1.slim.min.js"></script>
 		<script src="js/sweetalert-2.1.2.min.js"></script>
 		<script src="js/random.js"></script>
+		<script src="js/utils.js"></script>
 		<script src="js/worker.js"></script>
 		<script src="js/main.js"></script>
 		<!--=========-->
@@ -114,14 +118,11 @@
 			</div>
 
 			<nav>
-				<a href="tg://dirim" aria-label="Developer">
+				<a onclick="swal('Вибачайте', 'Розробник заблукав в часі...', 'warning')">
 					<img src="img/chat.svg" alt="Розробник" />
 				</a>
 
-				<a
-					href="https://github.com/BogdanDevUA/simple-ddos"
-					aria-label="GitHub reposiry"
-				>
+				<a href="https://github.com/BogdanDevUA/simple-ddos">
 					<img src="img/github.svg" alt="GitHub" />
 				</a>
 
@@ -135,17 +136,12 @@
 			<span class="panel">
 				<button id="button" title="Валимо сайти рф!">Старт</button>
 
-				<span>Атакуємо: <span id="target">...</span></span>
-				<span>Методом: <span id="method">...</span></span>
+				<span>Атакуємо: <span class="target-page">...</span></span>
+				<span>Методом: <span class="target-method">...</span></span>
 				<span id="attacks-section"
 					>Атаковано разів: <span id="attacks">0</span></span
 				>
 			</span>
-
-			<h2>
-				Слава Україні!
-				<i class="ua-flag"></i>
-			</h2>
 
 			<footer>
 				<p>Топчи русню як гівно!</p>
@@ -164,7 +160,7 @@
 						<ul>
 							<li>
 								<a
-									href="https://play.google.com/store/apps/details?id=vpn.russia_tap2free&hl=uk&gl=US"
+									href="https://play.google.com/store/apps/details?id=vpn.russia_tap2free"
 									>На Андроїд</a
 								>
 							</li>
@@ -180,7 +176,7 @@
 						<p>Натисніть на кнопку "Підключитись"</p>
 					</li>
 					<li>
-						<p>Зайдіть на сайт і натисніть кнопку "Старт!"</p>
+						<p>Зайдіть на наш сайт і натисніть кнопку "Старт!"</p>
 					</li>
 					<li>
 						<p>Все!</p>
@@ -188,5 +184,6 @@
 				</ul>
 			</div>
 		</div>
+
 	</body>
 </html>

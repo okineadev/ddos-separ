@@ -3,7 +3,7 @@
   "short_name": "DDoSFA",
   "description": "Простий DDoS на сайти рф для всіх",
   "lang": "uk",
-  "start_url": "/",
+  "start_url": "/ddos-separ",
   "display": "standalone",
   "theme_color": "cyan",
   "icons": [
@@ -17,7 +17,7 @@
       "src": "img/meta/maskable_icon.png",
       "sizes": "150x150",
       "type": "image/png",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     }
   ],
   "categories": ["utilities", "politics", "education"],

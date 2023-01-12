@@ -3,17 +3,31 @@
   "license": "MIT",
   "version": "1.0.0",
   "types": "js/types.d.ts",
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BogdanDevUA/simple-ddos.git"
   },
+
+  "scripts": {
+    "lint": "prettier -c \"**/*.js\" \"**/*.css\" \"**/*.html\"",
+    "test": "echo \"No test specified!\" && exit 0"
+  },
+
   "private": true,
   "devDependencies": {
-    "@types/jquery": "^3.5.14"
+    "@types/jquery": "^3.5.14",
+    "prettier": "3.0.0"
   },
+
   "bugs": {
     "url": "https://github.com/BogdanDevUA/simple-ddos/issues"
   },
+
   "homepage": "https://github.com/BogdanDevUA/simple-ddos#readme",
-  "author": "BogdanDevUA"
+  "author": "BogdanDevUA",
+
+  "engines": {
+    "node": ">= 13"
+  }
 }

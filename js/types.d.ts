@@ -1,5 +1,3 @@
-// @filename: types.d.ts
-
 /** Батарея */
 declare interface BatteryManager {
     /**
@@ -7,28 +5,28 @@ declare interface BatteryManager {
      *
      * @example await navigator.getBattery().charging // true
      */
-    charging: boolean;
+    readonly charging: boolean;
 
     /**
      * Час, що залишився до повної зарядки
      *
      * @example await navigator.getBattery().chargingTime // 120
      */
-    chargingTime: number;
+    readonly chargingTime: number;
 
     /**
      * Час, що залишився до повної розрядки
      *
      * @example await navigator.getBattery().dischargingTime // 120
      */
-    dischargingTime: number;
+    readonly dischargingTime: number;
 
     /**
      * Рівень заряду батареї
      *
      * @example await navigator.getBattery().level * 100 // 87
      */
-    level: number;
+    readonly level: number;
 
     /**
      * Коли було підключено/відключено зарядний пристрій
@@ -65,14 +63,14 @@ declare interface Navigator {
      *
      * @example await navigator.getBattery() // BatteryManager {...}
      */
-    getBattery(): Promise<BatteryManager>;
+    getBattery(): readonly Promise<BatteryManager>;
 
     /**
      * Отримати данні про батарею
      *
      * @example navigator.battery // BatteryManager {...}
      */
-    battery: BatteryManager;
+    readonly battery: BatteryManager;
 }
 
 /** Ціль для атаки */
@@ -82,8 +80,21 @@ declare interface Target {
      *
      * @example `https://russia.ru`
      */
-    page: string;
+    readonly page: string;
 
     /** Метод для атаки */
-    method: "GET" | "POST";
+    readonly method: "get" | "post" | "slowloris" | "udp_flood";
 }
+
+/** Пристрій */
+declare interface Device {
+    readonly battery: Promise<BatteryManager>;
+    readonly connection: NetworkInformation;
+    readonly onLine: boolean;
+    readonly concurrency: number;
+    readonly userAgent: string;
+    get isPhone(): readonly boolean;
+    readonly performance: Performance;
+}
+
+declare type ButtonText = "Старт!" | "Стоп"

@@ -1,13 +1,7 @@
-/* Імпорт стилів */
-@import url("../mainstyle.css");
-@import url("box.css");
-
 /*TODO: Задокументувати Стилі*/
 
 /* Оголошення змінних */
 :root {
-    --hr-image: url("../img/hr.svg");
-    --ukraine: url("../img/ukraine.svg");
     --shadows: 2px 2px 2px #444;
 }
 
@@ -112,8 +106,6 @@ main footer {
     font-family: "Comic Sans";
 }
 
-i.ua-flag::after {
-    content: "";
-    background-image: url(../img/ukraine.svg);
-    width: auto;
+.modal {
+    display: -moz-popup;
 }

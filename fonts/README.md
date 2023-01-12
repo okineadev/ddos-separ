@@ -2,4 +2,4 @@
 
 Шрифти
 
-- [Comic Sans](Comic%20Sans.ttf)
+- [Comic Sans](Comic-Sans.ttf)

