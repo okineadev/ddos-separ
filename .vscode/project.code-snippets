@@ -1,29 +1,29 @@
 {
-	"Create a class": {
-		"scope": "javascript",
-		"prefix": "cls",
-		"body": "class $1 {\n\tconstructor() {\n\t\t${2:// body}\n\t}\n}\n$0",
-		"description": "Creating a class (ES6) with JSDoc"
-	},
+  "Create a class": {
+    "scope": "javascript",
+    "prefix": "cls",
+    "body": "class $1 {\n\tconstructor() {\n\t\t${2:// body}\n\t}\n}\n$0",
+    "description": "Creating a class (ES6) with JSDoc"
+  },
 
-	"JQuery": {
-		"scope": "javascript",
-		"prefix": "$",
-		"body": "$(\".${1:selector}\")$0",
-		"description": "JQuery"
-	},
+  "JQuery": {
+    "scope": "javascript",
+    "prefix": "$",
+    "body": "$(\".${1:selector}\")$0",
+    "description": "JQuery"
+  },
 
-	"Gem": {
-		"scope": "ruby",
-		"prefix": "g",
-		"body": "gem \"${1:gem}\"$0",
-		"description": "Getting the gem"
-	},
+  "Gem": {
+    "scope": "ruby",
+    "prefix": "g",
+    "body": "gem \"${1:gem}\"$0",
+    "description": "Getting the gem"
+  },
 
-	"Gem group": {
-		"scope": "ruby",
-		"prefix": "gr",
-		"body": "group :${1:name} do\n\t$2\nend",
-		"description": "Getting the group of gems"
-	}
+  "Gem group": {
+    "scope": "ruby",
+    "prefix": "gr",
+    "body": "group :${1:name} do\n\t$2\nend",
+    "description": "Getting the group of gems"
+  }
 }

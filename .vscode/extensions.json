@@ -1,19 +1,19 @@
 {
-    "recommendations": [
-        "christian-kohler.path-intellisense",
+  "recommendations": [
+    "christian-kohler.path-intellisense",
 
-        // Прев'ю README як в GitHub
-        "bierner.markdown-preview-github-styles",
+    // Прев'ю README як в GitHub
+    "bierner.markdown-preview-github-styles",
 
-        // Валідатор W3C
-        "celianriboulet.webvalidator",
+    // Валідатор W3C
+    "celianriboulet.webvalidator",
 
-        // Інструменти Git/GitHub
-        "github.remotehub",
+    // Інструменти Git/GitHub
+    "github.remotehub",
 
-        // Ось це взагалі класна штука для попереднього перегляду шрифтів
-        "ctcuff.font-preview",
+    // Ось це взагалі класна штука для попереднього перегляду шрифтів
+    "ctcuff.font-preview",
 
-        "wayou.vscode-todo-highlight"
-    ]
+    "wayou.vscode-todo-highlight"
+  ]
 }

@@ -1,32 +1,29 @@
 {
- "overrides": [
-  {
-   "files": ["*.*rc", "*.json", "*.yml"],
-   "options": {
-    "tabWidth": 2
-   }
-  },
-  {
-   "files": "*.*rc",
-   "options": {
-    "parser": "json"
-   }
-  },
-  {
-   "files": "*.html",
-   "options": {
-    "useTabs": true,
-    "tabWidth": 2
-   }
-  },
-  {
-   "files": "*.js",
-   "options": {
-    "useTabs": true,
-    "tabWidth": 4,
-    "singleQuote": true
-   }
-  }
- ],
- "embeddedLanguageFormatting": "off"
+  "overrides": [
+    {
+      "files": ["*.html", "*.json", "*.*rc[.*]"],
+      "options": {
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": ["*.js", "*.html"],
+      "options": {
+        "useTabs": true
+      }
+    },
+    {
+      "files": ["*.html"],
+      "options": {
+        "embeddedLanguageFormatting": "off"
+      }
+    },
+    {
+      "files": "*.js",
+      "options": {
+        "tabWidth": 4,
+        "singleQuote": true
+      }
+    }
+  ]
 }

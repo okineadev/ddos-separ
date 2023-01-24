@@ -7,32 +7,17 @@
 		<title>DDoSFA</title>
 
 		<!-- Фавіконки -->
-		<link rel="icon" href="img/meta/image.jpg" sizes="1349x906" />
+		<link rel="icon" href="img/image.jpg" sizes="1349x906" />
 
-		<link rel="shortcut icon" href="img/meta/favicon@16x16.png" sizes="16x16" />
-		<link rel="shortcut icon" href="img/meta/favicon@32x32.png" sizes="32x32" />
-		<link rel="shortcut icon" href="img/meta/favicon@96x96.png" sizes="96x96" />
-		<link
-			rel="shortcut icon"
-			href="img/meta/favicon@128x128.png"
-			sizes="128x128"
-		/>
+		<link rel="shortcut icon" href="favicon.ico" />
 
 		<link
 			rel="apple-touch-icon"
-			href="img/meta/favicon@128x128.png"
+			href="img/favicon@128x128.png"
 			type="image/png"
 			sizes="128x128"
 		/>
 
-		<!-- Стиль -->
-		<link rel="stylesheet" href="mainstyle.css" />
-		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="css/box.css" />
-		<link rel="stylesheet" href="css/dashboard.css" />
-		<link rel="stylesheet" href="css/sweetalert-custom.css" />
-
-		<link rel="canonical" href="https://bogdandevua.github.io/simple-ddos" />
 		<link rel="manifest" href="manifest.json" />
 
 		<!-- Мета теги -->
@@ -65,7 +50,7 @@
 			name="keywords"
 			content="Допомогти Україні, Кіберволонтерство, DDoS, Хакерська атака на сайти рф, Кібер Козаки"
 		/>
-		<meta name="image" content="img/meta/image.jpg" />
+		<meta name="image" content="img/image.jpg" />
 		<meta name="theme-color" content="dark" />
 		<meta name="author" content="BogdanDevUA" />
 
@@ -77,7 +62,7 @@
 			property="og:description"
 			content="🇺🇦🌿 Проста хакерська атака на сайти рф! 👇"
 		/>
-		<meta property="og:image" content="img/meta/image.jpg" />
+		<meta property="og:image" content="img/image.jpg" />
 		<meta property="og:image:alt" content="DDoS Attack" />
 
 		<!-- Twitter -->
@@ -88,7 +73,7 @@
 			property="twitter:description"
 			content="🇺🇦🌿 Проста хакерська атака на сайти рф! 👇"
 		/>
-		<meta property="twitter:image" content="img/meta/image.jpg" />
+		<meta property="twitter:image" content="img/image.jpg" />
 
 		<link
 			rel="alternate"
@@ -98,43 +83,103 @@
 		/>
 
 		<!-- Google Tag Manager -->
-		<!-- TODO: Поставити Google tag manager!-->
+		<script>
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			    })(window,document,'script','dataLayer','GTM-KXBF8HS');
+		</script>
+		<!-- End Google Tag Manager -->
+
+		<!-- Стилі -->
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/box.css" />
+		<link rel="stylesheet" href="css/dashboard.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5.0.15/dark.min.css"
+			integrity="sha256-Dtn0fzAID6WRybYFj3UI5JDBy9kE2adX1xPUlW+B4XQ="
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="css/sweetalert-custom.css" />
 
 		<!-- Скрипти -->
-		<script src="js/jquery-3.6.1.slim.min.js"></script>
-		<script src="js/sweetalert-2.1.2.min.js"></script>
-		<script src="js/random.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"
+			integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo="
+			crossorigin="anonymous"
+		></script>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.min.js"
+			integrity="sha256-1X1zUlVXzVybYb9gOcxg5DUgtS9faIHrdRprMphiF98="
+			crossorigin="anonymous"
+		></script>
+
+		<script
+			src="https://kit.fontawesome.com/746dcbbb82.js"
+			crossorigin="anonymous"
+		></script>
+
+		<script
+			id="help-ukraine-win"
+			async="true"
+			src="https://helpukrainewinwidget.org/cdn/widget.js?type=three&position=bottom-right&layout=main"
+		></script>
+
+		<script
+			data-name="BMC-Widget"
+			data-cfasync="false"
+			src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+			data-id="okinea"
+			data-description="Буду дуже вдячний!"
+			data-message="Задонать мені на каву😊"
+			data-color="#40DCA5"
+			data-position="left"
+			data-x_margin="18"
+			data-y_margin="18"
+		></script>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/jquery-localize@0.1.0/dist/jquery.localize.min.js"
+			integrity="sha256-zTr9AlJ1gxy4jC5amkrL/4Re/HsZKSq28jWfcFhzhaw="
+			crossorigin="anonymous"
+		></script>
+
+		<script src="js/random.js" defer></script>
 		<script src="js/utils.js"></script>
 		<script src="js/worker.js"></script>
 		<script src="js/main.js"></script>
+		<script src="js/app.js"></script>
 		<!--=========-->
 	</head>
 
 	<body>
 		<header>
 			<div id="logo">
-				<img src="img/meta/favicon@128x128.png" alt="" />
+				<img
+					src="img/favicon@128x128.png"
+					alt="Website logo"
+					width="26"
+					height="26"
+				/>
 				<span id="title">DDoSFA</span>
 			</div>
 
 			<nav>
-				<a onclick="swal('Вибачайте', 'Розробник заблукав в часі...', 'warning')">
-					<img src="img/chat.svg" alt="Розробник" />
-				</a>
-
-				<a href="https://github.com/BogdanDevUA/simple-ddos">
-					<img src="img/github.svg" alt="GitHub" />
-				</a>
-
-				<img src="img/settings.svg" alt="" />
+				<i class="fa-brands fa-telegram"></i>
+				<i class="fa-brands fa-github"></i>
 			</nav>
 		</header>
 
 		<main>
-			<header title="DDoS для всіх">DDoS For All</header>
+			<header title="DDoS для всіх" data-localize="header">DDoS For All</header>
 
-			<span class="panel">
-				<button id="button" title="Валимо сайти рф!">Старт</button>
+			<span class="panel rounded-30">
+				<button id="button" class="rounded-30" title="Валимо сайти рф!">
+					Старт
+				</button>
 
 				<span>Атакуємо: <span class="target-page">...</span></span>
 				<span>Методом: <span class="target-method">...</span></span>
@@ -152,7 +197,7 @@
 
 		<div class="dashboard">
 			<div class="dashboard-item guide">
-				<h3>Короткий інструктаж для початківців</h3>
+				<h1>Короткий інструктаж для початківців</h1>
 				<p>Для початку:</p>
 				<ul>
 					<li>
@@ -184,6 +229,16 @@
 				</ul>
 			</div>
 		</div>
-
 	</body>
+
+	<!-- Google Tag Manager (noscript) -->
+	<noscript
+		><iframe
+			src="https://www.googletagmanager.com/ns.html?id=GTM-KXBF8HS"
+			height="0"
+			width="0"
+			style="display: none; visibility: hidden"
+		></iframe
+	></noscript>
+	<!-- End Google Tag Manager (noscript) -->
 </html>

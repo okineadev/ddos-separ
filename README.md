@@ -7,11 +7,11 @@
 ![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/BogdanDevUA/simple-ddos?logo=rubygems)
 [![wakatime](https://wakatime.com/badge/user/c8b3c3e2-7297-49c4-9119-1960403d9b9b/project/9befcd53-98cb-4d3d-a3be-e6aec9c72399.svg)](https://wakatime.com/badge/user/c8b3c3e2-7297-49c4-9119-1960403d9b9b/project/9befcd53-98cb-4d3d-a3be-e6aec9c72399)
 
--   ### [Веб-сайт](https://bogdandevua.github.io/simple-ddos)
+- ### [Веб-сайт](https://bogdandevua.github.io/simple-ddos)
 
--   ### [Про війну](https://war.ukraine.ua)
+- ### [Про війну](https://war.ukraine.ua)
 
--   ### [DDoS з кнопочного телефону (шок)](https://https://bogdandevua.github.io/simple-ddos/lite "Капєц")
+- ### [DDoS з кнопочного телефону (шок)](https://https://bogdandevua.github.io/simple-ddos/lite "Капєц")
 
 ---
 
@@ -21,4 +21,4 @@
 
 ### Задонатити на **ЗСУ**
 
--   **monobank** - <https://uahelp.monobank.ua>
+- **monobank** - <https://uahelp.monobank.ua>

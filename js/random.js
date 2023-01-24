@@ -11,7 +11,7 @@ Copyright (c) 2022-2023 Yuriy Bogdan
  * @param {number} num - До
  * @returns {number} Рандомне число
  */
-const getRandomInt = num => Math.floor(Math.random() * num); // Рандомне ціле число
+const getRandomInt = (num) => Math.floor(Math.random() * num); // Рандомне ціле число
 
 /**
  * Рандомний елемент з массиву
@@ -21,4 +21,4 @@ const getRandomInt = num => Math.floor(Math.random() * num); // Рандомне
  * @param {array | string} array - Массив
  * @returns Рандомний елемент з массиву
  */
-const randomChoice = array => array[getRandomInt(array.length)];
+const randomChoice = (array) => array[getRandomInt(array.length)];

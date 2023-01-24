@@ -8,7 +8,13 @@
   "[html]": {
     "editor.tabSize": 2
   },
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
   "editor.formatOnSave": true,
+  "javascript.format.enable": false,
+  "material-icon-theme.activeIconPack": "react_redux",
 
   "css.lint.boxModel": "warning",
   "css.lint.universalSelector": "warning",
@@ -40,7 +46,7 @@
 
   "files.associations": {
     "*.map": "json",
-    "manifest.webmanifest": "json"
+    "*.webmanifest": "json"
   },
 
   "editor.tabCompletion": "onlySnippets",
@@ -55,8 +61,11 @@
   },
   "svgPreview.autoOpen": false,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnPaste": true,
   "liveServer.settings.port": 8080,
   "liveServer.settings.file": "404.html",
-  "background.enabled": false
+  "background.enabled": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "html.format.indentInnerHtml": true,
+  "prettier.documentSelectors": ["*.*"]
 }
