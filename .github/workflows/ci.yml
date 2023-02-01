@@ -20,8 +20,8 @@ jobs:
 
       - name: Build
         run: |
-        yarn
-        gulp
+          yarn
+          gulp
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages
