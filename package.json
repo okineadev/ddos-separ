@@ -8,13 +8,24 @@
     "url": "git+https://github.com/BogdanDevUA/simple-ddos.git"
   },
   "scripts": {
-    "lint": "prettier -c \"**/*.js\" \"**/*.css\" \"**/*.html\"",
     "test": "echo \"No test specified!\" && exit 0"
   },
   "private": true,
   "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
     "@types/jquery": "^3.5.14",
-    "prettier": "^2.8.3"
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-jsonmin": "^1.2.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify-es": "^3.0.0",
+    "prettier": "^2.8.3",
+    "readable-stream": "^4.3.0",
+    "require-dir": "^1.2.0"
   },
   "bugs": {
     "url": "https://github.com/BogdanDevUA/simple-ddos/issues"

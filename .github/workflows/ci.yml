@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["master"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.6.0
+        with:
+          cache: yarn
+
+      - name: Build
+        run: |
+        yarn
+        gulp
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: master

@@ -14,7 +14,6 @@
   },
   "editor.formatOnSave": true,
   "javascript.format.enable": false,
-  "material-icon-theme.activeIconPack": "react_redux",
 
   "css.lint.boxModel": "warning",
   "css.lint.universalSelector": "warning",
@@ -53,9 +52,9 @@
   "editor.stickyTabStops": true,
   "markdown-preview-github-styles.colorTheme": "light",
   "webvalidator.validateOnSave": true,
-  "editor.smoothScrolling": true,
-  "workbench.list.smoothScrolling": true,
-  "editor.cursorSmoothCaretAnimation": true,
+  "editor.smoothScrolling": false,
+  "workbench.list.smoothScrolling": false,
+  "editor.cursorSmoothCaretAnimation": false,
   "todohighlight.defaultStyle": {
     "borderRadius": "3px"
   },
@@ -67,5 +66,6 @@
   "editor.formatOnPaste": true,
   "editor.formatOnType": true,
   "html.format.indentInnerHtml": true,
-  "prettier.documentSelectors": ["*.*"]
+  "prettier.documentSelectors": ["*.*"],
+  "liveServer.settings.root": "build/"
 }
