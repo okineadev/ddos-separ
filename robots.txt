@@ -1,0 +1,3 @@
+User-agent: *
+
+Host: https://bogdandevua.github.io/simple-ddos
