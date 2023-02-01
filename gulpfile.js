@@ -12,5 +12,6 @@ exports.default = gulp.parallel(
   exports.build_js,
   exports.build_css,
   exports.minify_json,
+  exports.build_html,
   exports.move
 )
