@@ -15,16 +15,16 @@ $(async () => {
     */
 
 	// Ініціалізація класів
-	Panel = new Panel();
-	Sword = new Sword();
-	Doser = new Doser();
+	Panel = new Panel()
+	Sword = new Sword()
+	Doser = new Doser()
 
 	Panel.button.click(
 		/**Старт атаки*/ () => {
-			Sounds.click.play();
-			Doser.run();
+			Sounds.click.play()
+			Doser.run()
 		}
-	);
+	)
 
 	$('#attacks-section').click(
 		/** Загальна кількість атак*/
@@ -34,7 +34,7 @@ $(async () => {
 				`Взагалом атаковано: ${Database.attacks}`,
 				'info'
 			)
-	);
+	)
 
 	if (Device.connection) {
 		if (Device.onLine) {
@@ -46,10 +46,10 @@ $(async () => {
 					'Зауваження',
 					'У вас заслабкий інтернет!\nДля ефективної атаки - підключіться до WI-FI',
 					'warning'
-				);
+				)
 			}
 		}
-	} else Swal.fire('Помилка', 'Немає підключення до інтернету!', 'error');
+	} else Swal.fire('Помилка', 'Немає підключення до інтернету!', 'error')
 
 	$(window).on({
 		/**
@@ -59,21 +59,21 @@ $(async () => {
 		keyup(e: KeyboardEvent) {
 			switch (e.key) {
 				case ('Pause', 'Escape'):
-					Doser.stop();
-					break;
+					Doser.stop()
+					break
 			}
 		},
-	});
+	})
 
 	// Фішечки
 
 	if (Device.battery) {
-		const battery = await Device.battery;
+		const battery = await Device.battery
 
 		battery.onlevelchange = function () {
 			if (!this.charging) {
 				/** Рівень заряду батареї в відсотках */
-				const level = this.level * 100;
+				const level = this.level * 100
 
 				switch (level) {
 					case (15, 11):
@@ -81,8 +81,8 @@ $(async () => {
 							'Увага!',
 							`У вас сідає батарея (залишилось ${level}%)`,
 							'warning'
-						);
-						break;
+						)
+						break
 
 					case 10:
 						/*
@@ -95,11 +95,11 @@ $(async () => {
                         Просимо поставити телефон на зарядку',
 
 							'warning'
-						).then(() => Doser.stop());
-						break;
+						).then(() => Doser.stop())
+						break
 				}
 			}
-		};
+		}
 	}
 
 	console.log(
@@ -112,17 +112,17 @@ $(async () => {
          font-family: system-ui;\
 		 background-color: red;\
 		 display: block;'
-	);
+	)
 
 	console.log(
 		'%cЯкщо ти розробник - можеш допомогти проекту 😎\n\
-https://github.com/BogdanDevUA/ddos-separ\n\n\
+https://github.com/okineadev/ddos-separ\n\n\
 Постав зірочку 🌠, подай ідею або зроби пулл-реквест!\n\
 Буду дуже вдячний😊!',
 
 		'font-size: 16px;\
          font-family: system-ui;'
-	);
-});
+	)
+})
 
 // Слава Україні!

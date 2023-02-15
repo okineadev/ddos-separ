@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BogdanDevUA/ddos-separ.git"
+    "url": "git+https://github.com/okineadev/ddos-separ.git"
   },
   "scripts": {
     "lint": "browserslist-lint && markdownlint --disable MD033 MD041 MD045 MD013 -- README.md src",
@@ -36,10 +36,10 @@
     "user-agent-data-types": "^0.3.0"
   },
   "bugs": {
-    "url": "https://github.com/BogdanDevUA/ddos-separ/issues"
+    "url": "https://github.com/okineadev/ddos-separ/issues"
   },
-  "homepage": "https://github.com/BogdanDevUA/ddos-separ#readme",
-  "author": "BogdanDevUA",
+  "homepage": "https://github.com/okineadev/ddos-separ#readme",
+  "author": "Okinea Dev",
   "engines": {
     "node": ">= 13"
   }

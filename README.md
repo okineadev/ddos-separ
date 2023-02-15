@@ -8,7 +8,7 @@
 
 <br />
 <div align="center">
-  <a href="https://bogdandevua.github.io/ddos-separ">
+  <a href="https://okineadev.github.io/ddos-separ">
     <img src="src/img/logo.png" alt="Logo">
   </a>
 
@@ -33,9 +33,9 @@ Not implemented
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-[ci-passing]: https://github.com/BogdanDevUA/ddos-separ/actions/workflows/ci.yml/badge.svg "CI Passing"
-[ci-passing-url]: https://github.com/BogdanDevUA/ddos-separ/actions/workflows/ci.yml
-[w3c-validation]: https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fbogdandevua.github.io%2Fddos-separ&logo=w3c "W3C Validation"
-[repo-size]: https://img.shields.io/github/repo-size/bogdandevua/ddos-separ "Repo size"
-[license]: https://img.shields.io/github/license/bogdandevua/ddos-separ "License"
+[ci-passing]: https://github.com/okineadev/ddos-separ/actions/workflows/ci.yml/badge.svg "CI Passing"
+[ci-passing-url]: https://github.com/okineadev/ddos-separ/actions/workflows/ci.yml
+[w3c-validation]: https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fokineadev.github.io%2Fddos-separ&logo=w3c "W3C Validation"
+[repo-size]: https://img.shields.io/github/repo-size/okineadev/ddos-separ "Repo size"
+[license]: https://img.shields.io/github/license/okineadev/ddos-separ "License"
 [node-version]: https://img.shields.io/badge/node->=_13-brightgreen?logo=node.js "Minimal Node.js version"
