@@ -5,12 +5,11 @@
 ![GitHub repo size][repo-size]
 ![License][license]
 ![Node version][node-version]
-![Logo](src/img/logo.png)
 
 <br />
 <div align="center">
   <a href="https://bogdandevua.github.io/ddos-separ">
-    <img src="img/logo.png" alt="Logo">
+    <img src="src/img/logo.png" alt="Logo">
   </a>
 
   <h3 align="center">DDoSFA</h3>
