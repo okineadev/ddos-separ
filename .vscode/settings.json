@@ -52,9 +52,9 @@
   "editor.stickyTabStops": true,
   "markdown-preview-github-styles.colorTheme": "light",
   "webvalidator.validateOnSave": true,
-  "editor.smoothScrolling": false,
-  "workbench.list.smoothScrolling": false,
-  "editor.cursorSmoothCaretAnimation": false,
+  "editor.smoothScrolling": true,
+  "workbench.list.smoothScrolling": true,
+  "editor.cursorSmoothCaretAnimation": "on",
   "todohighlight.defaultStyle": {
     "borderRadius": "3px"
   },
@@ -67,5 +67,6 @@
   "editor.formatOnType": true,
   "html.format.indentInnerHtml": true,
   "prettier.documentSelectors": ["*.*"],
-  "liveServer.settings.root": "build/"
+  "liveServer.settings.root": "build/",
+  "terminal.integrated.smoothScrolling": true
 }

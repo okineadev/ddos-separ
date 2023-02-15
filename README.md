@@ -1,24 +1,42 @@
-![DDoSFA](public/logo.jpg)
+<a name="readme-top"></a>
 
-![Repo size](https://img.shields.io/github/repo-size/BogdanDevUA/simple-ddos)
-![License](https://img.shields.io/github/license/BogdanDevUA/simple-ddos)
-![Website](https://img.shields.io/website?url=https%3A%2F%2Fbogdandevua.github.io%2Fsimple-ddos)
-![W3C Validation](https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fbogdandevua.github.io/simple-ddos&logo=w3c)
-![Libraries.io dependency status for GitHub repo](https://img.shields.io/librariesio/github/BogdanDevUA/simple-ddos?logo=rubygems)
-[![wakatime](https://wakatime.com/badge/user/c8b3c3e2-7297-49c4-9119-1960403d9b9b/project/9befcd53-98cb-4d3d-a3be-e6aec9c72399.svg)](https://wakatime.com/badge/user/c8b3c3e2-7297-49c4-9119-1960403d9b9b/project/9befcd53-98cb-4d3d-a3be-e6aec9c72399)
+[![CI][ci-passing]][ci-passing-url]
+![W3C Validation][w3c-validation]
+![GitHub repo size][repo-size]
+![License][license]
+![Node version][node-version]
+![Logo](src/img/logo.png)
 
-- ### [Веб-сайт](https://bogdandevua.github.io/simple-ddos)
+<br />
+<div align="center">
+  <a href="https://bogdandevua.github.io/ddos-separ">
+    <img src="img/logo.png" alt="Logo">
+  </a>
 
-- ### [Про війну](https://war.ukraine.ua)
+  <h3 align="center">DDoSFA</h3>
 
-- ### [DDoS з кнопочного телефону (шок)](https://https://bogdandevua.github.io/simple-ddos/lite "Капєц")
+  <p align="center">
+    Заходь на наш сайт і атакуй русню!
+    <br />
+    <br />
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Повідомит про баг</a>
+    ·
+    <a href="https://github.com/othneildrew/Best-README-Template/issues">Зробити внесок</a>
+  </p>
+</div>
 
----
+<a id="about">
 
-Цей сайт створений для того, щоб всі могли дудосити русню, без жодних навичок, з будь якого пристрою онлайн, з будь якої точки світу
+## Про проект
 
-Якщо будуть питання - пишіть [розробнику в телеграм](https://t.me/dirim "Мій телеграм")
+Not implemented
+</a>
 
-### Задонатити на **ЗСУ**
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-- **monobank** - <https://uahelp.monobank.ua>
+[ci-passing]: https://github.com/BogdanDevUA/ddos-separ/actions/workflows/ci.yml/badge.svg "CI Passing"
+[ci-passing-url]: https://github.com/BogdanDevUA/ddos-separ/actions/workflows/ci.yml
+[w3c-validation]: https://img.shields.io/w3c-validation/html?targetUrl=https%3A%2F%2Fbogdandevua.github.io%2Fddos-separ&logo=w3c "W3C Validation"
+[repo-size]: https://img.shields.io/github/repo-size/bogdandevua/ddos-separ "Repo size"
+[license]: https://img.shields.io/github/license/bogdandevua/ddos-separ "License"
+[node-version]: https://img.shields.io/badge/node->=_13-brightgreen?logo=node.js "Minimal Node.js version"

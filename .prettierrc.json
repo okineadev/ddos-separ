@@ -1,0 +1,30 @@
+{
+  "overrides": [
+    {
+      "files": ["*.html", "*.json", "*.*rc[.*]"],
+      "options": {
+        "tabWidth": 2
+      }
+    },
+    {
+      "files": ["*.ts", "*.js", "*.html"],
+      "options": {
+        "useTabs": true
+      }
+    },
+    {
+      "files": ["*.html"],
+      "options": {
+        "embeddedLanguageFormatting": "off"
+      }
+    },
+    {
+      "files": ["*.ts", "*.js"],
+      "options": {
+        "tabWidth": 4,
+        "singleQuote": true,
+        "semi": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+.swal2-container.swal2-backdrop-show {
+    backdrop-filter: blur(2px);
+    font-family: 'Noto Sans';
+}
+
+.swal2-container.swal2-backdrop-show, .swal2-container.swal2-noanimation {
+    background: #19191a80;
+}
+
+.swal2-container.swal2-center>.swal2-popup {
+    border-radius: 24px;
+}
+
+.swal2-styled.swal2-confirm {
+    background-color: #0ea6b7;
+}

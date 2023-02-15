@@ -2,35 +2,43 @@
   "name": "ddos-separ",
   "license": "MIT",
   "version": "1.0.0",
-  "types": "js/types.d.ts",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BogdanDevUA/simple-ddos.git"
+    "url": "git+https://github.com/BogdanDevUA/ddos-separ.git"
   },
   "scripts": {
-    "test": "echo \"No test specified!\" && exit 0"
+    "lint": "browserslist-lint && markdownlint --disable MD033 MD041 MD045 MD013 -- README.md src",
+    "build": "gulp",
+    "build:dev": "gulp dev"
   },
-  "private": true,
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
     "@types/jquery": "^3.5.14",
+    "browserslist-lint": "^0.3.2",
     "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-jsonmin": "^1.2.0",
+    "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
     "gulp-uglify-es": "^3.0.0",
-    "prettier": "^2.8.3",
-    "readable-stream": "^4.3.0",
-    "require-dir": "^1.2.0"
+    "markdownlint": "^0.27.0",
+    "markdownlint-cli": "^0.33.0",
+    "network-information-types": "^0.1.1",
+    "require-dir": "^1.2.0",
+    "sass": "^1.58.0",
+    "typescript": "^4.9.5",
+    "user-agent-data-types": "^0.3.0"
   },
   "bugs": {
-    "url": "https://github.com/BogdanDevUA/simple-ddos/issues"
+    "url": "https://github.com/BogdanDevUA/ddos-separ/issues"
   },
-  "homepage": "https://github.com/BogdanDevUA/simple-ddos#readme",
+  "homepage": "https://github.com/BogdanDevUA/ddos-separ#readme",
   "author": "BogdanDevUA",
   "engines": {
     "node": ">= 13"

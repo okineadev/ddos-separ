@@ -4,13 +4,28 @@ on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["master"]
+    paths:
+      - "src"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
-  # Build job
-  build:
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3.6.0
+        with:
+          cache: yarn
+
+      - name: Lint
+        run: yarn lint
+
+  Deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
