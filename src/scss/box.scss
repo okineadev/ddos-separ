@@ -26,15 +26,15 @@ main {
 
     .panel {
         text-shadow: 2px 2px 2px #444;
-
         padding: 20px;
+        
         appearance: auto;
         background-color: #0e0e0e;
-
         box-shadow: 0 0 9px #000;
+        
         display: inline-flex;
-
         flex-direction: column;
+        
         align-items: center;
         border-radius: 30px;
 
@@ -48,13 +48,14 @@ main {
 
         button {
             border-color: #00ffff;
-
             width: 97px;
+            
             height: 35px;
             font-size: 18px;
-
             font-weight: bold;
+            
             border-radius: 30px;
+
 
             &:hover,
             &:focus {
