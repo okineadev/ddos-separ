@@ -1,0 +1,6 @@
+manifest:
+  - "src/manifest.json"
+
+documentation:
+  - "README.md"
+  - "src/*.md"
